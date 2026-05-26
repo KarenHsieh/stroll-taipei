@@ -1,0 +1,62 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+/.swc/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (local overrides — keep .env.example committed for setup docs)
+.env*.local
+
+# vercel
+.vercel
+
+# typescript (defensive — repo is JS-only, but tooling sometimes drops these)
+*.tsbuildinfo
+next-env.d.ts
+
+# spectra
+.spectra/
+openspec/.vector-search.db*
+
+# claude code — keep skills committed, ignore per-machine worktrees scratch
+.claude/worktrees/
+
+# playwright mcp runtime artifacts (console logs, page snapshots)
+/.playwright-mcp/
+
+# ad-hoc screenshots / archive dumps dropped at repo root by screenshot tooling
+# (intentional images under docs/ or public/ are unaffected)
+/*.png
+/*.jpg
+/*.jpeg
+/*.zip
+/docs
+/openspec/changes
+/openspec

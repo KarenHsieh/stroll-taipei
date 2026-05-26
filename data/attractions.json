@@ -1,0 +1,2062 @@
+[
+  {
+    "id": "dadaocheng_lu-guo-coffee",
+    "name": "爐鍋咖啡",
+    "area": "大稻埕",
+    "tags": [
+      "咖啡廳",
+      "老屋",
+      "巷弄"
+    ],
+    "stay_range": [
+      60,
+      90
+    ],
+    "avg_cost": 250,
+    "indoor": true,
+    "lat": 25.0567,
+    "lng": 121.5101,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "11:00",
+        "close": "20:00"
+      },
+      {
+        "day": "tue",
+        "open": "11:00",
+        "close": "20:00"
+      },
+      {
+        "day": "wed",
+        "open": "11:00",
+        "close": "20:00"
+      },
+      {
+        "day": "thu",
+        "open": "11:00",
+        "close": "20:00"
+      },
+      {
+        "day": "fri",
+        "open": "11:00",
+        "close": "20:00"
+      },
+      {
+        "day": "sat",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "sun",
+        "open": "10:00",
+        "close": "20:00"
+      }
+    ],
+    "rating": 4.4,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "dadaocheng_xiao-yi-cheng",
+    "name": "小藝埕",
+    "area": "大稻埕",
+    "tags": [
+      "選物店",
+      "文青",
+      "老屋"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 200,
+    "indoor": true,
+    "lat": 25.0561,
+    "lng": 121.5099,
+    "open_hours": [
+      {
+        "day": "tue",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "wed",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "thu",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "fri",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "sat",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "sun",
+        "open": "11:00",
+        "close": "19:00"
+      }
+    ],
+    "rating": 4.3,
+    "best_time_window": [
+      "afternoon"
+    ]
+  },
+  {
+    "id": "dadaocheng_yongle-market",
+    "name": "永樂市場",
+    "area": "大稻埕",
+    "tags": [
+      "市場",
+      "生活感",
+      "熱鬧"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 100,
+    "indoor": true,
+    "lat": 25.0556,
+    "lng": 121.5096,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "tue",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "wed",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "thu",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "fri",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "sat",
+        "open": "09:00",
+        "close": "17:00"
+      }
+    ],
+    "rating": 4.2,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "dadaocheng_xiahai-temple",
+    "name": "霞海城隍廟",
+    "area": "大稻埕",
+    "tags": [
+      "廟埕",
+      "老建築",
+      "深度"
+    ],
+    "stay_range": [
+      20,
+      40
+    ],
+    "avg_cost": 50,
+    "indoor": false,
+    "lat": 25.0557,
+    "lng": 121.5101,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "06:16",
+        "close": "19:47"
+      },
+      {
+        "day": "tue",
+        "open": "06:16",
+        "close": "19:47"
+      },
+      {
+        "day": "wed",
+        "open": "06:16",
+        "close": "19:47"
+      },
+      {
+        "day": "thu",
+        "open": "06:16",
+        "close": "19:47"
+      },
+      {
+        "day": "fri",
+        "open": "06:16",
+        "close": "19:47"
+      },
+      {
+        "day": "sat",
+        "open": "06:16",
+        "close": "19:47"
+      },
+      {
+        "day": "sun",
+        "open": "06:16",
+        "close": "19:47"
+      }
+    ],
+    "rating": 4.6,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "dadaocheng_pier",
+    "name": "大稻埕碼頭",
+    "area": "大稻埕",
+    "tags": [
+      "河岸",
+      "靜謐",
+      "打卡"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 25.0584,
+    "lng": 121.5078,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "06:00",
+        "close": "23:00"
+      },
+      {
+        "day": "tue",
+        "open": "06:00",
+        "close": "23:00"
+      },
+      {
+        "day": "wed",
+        "open": "06:00",
+        "close": "23:00"
+      },
+      {
+        "day": "thu",
+        "open": "06:00",
+        "close": "23:00"
+      },
+      {
+        "day": "fri",
+        "open": "06:00",
+        "close": "23:00"
+      },
+      {
+        "day": "sat",
+        "open": "06:00",
+        "close": "23:00"
+      },
+      {
+        "day": "sun",
+        "open": "06:00",
+        "close": "23:00"
+      }
+    ],
+    "rating": 4.5,
+    "best_time_window": [
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "dadaocheng_asw-tea-house",
+    "name": "ASW Tea House",
+    "area": "大稻埕",
+    "tags": [
+      "老屋",
+      "靜謐",
+      "文青"
+    ],
+    "stay_range": [
+      60,
+      90
+    ],
+    "avg_cost": 350,
+    "indoor": true,
+    "lat": 25.0552,
+    "lng": 121.5103,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "11:00",
+        "close": "21:00"
+      },
+      {
+        "day": "tue",
+        "open": "11:00",
+        "close": "21:00"
+      },
+      {
+        "day": "wed",
+        "open": "11:00",
+        "close": "21:00"
+      },
+      {
+        "day": "thu",
+        "open": "11:00",
+        "close": "21:00"
+      },
+      {
+        "day": "fri",
+        "open": "11:00",
+        "close": "21:00"
+      },
+      {
+        "day": "sat",
+        "open": "11:00",
+        "close": "21:00"
+      },
+      {
+        "day": "sun",
+        "open": "11:00",
+        "close": "21:00"
+      }
+    ],
+    "rating": 4.4,
+    "best_time_window": [
+      "afternoon"
+    ]
+  },
+  {
+    "id": "dadaocheng_urs44",
+    "name": "URS44 大稻埕故事工坊",
+    "area": "大稻埕",
+    "tags": [
+      "展覽/藝文",
+      "文青",
+      "老建築"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 0,
+    "indoor": true,
+    "lat": 25.0553,
+    "lng": 121.5102,
+    "open_hours": [
+      {
+        "day": "tue",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "wed",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "thu",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "fri",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "sat",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "sun",
+        "open": "11:00",
+        "close": "19:00"
+      }
+    ],
+    "rating": 4.1,
+    "best_time_window": [
+      "afternoon"
+    ]
+  },
+  {
+    "id": "dadaocheng_zi-yang",
+    "name": "滋養豆餡舖",
+    "area": "大稻埕",
+    "tags": [
+      "老字號",
+      "甜點",
+      "復古"
+    ],
+    "stay_range": [
+      15,
+      30
+    ],
+    "avg_cost": 80,
+    "indoor": true,
+    "lat": 25.0612,
+    "lng": 121.511,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "09:00",
+        "close": "21:00"
+      },
+      {
+        "day": "tue",
+        "open": "09:00",
+        "close": "21:00"
+      },
+      {
+        "day": "wed",
+        "open": "09:00",
+        "close": "21:00"
+      },
+      {
+        "day": "thu",
+        "open": "09:00",
+        "close": "21:00"
+      },
+      {
+        "day": "fri",
+        "open": "09:00",
+        "close": "21:00"
+      },
+      {
+        "day": "sat",
+        "open": "09:00",
+        "close": "21:00"
+      },
+      {
+        "day": "sun",
+        "open": "09:00",
+        "close": "21:00"
+      }
+    ],
+    "rating": 4.5,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "dadaocheng_lin-hua-tai-tea",
+    "name": "林華泰茶行",
+    "area": "大稻埕",
+    "tags": [
+      "老字號",
+      "職人",
+      "復古"
+    ],
+    "stay_range": [
+      30,
+      45
+    ],
+    "avg_cost": 200,
+    "indoor": true,
+    "lat": 25.0601,
+    "lng": 121.5147,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "07:30",
+        "close": "21:00"
+      },
+      {
+        "day": "tue",
+        "open": "07:30",
+        "close": "21:00"
+      },
+      {
+        "day": "wed",
+        "open": "07:30",
+        "close": "21:00"
+      },
+      {
+        "day": "thu",
+        "open": "07:30",
+        "close": "21:00"
+      },
+      {
+        "day": "fri",
+        "open": "07:30",
+        "close": "21:00"
+      },
+      {
+        "day": "sat",
+        "open": "07:30",
+        "close": "21:00"
+      }
+    ],
+    "rating": 4.4,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "dadaocheng_min-yi-cheng",
+    "name": "民藝埕",
+    "area": "大稻埕",
+    "tags": [
+      "選物店",
+      "文青",
+      "老屋"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 200,
+    "indoor": true,
+    "lat": 25.057,
+    "lng": 121.5101,
+    "open_hours": [
+      {
+        "day": "tue",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "wed",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "thu",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "fri",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "sat",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "sun",
+        "open": "11:00",
+        "close": "19:00"
+      }
+    ],
+    "rating": 4.3,
+    "best_time_window": [
+      "afternoon"
+    ]
+  },
+  {
+    "id": "dadaocheng_min-le-swordfish-noodle",
+    "name": "民樂旗魚米粉湯",
+    "area": "大稻埕",
+    "tags": [
+      "小吃",
+      "老字號",
+      "熱鬧"
+    ],
+    "stay_range": [
+      20,
+      40
+    ],
+    "avg_cost": 80,
+    "indoor": false,
+    "lat": 25.056,
+    "lng": 121.5103,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "06:30",
+        "close": "13:30"
+      },
+      {
+        "day": "tue",
+        "open": "06:30",
+        "close": "13:30"
+      },
+      {
+        "day": "wed",
+        "open": "06:30",
+        "close": "13:30"
+      },
+      {
+        "day": "thu",
+        "open": "06:30",
+        "close": "13:30"
+      },
+      {
+        "day": "fri",
+        "open": "06:30",
+        "close": "13:30"
+      },
+      {
+        "day": "sat",
+        "open": "06:30",
+        "close": "13:30"
+      },
+      {
+        "day": "sun",
+        "open": "06:30",
+        "close": "13:30"
+      }
+    ],
+    "rating": 4.3,
+    "best_time_window": [
+      "morning"
+    ]
+  },
+  {
+    "id": "dadaocheng_thinkers-theatre",
+    "name": "思劇場",
+    "area": "大稻埕",
+    "tags": [
+      "展覽/藝文",
+      "老屋",
+      "文青"
+    ],
+    "stay_range": [
+      60,
+      120
+    ],
+    "avg_cost": 300,
+    "indoor": true,
+    "lat": 25.0552,
+    "lng": 121.5096,
+    "open_hours": [
+      {
+        "day": "wed",
+        "open": "14:00",
+        "close": "21:00"
+      },
+      {
+        "day": "thu",
+        "open": "14:00",
+        "close": "21:00"
+      },
+      {
+        "day": "fri",
+        "open": "14:00",
+        "close": "21:00"
+      },
+      {
+        "day": "sat",
+        "open": "14:00",
+        "close": "21:00"
+      },
+      {
+        "day": "sun",
+        "open": "14:00",
+        "close": "21:00"
+      }
+    ],
+    "rating": 4.4,
+    "best_time_window": [
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "dadaocheng_chun-mei-coffee",
+    "name": "春美咖啡",
+    "area": "大稻埕",
+    "tags": [
+      "咖啡廳",
+      "老屋",
+      "靜謐"
+    ],
+    "stay_range": [
+      60,
+      90
+    ],
+    "avg_cost": 220,
+    "indoor": true,
+    "lat": 25.0578,
+    "lng": 121.5105,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "tue",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "wed",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "thu",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "fri",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "sat",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "sun",
+        "open": "11:00",
+        "close": "19:00"
+      }
+    ],
+    "rating": 4.4,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "dadaocheng_mai-bo-suo",
+    "name": "賣捌所",
+    "area": "大稻埕",
+    "tags": [
+      "選物店",
+      "老屋",
+      "文青"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 250,
+    "indoor": true,
+    "lat": 25.0563,
+    "lng": 121.5097,
+    "open_hours": [
+      {
+        "day": "tue",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "wed",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "thu",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "fri",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "sat",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "sun",
+        "open": "11:00",
+        "close": "19:00"
+      }
+    ],
+    "rating": 4.3,
+    "best_time_window": [
+      "afternoon"
+    ]
+  },
+  {
+    "id": "dadaocheng_ci-sheng-temple",
+    "name": "慈聖宮",
+    "area": "大稻埕",
+    "tags": [
+      "廟埕",
+      "老建築",
+      "深度"
+    ],
+    "stay_range": [
+      20,
+      45
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 25.0594,
+    "lng": 121.5089,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "tue",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "wed",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "thu",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "fri",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sat",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sun",
+        "open": "00:00",
+        "close": "23:59"
+      }
+    ],
+    "rating": 4.5,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "dadaocheng_park",
+    "name": "大稻埕公園",
+    "area": "大稻埕",
+    "tags": [
+      "公園綠地",
+      "生活感",
+      "閒晃"
+    ],
+    "stay_range": [
+      15,
+      40
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 25.0586,
+    "lng": 121.5097,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "tue",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "wed",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "thu",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "fri",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sat",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sun",
+        "open": "00:00",
+        "close": "23:59"
+      }
+    ],
+    "rating": 4.2,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "dadaocheng_dihua-207-museum",
+    "name": "迪化207博物館",
+    "area": "大稻埕",
+    "tags": [
+      "展覽/藝文",
+      "老建築",
+      "深度"
+    ],
+    "stay_range": [
+      45,
+      75
+    ],
+    "avg_cost": 50,
+    "indoor": true,
+    "lat": 25.0581,
+    "lng": 121.5101,
+    "open_hours": [
+      {
+        "day": "wed",
+        "open": "10:00",
+        "close": "17:30"
+      },
+      {
+        "day": "thu",
+        "open": "10:00",
+        "close": "17:30"
+      },
+      {
+        "day": "fri",
+        "open": "10:00",
+        "close": "17:30"
+      },
+      {
+        "day": "sat",
+        "open": "10:00",
+        "close": "17:30"
+      },
+      {
+        "day": "sun",
+        "open": "10:00",
+        "close": "17:30"
+      }
+    ],
+    "rating": 4.5,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "dadaocheng_lin-wu-hu",
+    "name": "林五湖本館",
+    "area": "大稻埕",
+    "tags": [
+      "老字號",
+      "老屋",
+      "深度"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 200,
+    "indoor": true,
+    "lat": 25.0562,
+    "lng": 121.5102,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "09:00",
+        "close": "18:00"
+      },
+      {
+        "day": "tue",
+        "open": "09:00",
+        "close": "18:00"
+      },
+      {
+        "day": "wed",
+        "open": "09:00",
+        "close": "18:00"
+      },
+      {
+        "day": "thu",
+        "open": "09:00",
+        "close": "18:00"
+      },
+      {
+        "day": "fri",
+        "open": "09:00",
+        "close": "18:00"
+      },
+      {
+        "day": "sat",
+        "open": "09:00",
+        "close": "18:00"
+      },
+      {
+        "day": "sun",
+        "open": "09:00",
+        "close": "17:00"
+      }
+    ],
+    "rating": 4.3,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "dadaocheng_xin-fang-chun-tea",
+    "name": "新芳春茶行",
+    "area": "大稻埕",
+    "tags": [
+      "老建築",
+      "展覽/藝文",
+      "老屋"
+    ],
+    "stay_range": [
+      40,
+      70
+    ],
+    "avg_cost": 0,
+    "indoor": true,
+    "lat": 25.0584,
+    "lng": 121.5104,
+    "open_hours": [
+      {
+        "day": "tue",
+        "open": "10:00",
+        "close": "18:00"
+      },
+      {
+        "day": "wed",
+        "open": "10:00",
+        "close": "18:00"
+      },
+      {
+        "day": "thu",
+        "open": "10:00",
+        "close": "18:00"
+      },
+      {
+        "day": "fri",
+        "open": "10:00",
+        "close": "18:00"
+      },
+      {
+        "day": "sat",
+        "open": "10:00",
+        "close": "18:00"
+      },
+      {
+        "day": "sun",
+        "open": "10:00",
+        "close": "18:00"
+      }
+    ],
+    "rating": 4.4,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "dadaocheng_bolero-restaurant",
+    "name": "波麗路餐廳",
+    "area": "大稻埕",
+    "tags": [
+      "老字號",
+      "老屋",
+      "復古"
+    ],
+    "stay_range": [
+      60,
+      90
+    ],
+    "avg_cost": 450,
+    "indoor": true,
+    "lat": 25.0556,
+    "lng": 121.5135,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "11:30",
+        "close": "21:00"
+      },
+      {
+        "day": "tue",
+        "open": "11:30",
+        "close": "21:00"
+      },
+      {
+        "day": "wed",
+        "open": "11:30",
+        "close": "21:00"
+      },
+      {
+        "day": "thu",
+        "open": "11:30",
+        "close": "21:00"
+      },
+      {
+        "day": "fri",
+        "open": "11:30",
+        "close": "21:00"
+      },
+      {
+        "day": "sat",
+        "open": "11:30",
+        "close": "21:00"
+      },
+      {
+        "day": "sun",
+        "open": "11:30",
+        "close": "21:00"
+      }
+    ],
+    "rating": 4.2,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "yongkang_yong-kang-beef-noodle",
+    "name": "永康牛肉麵",
+    "area": "永康街",
+    "tags": [
+      "老字號",
+      "小吃"
+    ],
+    "stay_range": [
+      25,
+      45
+    ],
+    "avg_cost": 280,
+    "indoor": true,
+    "lat": 25.0319,
+    "lng": 121.5294,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "11:00",
+        "close": "21:00"
+      },
+      {
+        "day": "tue",
+        "open": "11:00",
+        "close": "21:00"
+      },
+      {
+        "day": "wed",
+        "open": "11:00",
+        "close": "21:00"
+      },
+      {
+        "day": "thu",
+        "open": "11:00",
+        "close": "21:00"
+      },
+      {
+        "day": "fri",
+        "open": "11:00",
+        "close": "21:00"
+      },
+      {
+        "day": "sat",
+        "open": "11:00",
+        "close": "21:00"
+      },
+      {
+        "day": "sun",
+        "open": "11:00",
+        "close": "21:00"
+      }
+    ],
+    "rating": 4.2,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "yongkang_si-mu-xi",
+    "name": "思慕昔",
+    "area": "永康街",
+    "tags": [
+      "甜點",
+      "打卡",
+      "熱鬧"
+    ],
+    "stay_range": [
+      30,
+      50
+    ],
+    "avg_cost": 180,
+    "indoor": true,
+    "lat": 25.0327,
+    "lng": 121.5293,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "11:00",
+        "close": "22:30"
+      },
+      {
+        "day": "tue",
+        "open": "11:00",
+        "close": "22:30"
+      },
+      {
+        "day": "wed",
+        "open": "11:00",
+        "close": "22:30"
+      },
+      {
+        "day": "thu",
+        "open": "11:00",
+        "close": "22:30"
+      },
+      {
+        "day": "fri",
+        "open": "11:00",
+        "close": "22:30"
+      },
+      {
+        "day": "sat",
+        "open": "11:00",
+        "close": "22:30"
+      },
+      {
+        "day": "sun",
+        "open": "11:00",
+        "close": "22:30"
+      }
+    ],
+    "rating": 4.3,
+    "best_time_window": [
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "yongkang_park",
+    "name": "永康公園",
+    "area": "永康街",
+    "tags": [
+      "公園綠地",
+      "生活感"
+    ],
+    "stay_range": [
+      15,
+      30
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 25.0331,
+    "lng": 121.5298,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "tue",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "wed",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "thu",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "fri",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sat",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sun",
+        "open": "00:00",
+        "close": "23:59"
+      }
+    ],
+    "rating": 4.2,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "yongkang_lishui-tea-house",
+    "name": "麗水街茶館",
+    "area": "永康街",
+    "tags": [
+      "咖啡廳",
+      "靜謐",
+      "老屋"
+    ],
+    "stay_range": [
+      60,
+      90
+    ],
+    "avg_cost": 280,
+    "indoor": true,
+    "lat": 25.0336,
+    "lng": 121.5285,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "12:00",
+        "close": "21:00"
+      },
+      {
+        "day": "tue",
+        "open": "12:00",
+        "close": "21:00"
+      },
+      {
+        "day": "wed",
+        "open": "12:00",
+        "close": "21:00"
+      },
+      {
+        "day": "thu",
+        "open": "12:00",
+        "close": "21:00"
+      },
+      {
+        "day": "fri",
+        "open": "12:00",
+        "close": "21:00"
+      },
+      {
+        "day": "sat",
+        "open": "12:00",
+        "close": "21:00"
+      },
+      {
+        "day": "sun",
+        "open": "12:00",
+        "close": "21:00"
+      }
+    ],
+    "rating": 4.4,
+    "best_time_window": [
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "yongkang_qingtian-76",
+    "name": "青田街76號",
+    "area": "永康街",
+    "tags": [
+      "老屋",
+      "老建築",
+      "文青",
+      "深度"
+    ],
+    "stay_range": [
+      40,
+      60
+    ],
+    "avg_cost": 150,
+    "indoor": true,
+    "lat": 25.0265,
+    "lng": 121.5278,
+    "open_hours": [
+      {
+        "day": "tue",
+        "open": "10:00",
+        "close": "17:00"
+      },
+      {
+        "day": "wed",
+        "open": "10:00",
+        "close": "17:00"
+      },
+      {
+        "day": "thu",
+        "open": "10:00",
+        "close": "17:00"
+      },
+      {
+        "day": "fri",
+        "open": "10:00",
+        "close": "17:00"
+      },
+      {
+        "day": "sat",
+        "open": "10:00",
+        "close": "17:00"
+      },
+      {
+        "day": "sun",
+        "open": "10:00",
+        "close": "17:00"
+      }
+    ],
+    "rating": 4.5,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "yongkang_jinhua-indie-bookstore",
+    "name": "金華街獨立書店",
+    "area": "永康街",
+    "tags": [
+      "獨立書店",
+      "文青",
+      "靜謐"
+    ],
+    "stay_range": [
+      45,
+      75
+    ],
+    "avg_cost": 100,
+    "indoor": true,
+    "lat": 25.0295,
+    "lng": 121.5237,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "12:00",
+        "close": "21:00"
+      },
+      {
+        "day": "tue",
+        "open": "12:00",
+        "close": "21:00"
+      },
+      {
+        "day": "wed",
+        "open": "12:00",
+        "close": "21:00"
+      },
+      {
+        "day": "thu",
+        "open": "12:00",
+        "close": "21:00"
+      },
+      {
+        "day": "fri",
+        "open": "12:00",
+        "close": "21:00"
+      },
+      {
+        "day": "sat",
+        "open": "12:00",
+        "close": "21:00"
+      },
+      {
+        "day": "sun",
+        "open": "12:00",
+        "close": "21:00"
+      }
+    ],
+    "rating": 4.4,
+    "best_time_window": [
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "yongkang_dongmen-market",
+    "name": "東門市場",
+    "area": "永康街",
+    "tags": [
+      "市場",
+      "熱鬧",
+      "生活感"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 200,
+    "indoor": true,
+    "lat": 25.0341,
+    "lng": 121.5277,
+    "open_hours": [
+      {
+        "day": "tue",
+        "open": "06:00",
+        "close": "14:00"
+      },
+      {
+        "day": "wed",
+        "open": "06:00",
+        "close": "14:00"
+      },
+      {
+        "day": "thu",
+        "open": "06:00",
+        "close": "14:00"
+      },
+      {
+        "day": "fri",
+        "open": "06:00",
+        "close": "14:00"
+      },
+      {
+        "day": "sat",
+        "open": "06:00",
+        "close": "14:00"
+      },
+      {
+        "day": "sun",
+        "open": "06:00",
+        "close": "14:00"
+      }
+    ],
+    "rating": 4.3,
+    "best_time_window": [
+      "morning"
+    ]
+  },
+  {
+    "id": "yongkang_peacock-bistro",
+    "name": "孔雀餐酒館",
+    "area": "永康街",
+    "tags": [
+      "酒吧",
+      "復古",
+      "熱鬧"
+    ],
+    "stay_range": [
+      60,
+      120
+    ],
+    "avg_cost": 650,
+    "indoor": true,
+    "lat": 25.0312,
+    "lng": 121.5306,
+    "open_hours": [
+      {
+        "day": "tue",
+        "open": "18:00",
+        "close": "23:59"
+      },
+      {
+        "day": "wed",
+        "open": "18:00",
+        "close": "23:59"
+      },
+      {
+        "day": "thu",
+        "open": "18:00",
+        "close": "23:59"
+      },
+      {
+        "day": "fri",
+        "open": "18:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sat",
+        "open": "18:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sun",
+        "open": "18:00",
+        "close": "23:59"
+      }
+    ],
+    "rating": 4.3,
+    "best_time_window": [
+      "evening"
+    ]
+  },
+  {
+    "id": "yuanshan_lin-an-tai",
+    "name": "林安泰古厝",
+    "area": "圓山",
+    "tags": [
+      "老建築",
+      "老屋",
+      "深度"
+    ],
+    "stay_range": [
+      45,
+      75
+    ],
+    "avg_cost": 0,
+    "indoor": true,
+    "lat": 25.0734,
+    "lng": 121.5374,
+    "open_hours": [
+      {
+        "day": "tue",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "wed",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "thu",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "fri",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "sat",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "sun",
+        "open": "09:00",
+        "close": "17:00"
+      }
+    ],
+    "rating": 4.3,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "yuanshan_flora-expo-park",
+    "name": "圓山花博公園",
+    "area": "圓山",
+    "tags": [
+      "公園綠地",
+      "河岸",
+      "閒晃"
+    ],
+    "stay_range": [
+      60,
+      120
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 25.0735,
+    "lng": 121.5237,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "tue",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "wed",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "thu",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "fri",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sat",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sun",
+        "open": "00:00",
+        "close": "23:59"
+      }
+    ],
+    "rating": 4.4,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "yuanshan_tfam",
+    "name": "臺北市立美術館",
+    "area": "圓山",
+    "tags": [
+      "展覽/藝文",
+      "文青",
+      "深度"
+    ],
+    "stay_range": [
+      90,
+      150
+    ],
+    "avg_cost": 30,
+    "indoor": true,
+    "lat": 25.0723,
+    "lng": 121.5246,
+    "open_hours": [
+      {
+        "day": "tue",
+        "open": "09:30",
+        "close": "17:30"
+      },
+      {
+        "day": "wed",
+        "open": "09:30",
+        "close": "17:30"
+      },
+      {
+        "day": "thu",
+        "open": "09:30",
+        "close": "17:30"
+      },
+      {
+        "day": "fri",
+        "open": "09:30",
+        "close": "17:30"
+      },
+      {
+        "day": "sat",
+        "open": "09:30",
+        "close": "20:30"
+      },
+      {
+        "day": "sun",
+        "open": "09:30",
+        "close": "17:30"
+      }
+    ],
+    "rating": 4.4,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "yuanshan_taipei-childrens-amusement-park",
+    "name": "兒童新樂園",
+    "area": "圓山",
+    "tags": [
+      "熱鬧",
+      "打卡"
+    ],
+    "stay_range": [
+      90,
+      180
+    ],
+    "avg_cost": 30,
+    "indoor": false,
+    "lat": 25.0961,
+    "lng": 121.5158,
+    "open_hours": [
+      {
+        "day": "tue",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "wed",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "thu",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "fri",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "sat",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "sun",
+        "open": "09:00",
+        "close": "17:00"
+      }
+    ],
+    "rating": 4.2,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "yuanshan_bao-an-temple",
+    "name": "大龍峒保安宮",
+    "area": "圓山",
+    "tags": [
+      "廟埕",
+      "老建築",
+      "深度"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 25.0732,
+    "lng": 121.5151,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "06:30",
+        "close": "21:30"
+      },
+      {
+        "day": "tue",
+        "open": "06:30",
+        "close": "21:30"
+      },
+      {
+        "day": "wed",
+        "open": "06:30",
+        "close": "21:30"
+      },
+      {
+        "day": "thu",
+        "open": "06:30",
+        "close": "21:30"
+      },
+      {
+        "day": "fri",
+        "open": "06:30",
+        "close": "21:30"
+      },
+      {
+        "day": "sat",
+        "open": "06:30",
+        "close": "21:30"
+      },
+      {
+        "day": "sun",
+        "open": "06:30",
+        "close": "21:30"
+      }
+    ],
+    "rating": 4.5,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "yuanshan_confucius-temple",
+    "name": "孔廟",
+    "area": "圓山",
+    "tags": [
+      "廟埕",
+      "老建築",
+      "深度"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 25.0728,
+    "lng": 121.5159,
+    "open_hours": [
+      {
+        "day": "tue",
+        "open": "08:30",
+        "close": "21:00"
+      },
+      {
+        "day": "wed",
+        "open": "08:30",
+        "close": "21:00"
+      },
+      {
+        "day": "thu",
+        "open": "08:30",
+        "close": "21:00"
+      },
+      {
+        "day": "fri",
+        "open": "08:30",
+        "close": "21:00"
+      },
+      {
+        "day": "sat",
+        "open": "08:30",
+        "close": "21:00"
+      },
+      {
+        "day": "sun",
+        "open": "08:30",
+        "close": "17:00"
+      }
+    ],
+    "rating": 4.4,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "yuanshan_archaeological-site",
+    "name": "圓山遺址展示館",
+    "area": "圓山",
+    "tags": [
+      "展覽/藝文",
+      "老建築",
+      "深度"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 0,
+    "indoor": true,
+    "lat": 25.0742,
+    "lng": 121.5198,
+    "open_hours": [
+      {
+        "day": "tue",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "wed",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "thu",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "fri",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "sat",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "sun",
+        "open": "09:00",
+        "close": "17:00"
+      }
+    ],
+    "rating": 4.3,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "yuanshan_jiuquan-old-corner",
+    "name": "酒泉街老街角",
+    "area": "圓山",
+    "tags": [
+      "街角",
+      "老屋",
+      "閒晃"
+    ],
+    "stay_range": [
+      15,
+      30
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 25.0728,
+    "lng": 121.5158,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "tue",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "wed",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "thu",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "fri",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sat",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sun",
+        "open": "00:00",
+        "close": "23:59"
+      }
+    ],
+    "rating": 4.2,
+    "best_time_window": [
+      "afternoon",
+      "evening"
+    ]
+  }
+]
