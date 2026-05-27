@@ -4,7 +4,7 @@ import { toDisplaySchedule } from "@/lib/transformer/display-schedule.js";
 import Timeline from "@/components/Timeline.jsx";
 import BackToFormLink from "@/components/BackToFormLink.jsx";
 import { AREAS, CITY } from "@/lib/stroll/areas.js";
-import attractions from "@/data/attractions.json";
+import { listAttractions } from "@/lib/attractions/repository.js";
 
 function toURLSearchParams(params) {
   const urlParams = new URLSearchParams();
@@ -65,6 +65,7 @@ export default async function ResultPage({ searchParams }) {
   const areaEn = area?.en;
 
   const startAt = buildStartAt(decoded.start);
+  const attractions = await listAttractions({ area: decoded.area });
   const internalSchedule = planStroll(
     {
       area: decoded.area,

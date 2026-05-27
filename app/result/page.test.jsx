@@ -1,4 +1,19 @@
 import { fireEvent, render, screen } from "@testing-library/react";
+
+// The result page reads attractions via the repository (which talks to Postgres).
+// In tests we mock it to return the static JSON fixture filtered by area,
+// keeping the existing unit-test contract intact (no DB needed at test time).
+jest.mock("@/lib/attractions/repository.js", () => {
+  const attractions = require("@/data/attractions.json");
+  return {
+    __esModule: true,
+    listAttractions: jest.fn(async ({ area } = {}) => {
+      if (!area) return attractions;
+      return attractions.filter((a) => a.area === area);
+    }),
+  };
+});
+
 import ResultPage from "./page.js";
 
 async function renderResult(searchParamsObj) {

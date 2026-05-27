@@ -2,16 +2,20 @@
   "name": "stroll-taipei",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "jest"
+    "test": "jest",
+    "db:migrate": "node db/migrate.js",
+    "db:seed": "node db/seed/seed-attractions.js"
   },
   "dependencies": {
     "mapbox-gl": "^3.24.0",
     "next": "16.2.6",
+    "pg": "^8.13.1",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-map-gl": "^8.1.1"

@@ -1,0 +1,39 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: stroll-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: stroll
+      POSTGRES_USER: stroll
+      POSTGRES_PASSWORD: stroll
+    ports:
+      - "5432:5432"
+    volumes:
+      - stroll-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U stroll -d stroll"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  # Dev-only web GUI for inspecting the Postgres data.
+  # Open http://localhost:8081 once both containers are up.
+  pgweb:
+    image: sosedoff/pgweb:latest
+    container_name: stroll-pgweb
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    # Read-only mode enforces the "data/attractions.json is the only edit
+    # entrypoint, DB is derived" rule at the connection layer.
+    # Temporarily remove --readonly if you need ad-hoc DML from pgweb.
+    command: ["--readonly"]
+    environment:
+      PGWEB_DATABASE_URL: postgres://stroll:stroll@postgres:5432/stroll?sslmode=disable
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  stroll-pgdata:
