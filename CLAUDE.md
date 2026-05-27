@@ -60,6 +60,7 @@ Changes can be parked（暫存）— temporarily moved out of `openspec/changes/
 - 不要做多日的 UI(像是 Day 1 / Day 2 / Day 3 那種 tabs)
 - 不要做打卡功能,MVP 階段用一顆「重新校準」按鈕就好
 - 不要在中午硬塞一個吃飯的站,散策不一定要安排用餐
+- **環境變數命名一律用業界標準名稱(`DATABASE_URL`、`REDIS_URL` 等),不要對齊雲端供應商的命名(`POSTGRES_CONNECTION_STRING`、`KV_URL` 之類)。** 兩邊有命名差異時,在雲端供應商那邊新增一個 alias 變數,值用 reference / 引用功能指向供應商實際輸出的變數。理由:程式碼保持跨雲可攜,本機 docker-compose / CI / 未來換 provider 的時候,其他環境的設定都不用動。
 
 ---
 
