@@ -21,6 +21,7 @@ npm run dev
 
 - `DATABASE_URL` — Postgres 連線字串。本機 `docker compose` 預設值已在 `.env.example` 給出;Zeabur 上由 Postgres template 透過 service injection 自動注入。
 - `NEXT_PUBLIC_MAPBOX_TOKEN` — Mapbox public access token,景點抽屜內的地圖會用到。從 [Mapbox](https://account.mapbox.com/access-tokens/) 申請。未填時地圖區塊顯示 fallback 文字,其餘功能不受影響。建議在 Mapbox token 頁面設定 URL restrictions 限制只允許 dev 與部署網域。
+- `TZ` — 容器/runtime 時區。**production、Zeabur、Docker 容器、CI runner 都必須設定 `TZ=Asia/Taipei`。** 程式碼層級已用 `lib/time/taipei-clock.js` 把 scheduler 與 transformer 的時間計算固定在 Asia/Taipei,所以即使 TZ 沒設定,核心散策邏輯也會正確;但 `TZ=Asia/Taipei` 仍是第一道防線(defense in depth),日後若新模組誤用 `new Date().toString()` 之類 local-time API,會自然以 Asia/Taipei 顯示,而不是 UTC。本機 macOS 開發時系統時區通常就是 Asia/Taipei,無需額外設定。
 
 ## 看本機 DB 資料
 
@@ -38,8 +39,9 @@ npm run dev
 ## Zeabur 部署
 
 1. 在 Zeabur project 加 Postgres template(版本 17),把 `DATABASE_URL` service variable 注入到 Next.js service
-2. Deploy Next.js service
-3. 在 Zeabur Shell 跑 migration 與 seed:
+2. 在 Next.js service 的 Environment Variables 加上 `TZ=Asia/Taipei`(理由見上方「環境變數」一節)
+3. Deploy Next.js service
+4. 在 Zeabur Shell 跑 migration 與 seed:
 
    ```bash
    npm run db:migrate

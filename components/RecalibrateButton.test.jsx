@@ -1,7 +1,11 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import RecalibrateButton from "./RecalibrateButton.jsx";
 
-const at = (h, m) => new Date(2026, 4, 17, h, m, 0, 0);
+const at = (h, m) => {
+  const hh = String(h).padStart(2, "0");
+  const mm = String(m).padStart(2, "0");
+  return new Date(`2026-05-17T${hh}:${mm}:00+08:00`);
+};
 
 // 2026-05-17 = Sunday → 'sun'
 const sundayOpenAllDay = [{ day: "sun", open: "10:00", close: "22:00" }];
