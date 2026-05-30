@@ -61,6 +61,7 @@ const baseOriginalRequest = {
   startAt: at(14, 0),
   durationMinutes: 240,
   moods: ["文青"],
+  currency: "TWD",
   pool,
 };
 
@@ -157,6 +158,25 @@ describe("RecalibrateButton — picker flow", () => {
     fireEvent.click(screen.getAllByRole("radio")[0]);
     fireEvent.click(screen.getByRole("button", { name: "確認" }));
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+  });
+
+  it("recalibrate flow completes without error when originalRequest carries a custom maxWalkMinutes", () => {
+    const onRecalibrated = jest.fn();
+    const customRequest = { ...baseOriginalRequest, maxWalkMinutes: 25 };
+    render(
+      <RecalibrateButton
+        originalStartAt={customRequest.startAt}
+        originalDurationMinutes={customRequest.durationMinutes}
+        displaySchedule={baseDisplaySchedule}
+        originalRequest={customRequest}
+        onRecalibrated={onRecalibrated}
+      />
+    );
+    fireEvent.click(screen.getByRole("button", { name: /重新校準/ }));
+    fireEvent.click(screen.getAllByRole("radio")[0]);
+    fireEvent.click(screen.getByRole("button", { name: "確認" }));
+    expect(onRecalibrated).toHaveBeenCalledTimes(1);
+    expect(onRecalibrated.mock.calls[0][0]).toHaveProperty("areaTitle");
   });
 
   it("first recalibration produces a schedule whose first stop is the selected one tagged isPast=true", () => {

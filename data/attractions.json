@@ -2,6 +2,8 @@
   {
     "id": "dadaocheng_lu-guo-coffee",
     "name": "爐鍋咖啡",
+    "edition_id": "taipei",
+    "area_id": "dadaocheng",
     "area": "大稻埕",
     "tags": [
       "咖啡廳",
@@ -62,6 +64,8 @@
   {
     "id": "dadaocheng_xiao-yi-cheng",
     "name": "小藝埕",
+    "edition_id": "taipei",
+    "area_id": "dadaocheng",
     "area": "大稻埕",
     "tags": [
       "選物店",
@@ -116,6 +120,8 @@
   {
     "id": "dadaocheng_yongle-market",
     "name": "永樂市場",
+    "edition_id": "taipei",
+    "area_id": "dadaocheng",
     "area": "大稻埕",
     "tags": [
       "市場",
@@ -171,6 +177,8 @@
   {
     "id": "dadaocheng_xiahai-temple",
     "name": "霞海城隍廟",
+    "edition_id": "taipei",
+    "area_id": "dadaocheng",
     "area": "大稻埕",
     "tags": [
       "廟埕",
@@ -231,6 +239,8 @@
   {
     "id": "dadaocheng_pier",
     "name": "大稻埕碼頭",
+    "edition_id": "taipei",
+    "area_id": "dadaocheng",
     "area": "大稻埕",
     "tags": [
       "河岸",
@@ -291,6 +301,8 @@
   {
     "id": "dadaocheng_asw-tea-house",
     "name": "ASW Tea House",
+    "edition_id": "taipei",
+    "area_id": "dadaocheng",
     "area": "大稻埕",
     "tags": [
       "老屋",
@@ -350,6 +362,8 @@
   {
     "id": "dadaocheng_urs44",
     "name": "URS44 大稻埕故事工坊",
+    "edition_id": "taipei",
+    "area_id": "dadaocheng",
     "area": "大稻埕",
     "tags": [
       "展覽/藝文",
@@ -404,6 +418,8 @@
   {
     "id": "dadaocheng_zi-yang",
     "name": "滋養豆餡舖",
+    "edition_id": "taipei",
+    "area_id": "dadaocheng",
     "area": "大稻埕",
     "tags": [
       "老字號",
@@ -464,6 +480,8 @@
   {
     "id": "dadaocheng_lin-hua-tai-tea",
     "name": "林華泰茶行",
+    "edition_id": "taipei",
+    "area_id": "dadaocheng",
     "area": "大稻埕",
     "tags": [
       "老字號",
@@ -519,6 +537,8 @@
   {
     "id": "dadaocheng_min-yi-cheng",
     "name": "民藝埕",
+    "edition_id": "taipei",
+    "area_id": "dadaocheng",
     "area": "大稻埕",
     "tags": [
       "選物店",
@@ -573,6 +593,8 @@
   {
     "id": "dadaocheng_min-le-swordfish-noodle",
     "name": "民樂旗魚米粉湯",
+    "edition_id": "taipei",
+    "area_id": "dadaocheng",
     "area": "大稻埕",
     "tags": [
       "小吃",
@@ -632,6 +654,8 @@
   {
     "id": "dadaocheng_thinkers-theatre",
     "name": "思劇場",
+    "edition_id": "taipei",
+    "area_id": "dadaocheng",
     "area": "大稻埕",
     "tags": [
       "展覽/藝文",
@@ -682,6 +706,8 @@
   {
     "id": "dadaocheng_chun-mei-coffee",
     "name": "春美咖啡",
+    "edition_id": "taipei",
+    "area_id": "dadaocheng",
     "area": "大稻埕",
     "tags": [
       "咖啡廳",
@@ -742,6 +768,8 @@
   {
     "id": "dadaocheng_mai-bo-suo",
     "name": "賣捌所",
+    "edition_id": "taipei",
+    "area_id": "dadaocheng",
     "area": "大稻埕",
     "tags": [
       "選物店",
@@ -796,6 +824,8 @@
   {
     "id": "dadaocheng_ci-sheng-temple",
     "name": "慈聖宮",
+    "edition_id": "taipei",
+    "area_id": "dadaocheng",
     "area": "大稻埕",
     "tags": [
       "廟埕",
@@ -856,6 +886,8 @@
   {
     "id": "dadaocheng_park",
     "name": "大稻埕公園",
+    "edition_id": "taipei",
+    "area_id": "dadaocheng",
     "area": "大稻埕",
     "tags": [
       "公園綠地",
@@ -917,6 +949,8 @@
   {
     "id": "dadaocheng_dihua-207-museum",
     "name": "迪化207博物館",
+    "edition_id": "taipei",
+    "area_id": "dadaocheng",
     "area": "大稻埕",
     "tags": [
       "展覽/藝文",
@@ -967,6 +1001,8 @@
   {
     "id": "dadaocheng_lin-wu-hu",
     "name": "林五湖本館",
+    "edition_id": "taipei",
+    "area_id": "dadaocheng",
     "area": "大稻埕",
     "tags": [
       "老字號",
@@ -1027,6 +1063,8 @@
   {
     "id": "dadaocheng_xin-fang-chun-tea",
     "name": "新芳春茶行",
+    "edition_id": "taipei",
+    "area_id": "dadaocheng",
     "area": "大稻埕",
     "tags": [
       "老建築",
@@ -1082,6 +1120,8 @@
   {
     "id": "dadaocheng_bolero-restaurant",
     "name": "波麗路餐廳",
+    "edition_id": "taipei",
+    "area_id": "dadaocheng",
     "area": "大稻埕",
     "tags": [
       "老字號",
@@ -1143,6 +1183,8 @@
   {
     "id": "yongkang_yong-kang-beef-noodle",
     "name": "永康牛肉麵",
+    "edition_id": "taipei",
+    "area_id": "yongkang",
     "area": "永康街",
     "tags": [
       "老字號",
@@ -1203,6 +1245,8 @@
   {
     "id": "yongkang_si-mu-xi",
     "name": "思慕昔",
+    "edition_id": "taipei",
+    "area_id": "yongkang",
     "area": "永康街",
     "tags": [
       "甜點",
@@ -1263,6 +1307,8 @@
   {
     "id": "yongkang_park",
     "name": "永康公園",
+    "edition_id": "taipei",
+    "area_id": "yongkang",
     "area": "永康街",
     "tags": [
       "公園綠地",
@@ -1323,6 +1369,8 @@
   {
     "id": "yongkang_lishui-tea-house",
     "name": "麗水街茶館",
+    "edition_id": "taipei",
+    "area_id": "yongkang",
     "area": "永康街",
     "tags": [
       "咖啡廳",
@@ -1383,6 +1431,8 @@
   {
     "id": "yongkang_qingtian-76",
     "name": "青田街76號",
+    "edition_id": "taipei",
+    "area_id": "yongkang",
     "area": "永康街",
     "tags": [
       "老屋",
@@ -1439,6 +1489,8 @@
   {
     "id": "yongkang_jinhua-indie-bookstore",
     "name": "金華街獨立書店",
+    "edition_id": "taipei",
+    "area_id": "yongkang",
     "area": "永康街",
     "tags": [
       "獨立書店",
@@ -1499,6 +1551,8 @@
   {
     "id": "yongkang_dongmen-market",
     "name": "東門市場",
+    "edition_id": "taipei",
+    "area_id": "yongkang",
     "area": "永康街",
     "tags": [
       "市場",
@@ -1553,6 +1607,8 @@
   {
     "id": "yongkang_peacock-bistro",
     "name": "孔雀餐酒館",
+    "edition_id": "taipei",
+    "area_id": "yongkang",
     "area": "永康街",
     "tags": [
       "酒吧",
@@ -1607,6 +1663,8 @@
   {
     "id": "yuanshan_lin-an-tai",
     "name": "林安泰古厝",
+    "edition_id": "taipei",
+    "area_id": "yuanshan",
     "area": "圓山",
     "tags": [
       "老建築",
@@ -1662,6 +1720,8 @@
   {
     "id": "yuanshan_flora-expo-park",
     "name": "圓山花博公園",
+    "edition_id": "taipei",
+    "area_id": "yuanshan",
     "area": "圓山",
     "tags": [
       "公園綠地",
@@ -1723,6 +1783,8 @@
   {
     "id": "yuanshan_tfam",
     "name": "臺北市立美術館",
+    "edition_id": "taipei",
+    "area_id": "yuanshan",
     "area": "圓山",
     "tags": [
       "展覽/藝文",
@@ -1778,6 +1840,8 @@
   {
     "id": "yuanshan_taipei-childrens-amusement-park",
     "name": "兒童新樂園",
+    "edition_id": "taipei",
+    "area_id": "yuanshan",
     "area": "圓山",
     "tags": [
       "熱鬧",
@@ -1832,6 +1896,8 @@
   {
     "id": "yuanshan_bao-an-temple",
     "name": "大龍峒保安宮",
+    "edition_id": "taipei",
+    "area_id": "yuanshan",
     "area": "圓山",
     "tags": [
       "廟埕",
@@ -1892,6 +1958,8 @@
   {
     "id": "yuanshan_confucius-temple",
     "name": "孔廟",
+    "edition_id": "taipei",
+    "area_id": "yuanshan",
     "area": "圓山",
     "tags": [
       "廟埕",
@@ -1947,6 +2015,8 @@
   {
     "id": "yuanshan_archaeological-site",
     "name": "圓山遺址展示館",
+    "edition_id": "taipei",
+    "area_id": "yuanshan",
     "area": "圓山",
     "tags": [
       "展覽/藝文",
@@ -2002,6 +2072,8 @@
   {
     "id": "yuanshan_jiuquan-old-corner",
     "name": "酒泉街老街角",
+    "edition_id": "taipei",
+    "area_id": "yuanshan",
     "area": "圓山",
     "tags": [
       "街角",

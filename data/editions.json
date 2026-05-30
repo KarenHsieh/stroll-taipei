@@ -1,0 +1,13 @@
+[
+  {
+    "id": "taipei",
+    "name": "台北",
+    "en": "Taipei",
+    "currency": "TWD",
+    "bboxes": [
+      { "lat": [24.9, 25.3], "lng": [121.4, 121.7] }
+    ],
+    "maxWalkMinutes": 15,
+    "active": true
+  }
+]

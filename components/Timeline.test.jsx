@@ -139,6 +139,7 @@ describe("Timeline", () => {
       startAt: new Date(2026, 4, 17, 14, 0, 0, 0),
       durationMinutes: 240,
       moods: ["咖啡廳"],
+      currency: "TWD",
       pool,
     };
 

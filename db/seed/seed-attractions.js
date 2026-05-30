@@ -4,24 +4,50 @@ import { fileURLToPath } from "node:url";
 import path from "node:path";
 import { Pool } from "pg";
 import { validateAttractionList } from "../../lib/attractions/validator.js";
+import { AREAS } from "../../lib/stroll/areas.js";
 
 const PROJECT_ROOT = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
   "..",
   ".."
 );
-const JSON_PATH = path.join(PROJECT_ROOT, "data", "attractions.json");
+const ATTRACTIONS_PATH = path.join(PROJECT_ROOT, "data", "attractions.json");
+const EDITIONS_PATH = path.join(PROJECT_ROOT, "data", "editions.json");
 
-const UPSERT_SQL = `
+const UPSERT_EDITION_SQL = `
+  INSERT INTO editions (id, name, en, currency, bboxes, max_walk_minutes, active)
+  VALUES ($1, $2, $3, $4, $5::jsonb, $6, $7)
+  ON CONFLICT (id) DO UPDATE SET
+    name = EXCLUDED.name,
+    en = EXCLUDED.en,
+    currency = EXCLUDED.currency,
+    bboxes = EXCLUDED.bboxes,
+    max_walk_minutes = EXCLUDED.max_walk_minutes,
+    active = EXCLUDED.active
+`;
+
+const UPSERT_AREA_SQL = `
+  INSERT INTO areas (edition_id, id, name, en, active, sort_order)
+  VALUES ($1, $2, $3, $4, $5, $6)
+  ON CONFLICT (edition_id, id) DO UPDATE SET
+    name = EXCLUDED.name,
+    en = EXCLUDED.en,
+    active = EXCLUDED.active,
+    sort_order = EXCLUDED.sort_order
+`;
+
+const UPSERT_ATTRACTION_SQL = `
   INSERT INTO attractions (
-    id, name, area, tags,
+    id, name, edition_id, area_id, area, tags,
     stay_min, stay_max,
     avg_cost, indoor, lat, lng,
     open_hours, rating, best_time_window
   )
-  VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11::jsonb, $12, $13)
+  VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13::jsonb, $14, $15)
   ON CONFLICT (id) DO UPDATE SET
     name = EXCLUDED.name,
+    edition_id = EXCLUDED.edition_id,
+    area_id = EXCLUDED.area_id,
     area = EXCLUDED.area,
     tags = EXCLUDED.tags,
     stay_min = EXCLUDED.stay_min,
@@ -35,11 +61,21 @@ const UPSERT_SQL = `
     best_time_window = EXCLUDED.best_time_window
 `;
 
-function toUpsertValues(a) {
+function toEditionValues(e) {
+  return [e.id, e.name, e.en, e.currency, JSON.stringify(e.bboxes), e.maxWalkMinutes, e.active];
+}
+
+function toAreaValues(a, sortOrder) {
+  return [a.editionId, a.id, a.name, a.en ?? null, a.active, sortOrder];
+}
+
+function toAttractionValues(a) {
   const [stayMin, stayMax] = a.stay_range;
   return [
     a.id,
     a.name,
+    a.edition_id,
+    a.area_id,
     a.area,
     a.tags,
     stayMin,
@@ -61,8 +97,8 @@ async function main() {
     process.exit(1);
   }
 
-  const raw = await readFile(JSON_PATH, "utf8");
-  const attractions = JSON.parse(raw);
+  const editions = JSON.parse(await readFile(EDITIONS_PATH, "utf8"));
+  const attractions = JSON.parse(await readFile(ATTRACTIONS_PATH, "utf8"));
 
   const validation = validateAttractionList(attractions);
   if (!validation.valid) {
@@ -75,11 +111,19 @@ async function main() {
   const client = await pool.connect();
   try {
     await client.query("BEGIN");
+    for (const edition of editions) {
+      await client.query(UPSERT_EDITION_SQL, toEditionValues(edition));
+    }
+    for (let i = 0; i < AREAS.length; i++) {
+      await client.query(UPSERT_AREA_SQL, toAreaValues(AREAS[i], i));
+    }
     for (const attraction of attractions) {
-      await client.query(UPSERT_SQL, toUpsertValues(attraction));
+      await client.query(UPSERT_ATTRACTION_SQL, toAttractionValues(attraction));
     }
     await client.query("COMMIT");
-    console.log(`seeded: ${attractions.length} rows`);
+    console.log(
+      `seeded: ${editions.length} editions, ${AREAS.length} areas, ${attractions.length} attractions`
+    );
   } catch (err) {
     await client.query("ROLLBACK");
     throw err;

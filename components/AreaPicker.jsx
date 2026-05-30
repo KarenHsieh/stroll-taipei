@@ -1,8 +1,10 @@
 "use client";
 
-import { ACTIVE_AREAS, SOON_AREAS } from "@/lib/stroll/areas.js";
+import { ACTIVE_AREAS as DEFAULT_ACTIVE_AREAS, SOON_AREAS as DEFAULT_SOON_AREAS } from "@/lib/stroll/areas.js";
 
-export default function AreaPicker({ value, onChange, onOpenSoon }) {
+export default function AreaPicker({ value, onChange, onOpenSoon, areas }) {
+  const ACTIVE_AREAS = areas ? areas.filter((a) => a.active) : DEFAULT_ACTIVE_AREAS;
+  const SOON_AREAS = areas ? areas.filter((a) => !a.active) : DEFAULT_SOON_AREAS;
   const useRail = ACTIVE_AREAS.length > 3;
 
   return (

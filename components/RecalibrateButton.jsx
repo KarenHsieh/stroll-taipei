@@ -45,13 +45,15 @@ export default function RecalibrateButton({
         startAt: now,
         durationMinutes: remaining,
         moods: originalRequest.moods,
+        maxWalkMinutes: originalRequest.maxWalkMinutes,
       },
       newPool
     );
     const newDisplaySchedule = toDisplaySchedule(
       internalSchedule,
       originalRequest.area,
-      now
+      now,
+      originalRequest.currency
     );
     const finalSchedule = mergeRecalibration(accumulatedPast, newDisplaySchedule);
     onRecalibrated(finalSchedule);
