@@ -29,12 +29,42 @@ npm run dev
 
 ## 修改景點資料
 
-景點資料以 `data/attractions.json` 為唯一手動編輯入口,Postgres 中的 `attractions` 表是 derived 的。流程:
+景點資料以 `data/attractions.json` 為唯一手動編輯入口,Postgres 中的 `attractions` 表是 derived 的。**改完一定要跑 `npm run db:seed` 同步進 DB**,流程不變;差別只在新增/編輯 JSON 的方式有兩種。
 
-1. 編輯 `data/attractions.json`
-2. 跑 `npm run db:seed`(內部會先用 `validateAttractionList` 驗證,失敗時 exit 非 0、不動 DB;成功時 upsert 進 DB)
+### 方式 1:本機編輯器 `/dev-tools/attractions`(推薦)
 
-不要直接寫 DB — `data/attractions.json` 是 source of truth,DB 重 seed 一次就會被覆蓋。
+`npm run dev` 起 dev server 後,瀏覽器打開:
+
+- 清單頁:[http://localhost:3000/dev-tools/attractions](http://localhost:3000/dev-tools/attractions)
+  - 顯示 `data/attractions.json` 全部 entries,table 形式
+  - 三層 filter:edition dropdown、area dropdown(依 edition 連動)、name 模糊搜尋
+  - 點 row 可展開看完整 11 欄
+- 新增頁:[http://localhost:3000/dev-tools/attractions/new](http://localhost:3000/dev-tools/attractions/new)
+  - 11 欄表單,送出時 server-side 跑 `lib/attractions/validator.js` 把關
+  - 通過驗證即 append 到 `data/attractions.json`、UI 跳回清單頁;失敗則 inline 顯示錯誤
+  - 表單便利性:
+    - `edition_id` / `area_id` 連動 dropdown
+    - `tags` 只列當下 edition 的 tag pool(避免誤用別 edition 的詞)
+    - `lat` / `lng` 即時顯示 ✓ / ✗ 標示是否在該 edition 的 bbox 內
+    - `id` 從 `<area_id>_<slugify(name)>` 自動生成,純 CJK 名稱可手填羅馬字 slug
+    - `open_hours` 七天 grid + 一鍵「全週同樣時段」「24h 營業」「複製週一到全部」
+    - 撞 id 即時警示
+
+**這個編輯器只在 `npm run dev` 時可用**。部署後 `/dev-tools/...` 全部 404(`requireDevOnly` helper 看 `process.env.NODE_ENV !== "development"` 直接呼叫 `notFound()`,Zeabur / production build 都進不去)。所以可以放心提交、不用 gitignore。
+
+編輯器原始碼:`app/dev-tools/`、`app/api/dev-tools/`、`lib/dev-tools/`。
+
+### 方式 2:手動編輯 JSON
+
+直接打開 `data/attractions.json` 編輯。schema 規則參考 `lib/attractions/validator.js`。`npm run db:seed` 之前 validator 不會跑,所以建議改完先在編輯器或本地跑一次 lint / 試 build 確認沒打錯字。
+
+### 編輯完之後
+
+```bash
+npm run db:seed
+```
+
+內部會先用 `validateAttractionList` 驗證,失敗時 exit 非 0、不動 DB;成功時 upsert 進 DB。不要直接寫 DB — `data/attractions.json` 是 source of truth,DB 重 seed 一次就會被覆蓋。
 
 ## Zeabur 部署
 
