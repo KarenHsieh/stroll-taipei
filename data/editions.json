@@ -9,5 +9,18 @@
     ],
     "maxWalkMinutes": 15,
     "active": true
+  },
+  {
+    "id": "fukuoka",
+    "name": "福岡",
+    "en": "Fukuoka",
+    "currency": "JPY",
+    "bboxes": [
+      { "lat": [33.55, 33.62], "lng": [130.35, 130.45] },
+      { "lat": [33.50, 33.62], "lng": [130.08, 130.32] },
+      { "lat": [33.93, 33.97], "lng": [130.94, 130.98] }
+    ],
+    "maxWalkMinutes": 15,
+    "active": true
   }
 ]

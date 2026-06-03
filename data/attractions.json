@@ -2130,5 +2130,1855 @@
       "afternoon",
       "evening"
     ]
+  },
+  {
+    "id": "hakata_canal-city",
+    "name": "博多運河城",
+    "edition_id": "fukuoka",
+    "area_id": "hakata",
+    "area": "博多",
+    "tags": [
+      "熱鬧",
+      "打卡"
+    ],
+    "stay_range": [
+      90,
+      150
+    ],
+    "avg_cost": 0,
+    "indoor": true,
+    "lat": 33.588,
+    "lng": 130.4063,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "10:00",
+        "close": "21:00"
+      },
+      {
+        "day": "tue",
+        "open": "10:00",
+        "close": "21:00"
+      },
+      {
+        "day": "wed",
+        "open": "10:00",
+        "close": "21:00"
+      },
+      {
+        "day": "thu",
+        "open": "10:00",
+        "close": "21:00"
+      },
+      {
+        "day": "fri",
+        "open": "10:00",
+        "close": "21:00"
+      },
+      {
+        "day": "sat",
+        "open": "10:00",
+        "close": "21:00"
+      },
+      {
+        "day": "sun",
+        "open": "10:00",
+        "close": "21:00"
+      }
+    ],
+    "rating": 4.2,
+    "best_time_window": [
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "hakata_kitte-hakata",
+    "name": "KITTE 博多",
+    "edition_id": "fukuoka",
+    "area_id": "hakata",
+    "area": "博多",
+    "tags": [
+      "熱鬧",
+      "小吃"
+    ],
+    "stay_range": [
+      60,
+      90
+    ],
+    "avg_cost": 0,
+    "indoor": true,
+    "lat": 33.5891,
+    "lng": 130.42,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "07:00",
+        "close": "23:59"
+      },
+      {
+        "day": "tue",
+        "open": "07:00",
+        "close": "23:59"
+      },
+      {
+        "day": "wed",
+        "open": "07:00",
+        "close": "23:59"
+      },
+      {
+        "day": "thu",
+        "open": "07:00",
+        "close": "23:59"
+      },
+      {
+        "day": "fri",
+        "open": "07:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sat",
+        "open": "07:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sun",
+        "open": "07:00",
+        "close": "23:59"
+      }
+    ],
+    "rating": 4.0,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "hakata_amu-plaza-hakata",
+    "name": "AMU PLAZA 博多",
+    "edition_id": "fukuoka",
+    "area_id": "hakata",
+    "area": "博多",
+    "tags": [
+      "熱鬧",
+      "公園綠地",
+      "打卡"
+    ],
+    "stay_range": [
+      60,
+      120
+    ],
+    "avg_cost": 0,
+    "indoor": true,
+    "lat": 33.5898,
+    "lng": 130.4207,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "10:00",
+        "close": "21:00"
+      },
+      {
+        "day": "tue",
+        "open": "10:00",
+        "close": "21:00"
+      },
+      {
+        "day": "wed",
+        "open": "10:00",
+        "close": "21:00"
+      },
+      {
+        "day": "thu",
+        "open": "10:00",
+        "close": "21:00"
+      },
+      {
+        "day": "fri",
+        "open": "10:00",
+        "close": "21:00"
+      },
+      {
+        "day": "sat",
+        "open": "10:00",
+        "close": "21:00"
+      },
+      {
+        "day": "sun",
+        "open": "10:00",
+        "close": "21:00"
+      }
+    ],
+    "rating": 4.0,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "hakata_hakata-hankyu",
+    "name": "博多阪急",
+    "edition_id": "fukuoka",
+    "area_id": "hakata",
+    "area": "博多",
+    "tags": [
+      "熱鬧",
+      "生活感"
+    ],
+    "stay_range": [
+      60,
+      90
+    ],
+    "avg_cost": 3000,
+    "indoor": true,
+    "lat": 33.5898,
+    "lng": 130.4213,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "tue",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "wed",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "thu",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "fri",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "sat",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "sun",
+        "open": "10:00",
+        "close": "20:00"
+      }
+    ],
+    "rating": 4.1,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "hakata_3coins-hakata",
+    "name": "3COINS 博多",
+    "edition_id": "fukuoka",
+    "area_id": "hakata",
+    "area": "博多",
+    "tags": [
+      "生活感",
+      "熱鬧"
+    ],
+    "stay_range": [
+      40,
+      60
+    ],
+    "avg_cost": 0,
+    "indoor": true,
+    "lat": 33.5894,
+    "lng": 130.4211,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "tue",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "wed",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "thu",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "fri",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "sat",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "sun",
+        "open": "10:00",
+        "close": "20:00"
+      }
+    ],
+    "rating": 3.7,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "hakata_meihingai",
+    "name": "博多名產街",
+    "edition_id": "fukuoka",
+    "area_id": "hakata",
+    "area": "博多",
+    "tags": [
+      "商店街",
+      "甜點",
+      "熱鬧"
+    ],
+    "stay_range": [
+      40,
+      60
+    ],
+    "avg_cost": 0,
+    "indoor": true,
+    "lat": 33.5894,
+    "lng": 130.4202,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "09:00",
+        "close": "21:00"
+      },
+      {
+        "day": "tue",
+        "open": "09:00",
+        "close": "21:00"
+      },
+      {
+        "day": "wed",
+        "open": "09:00",
+        "close": "21:00"
+      },
+      {
+        "day": "thu",
+        "open": "09:00",
+        "close": "21:00"
+      },
+      {
+        "day": "fri",
+        "open": "09:00",
+        "close": "21:00"
+      },
+      {
+        "day": "sat",
+        "open": "09:00",
+        "close": "21:00"
+      },
+      {
+        "day": "sun",
+        "open": "09:00",
+        "close": "21:00"
+      }
+    ],
+    "rating": 4.3,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "hakata_ichibangai",
+    "name": "博多 1 番街",
+    "edition_id": "fukuoka",
+    "area_id": "hakata",
+    "area": "博多",
+    "tags": [
+      "商店街",
+      "熱鬧"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 1000,
+    "indoor": true,
+    "lat": 33.5891,
+    "lng": 130.4202,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "07:00",
+        "close": "23:00"
+      },
+      {
+        "day": "tue",
+        "open": "07:00",
+        "close": "23:00"
+      },
+      {
+        "day": "wed",
+        "open": "07:00",
+        "close": "23:00"
+      },
+      {
+        "day": "thu",
+        "open": "07:00",
+        "close": "23:00"
+      },
+      {
+        "day": "fri",
+        "open": "07:00",
+        "close": "23:00"
+      },
+      {
+        "day": "sat",
+        "open": "07:00",
+        "close": "23:00"
+      },
+      {
+        "day": "sun",
+        "open": "07:00",
+        "close": "23:00"
+      }
+    ],
+    "rating": 4.0,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "hakata_sun-plaza-chikagai",
+    "name": "Sun Plaza 地下街",
+    "edition_id": "fukuoka",
+    "area_id": "hakata",
+    "area": "博多",
+    "tags": [
+      "商店街"
+    ],
+    "stay_range": [
+      20,
+      40
+    ],
+    "avg_cost": 1000,
+    "indoor": true,
+    "lat": 33.5906,
+    "lng": 130.4187,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "11:00",
+        "close": "20:00"
+      },
+      {
+        "day": "tue",
+        "open": "11:00",
+        "close": "20:00"
+      },
+      {
+        "day": "wed",
+        "open": "11:00",
+        "close": "20:00"
+      },
+      {
+        "day": "thu",
+        "open": "11:00",
+        "close": "20:00"
+      },
+      {
+        "day": "fri",
+        "open": "11:00",
+        "close": "20:00"
+      },
+      {
+        "day": "sat",
+        "open": "11:00",
+        "close": "20:00"
+      },
+      {
+        "day": "sun",
+        "open": "11:00",
+        "close": "20:00"
+      }
+    ],
+    "rating": 3.8,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "hakata_tochoji",
+    "name": "東長寺",
+    "edition_id": "fukuoka",
+    "area_id": "hakata",
+    "area": "博多",
+    "tags": [
+      "老建築",
+      "深度",
+      "靜謐"
+    ],
+    "stay_range": [
+      20,
+      40
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 33.5888,
+    "lng": 130.414,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "09:00",
+        "close": "16:45"
+      },
+      {
+        "day": "tue",
+        "open": "09:00",
+        "close": "16:45"
+      },
+      {
+        "day": "wed",
+        "open": "09:00",
+        "close": "16:45"
+      },
+      {
+        "day": "thu",
+        "open": "09:00",
+        "close": "16:45"
+      },
+      {
+        "day": "fri",
+        "open": "09:00",
+        "close": "16:45"
+      },
+      {
+        "day": "sat",
+        "open": "09:00",
+        "close": "16:45"
+      },
+      {
+        "day": "sun",
+        "open": "09:00",
+        "close": "16:45"
+      }
+    ],
+    "rating": 4.4,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "hakata_jotenji",
+    "name": "承天寺",
+    "edition_id": "fukuoka",
+    "area_id": "hakata",
+    "area": "博多",
+    "tags": [
+      "老建築",
+      "靜謐"
+    ],
+    "stay_range": [
+      15,
+      30
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 33.5884,
+    "lng": 130.4152,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "08:30",
+        "close": "16:30"
+      },
+      {
+        "day": "tue",
+        "open": "08:30",
+        "close": "16:30"
+      },
+      {
+        "day": "wed",
+        "open": "08:30",
+        "close": "16:30"
+      },
+      {
+        "day": "thu",
+        "open": "08:30",
+        "close": "16:30"
+      },
+      {
+        "day": "fri",
+        "open": "08:30",
+        "close": "16:30"
+      },
+      {
+        "day": "sat",
+        "open": "08:30",
+        "close": "16:30"
+      },
+      {
+        "day": "sun",
+        "open": "08:30",
+        "close": "16:30"
+      }
+    ],
+    "rating": 4.2,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "hakata_sumiyoshi-jinja",
+    "name": "住吉神社",
+    "edition_id": "fukuoka",
+    "area_id": "hakata",
+    "area": "博多",
+    "tags": [
+      "神社境內",
+      "靜謐",
+      "公園綠地"
+    ],
+    "stay_range": [
+      15,
+      30
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 33.5857,
+    "lng": 130.4099,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "tue",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "wed",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "thu",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "fri",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "sat",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "sun",
+        "open": "09:00",
+        "close": "17:00"
+      }
+    ],
+    "rating": 4.3,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "hakata_rakusuien",
+    "name": "楽水園",
+    "edition_id": "fukuoka",
+    "area_id": "hakata",
+    "area": "博多",
+    "tags": [
+      "公園綠地",
+      "靜謐",
+      "老建築"
+    ],
+    "stay_range": [
+      20,
+      40
+    ],
+    "avg_cost": 100,
+    "indoor": false,
+    "lat": 33.5862,
+    "lng": 130.4103,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "wed",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "thu",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "fri",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "sat",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "sun",
+        "open": "09:00",
+        "close": "17:00"
+      }
+    ],
+    "rating": 4.0,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "hakata_nintendo-fukuoka",
+    "name": "Nintendo 福岡",
+    "edition_id": "fukuoka",
+    "area_id": "hakata",
+    "area": "博多",
+    "tags": [
+      "打卡",
+      "熱鬧"
+    ],
+    "stay_range": [
+      40,
+      90
+    ],
+    "avg_cost": 0,
+    "indoor": true,
+    "lat": 33.5903,
+    "lng": 130.4185,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "10:00",
+        "close": "20:59"
+      },
+      {
+        "day": "tue",
+        "open": "10:00",
+        "close": "20:59"
+      },
+      {
+        "day": "wed",
+        "open": "10:00",
+        "close": "20:59"
+      },
+      {
+        "day": "thu",
+        "open": "10:00",
+        "close": "20:59"
+      },
+      {
+        "day": "fri",
+        "open": "10:00",
+        "close": "20:59"
+      },
+      {
+        "day": "sat",
+        "open": "10:00",
+        "close": "20:59"
+      },
+      {
+        "day": "sun",
+        "open": "10:00",
+        "close": "20:59"
+      }
+    ],
+    "rating": 4.4,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "hakata_pokemon-center-fukuoka",
+    "name": "Pokémon Center 福岡",
+    "edition_id": "fukuoka",
+    "area_id": "hakata",
+    "area": "博多",
+    "tags": [
+      "打卡",
+      "熱鬧"
+    ],
+    "stay_range": [
+      40,
+      90
+    ],
+    "avg_cost": 0,
+    "indoor": true,
+    "lat": 33.5886,
+    "lng": 130.4197,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "10:00",
+        "close": "21:00"
+      },
+      {
+        "day": "tue",
+        "open": "10:00",
+        "close": "21:00"
+      },
+      {
+        "day": "wed",
+        "open": "10:00",
+        "close": "21:00"
+      },
+      {
+        "day": "thu",
+        "open": "10:00",
+        "close": "21:00"
+      },
+      {
+        "day": "fri",
+        "open": "10:00",
+        "close": "21:00"
+      },
+      {
+        "day": "sat",
+        "open": "10:00",
+        "close": "21:00"
+      },
+      {
+        "day": "sun",
+        "open": "10:00",
+        "close": "21:00"
+      }
+    ],
+    "rating": 4.2,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "tenjin_chuo-koen",
+    "name": "天神中央公園",
+    "edition_id": "fukuoka",
+    "area_id": "tenjin",
+    "area": "天神",
+    "tags": [
+      "公園綠地",
+      "靜謐",
+      "街角"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 33.5916,
+    "lng": 130.4029,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "tue",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "wed",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "thu",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "fri",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sat",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sun",
+        "open": "00:00",
+        "close": "23:59"
+      }
+    ],
+    "rating": 4.0,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "tenjin_kego-jinja",
+    "name": "警固神社",
+    "edition_id": "fukuoka",
+    "area_id": "tenjin",
+    "area": "天神",
+    "tags": [
+      "神社境內",
+      "靜謐",
+      "老建築"
+    ],
+    "stay_range": [
+      15,
+      30
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 33.5894,
+    "lng": 130.3978,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "06:00",
+        "close": "19:00"
+      },
+      {
+        "day": "tue",
+        "open": "06:00",
+        "close": "19:00"
+      },
+      {
+        "day": "wed",
+        "open": "06:00",
+        "close": "19:00"
+      },
+      {
+        "day": "thu",
+        "open": "06:00",
+        "close": "19:00"
+      },
+      {
+        "day": "fri",
+        "open": "06:00",
+        "close": "19:00"
+      },
+      {
+        "day": "sat",
+        "open": "06:00",
+        "close": "19:00"
+      },
+      {
+        "day": "sun",
+        "open": "06:00",
+        "close": "19:00"
+      }
+    ],
+    "rating": 4.1,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "tenjin_chikagai",
+    "name": "天神地下街",
+    "edition_id": "fukuoka",
+    "area_id": "tenjin",
+    "area": "天神",
+    "tags": [
+      "商店街",
+      "熱鬧"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 0,
+    "indoor": true,
+    "lat": 33.5905,
+    "lng": 130.4007,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "tue",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "wed",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "thu",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "fri",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "sat",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "sun",
+        "open": "10:00",
+        "close": "20:00"
+      }
+    ],
+    "rating": 4.0,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "tenjin_parco",
+    "name": "福岡 PARCO",
+    "edition_id": "fukuoka",
+    "area_id": "tenjin",
+    "area": "天神",
+    "tags": [
+      "熱鬧",
+      "打卡"
+    ],
+    "stay_range": [
+      60,
+      90
+    ],
+    "avg_cost": 0,
+    "indoor": true,
+    "lat": 33.5907,
+    "lng": 130.3996,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "tue",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "wed",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "thu",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "fri",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "sat",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "sun",
+        "open": "10:00",
+        "close": "20:00"
+      }
+    ],
+    "rating": 4.0,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "tenjin_red-brick-cultural-center",
+    "name": "福岡市赤煉瓦文化館",
+    "edition_id": "fukuoka",
+    "area_id": "tenjin",
+    "area": "天神",
+    "tags": [
+      "老建築",
+      "展覽/藝文",
+      "復古"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 0,
+    "indoor": true,
+    "lat": 33.5946,
+    "lng": 130.4034,
+    "open_hours": [
+      {
+        "day": "tue",
+        "open": "09:00",
+        "close": "22:00"
+      },
+      {
+        "day": "wed",
+        "open": "09:00",
+        "close": "22:00"
+      },
+      {
+        "day": "thu",
+        "open": "09:00",
+        "close": "22:00"
+      },
+      {
+        "day": "fri",
+        "open": "09:00",
+        "close": "22:00"
+      },
+      {
+        "day": "sat",
+        "open": "09:00",
+        "close": "22:00"
+      },
+      {
+        "day": "sun",
+        "open": "09:00",
+        "close": "22:00"
+      }
+    ],
+    "rating": 4.0,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "nakasu_yatai-street",
+    "name": "中洲屋台街",
+    "edition_id": "fukuoka",
+    "area_id": "nakasu",
+    "area": "中洲",
+    "tags": [
+      "屋台",
+      "川岸",
+      "熱鬧"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 33.5928,
+    "lng": 130.4067,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "18:00",
+        "close": "23:59"
+      },
+      {
+        "day": "tue",
+        "open": "18:00",
+        "close": "23:59"
+      },
+      {
+        "day": "wed",
+        "open": "18:00",
+        "close": "23:59"
+      },
+      {
+        "day": "thu",
+        "open": "18:00",
+        "close": "23:59"
+      },
+      {
+        "day": "fri",
+        "open": "18:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sat",
+        "open": "18:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sun",
+        "open": "18:00",
+        "close": "23:59"
+      }
+    ],
+    "rating": 4.3,
+    "best_time_window": [
+      "evening"
+    ]
+  },
+  {
+    "id": "nakasu_kamikawabata-shotengai",
+    "name": "川端通商店街",
+    "edition_id": "fukuoka",
+    "area_id": "nakasu",
+    "area": "中洲",
+    "tags": [
+      "商店街",
+      "熱鬧",
+      "復古"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 0,
+    "indoor": true,
+    "lat": 33.5926,
+    "lng": 130.409,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "09:00",
+        "close": "21:00"
+      },
+      {
+        "day": "tue",
+        "open": "09:00",
+        "close": "21:00"
+      },
+      {
+        "day": "wed",
+        "open": "09:00",
+        "close": "21:00"
+      },
+      {
+        "day": "thu",
+        "open": "09:00",
+        "close": "21:00"
+      },
+      {
+        "day": "fri",
+        "open": "09:00",
+        "close": "21:00"
+      },
+      {
+        "day": "sat",
+        "open": "09:00",
+        "close": "21:00"
+      },
+      {
+        "day": "sun",
+        "open": "09:00",
+        "close": "21:00"
+      }
+    ],
+    "rating": 4.0,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "nakasu_haruyoshi-bridge",
+    "name": "春吉橋",
+    "edition_id": "fukuoka",
+    "area_id": "nakasu",
+    "area": "中洲",
+    "tags": [
+      "川岸",
+      "街角",
+      "打卡"
+    ],
+    "stay_range": [
+      15,
+      30
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 33.5895,
+    "lng": 130.4032,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "tue",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "wed",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "thu",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "fri",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sat",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sun",
+        "open": "00:00",
+        "close": "23:59"
+      }
+    ],
+    "rating": 4.2,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "nakasu_nakagawa-riverside",
+    "name": "那珂川河畔散步道",
+    "edition_id": "fukuoka",
+    "area_id": "nakasu",
+    "area": "中洲",
+    "tags": [
+      "川岸",
+      "步道",
+      "靜謐"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 33.5905,
+    "lng": 130.404,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "tue",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "wed",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "thu",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "fri",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sat",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sun",
+        "open": "00:00",
+        "close": "23:59"
+      }
+    ],
+    "rating": 4.0,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "nakasu_kushida-jinja",
+    "name": "櫛田神社",
+    "edition_id": "fukuoka",
+    "area_id": "nakasu",
+    "area": "中洲",
+    "tags": [
+      "神社境內",
+      "老建築",
+      "深度"
+    ],
+    "stay_range": [
+      20,
+      40
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 33.5925,
+    "lng": 130.4106,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "04:00",
+        "close": "22:00"
+      },
+      {
+        "day": "tue",
+        "open": "04:00",
+        "close": "22:00"
+      },
+      {
+        "day": "wed",
+        "open": "04:00",
+        "close": "22:00"
+      },
+      {
+        "day": "thu",
+        "open": "04:00",
+        "close": "22:00"
+      },
+      {
+        "day": "fri",
+        "open": "04:00",
+        "close": "22:00"
+      },
+      {
+        "day": "sat",
+        "open": "04:00",
+        "close": "22:00"
+      },
+      {
+        "day": "sun",
+        "open": "04:00",
+        "close": "22:00"
+      }
+    ],
+    "rating": 4.4,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "fukuoka-asian-art-museum",
+    "name": "福岡亞洲美術館",
+    "edition_id": "fukuoka",
+    "area_id": "nakasu",
+    "area": "中洲",
+    "tags": [
+      "文青",
+      "展覽/藝文"
+    ],
+    "stay_range": [
+      40,
+      60
+    ],
+    "avg_cost": 200,
+    "indoor": true,
+    "lat": 33.5928,
+    "lng": 130.4067,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "09:30",
+        "close": "18:00"
+      },
+      {
+        "day": "tue",
+        "open": "09:30",
+        "close": "18:00"
+      },
+      {
+        "day": "wed",
+        "open": "09:30",
+        "close": "18:00"
+      },
+      {
+        "day": "thu",
+        "open": "09:30",
+        "close": "18:00"
+      },
+      {
+        "day": "fri",
+        "open": "09:30",
+        "close": "20:00"
+      },
+      {
+        "day": "sat",
+        "open": "09:30",
+        "close": "20:00"
+      },
+      {
+        "day": "sun",
+        "open": "09:30",
+        "close": "18:00"
+      }
+    ],
+    "rating": 4.2,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "mojiko_mojiko-station",
+    "name": "JR 門司港駅",
+    "edition_id": "fukuoka",
+    "area_id": "mojiko",
+    "area": "門司港",
+    "tags": [
+      "老建築",
+      "復古",
+      "打卡"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 0,
+    "indoor": true,
+    "lat": 33.9489,
+    "lng": 130.9633,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "tue",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "wed",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "thu",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "fri",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sat",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sun",
+        "open": "00:00",
+        "close": "23:59"
+      }
+    ],
+    "rating": 4.4,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "mojiko_kyu-mojiko-customs",
+    "name": "舊門司税関",
+    "edition_id": "fukuoka",
+    "area_id": "mojiko",
+    "area": "門司港",
+    "tags": [
+      "老建築",
+      "復古",
+      "深度"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 0,
+    "indoor": true,
+    "lat": 33.9479,
+    "lng": 130.9646,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "tue",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "wed",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "thu",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "fri",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "sat",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "sun",
+        "open": "09:00",
+        "close": "17:00"
+      }
+    ],
+    "rating": 4.0,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "mojiko_kanmon-strait",
+    "name": "関門海峽眺望",
+    "edition_id": "fukuoka",
+    "area_id": "mojiko",
+    "area": "門司港",
+    "tags": [
+      "川岸",
+      "打卡",
+      "靜謐"
+    ],
+    "stay_range": [
+      20,
+      40
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 33.952,
+    "lng": 130.9651,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "tue",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "wed",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "thu",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "fri",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sat",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sun",
+        "open": "00:00",
+        "close": "23:59"
+      }
+    ],
+    "rating": 4.3,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "itoshima_futamigaura",
+    "name": "櫻井二見浦",
+    "edition_id": "fukuoka",
+    "area_id": "itoshima",
+    "area": "糸島",
+    "tags": [
+      "川岸",
+      "打卡",
+      "靜謐"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 33.5917,
+    "lng": 130.1825,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "tue",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "wed",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "thu",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "fri",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sat",
+        "open": "00:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sun",
+        "open": "00:00",
+        "close": "23:59"
+      }
+    ],
+    "rating": 4.3,
+    "best_time_window": [
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "itoshima_sakurai-jinja",
+    "name": "櫻井神社",
+    "edition_id": "fukuoka",
+    "area_id": "itoshima",
+    "area": "糸島",
+    "tags": [
+      "神社境內",
+      "靜謐",
+      "深度"
+    ],
+    "stay_range": [
+      20,
+      40
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 33.5803,
+    "lng": 130.1818,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "tue",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "wed",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "thu",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "fri",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "sat",
+        "open": "09:00",
+        "close": "17:00"
+      },
+      {
+        "day": "sun",
+        "open": "09:00",
+        "close": "17:00"
+      }
+    ],
+    "rating": 4.1,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
   }
 ]

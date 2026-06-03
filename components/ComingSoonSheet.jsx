@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
-import { SOON_AREAS } from "@/lib/stroll/areas.js";
+import { SOON_AREAS as DEFAULT_SOON_AREAS } from "@/lib/stroll/areas.js";
 
-export default function ComingSoonSheet({ open, onClose }) {
+export default function ComingSoonSheet({ open, onClose, soonAreas }) {
+  const areas = soonAreas ?? DEFAULT_SOON_AREAS;
   useEffect(() => {
     if (!open) return;
     const handler = (e) => {
@@ -55,7 +56,7 @@ export default function ComingSoonSheet({ open, onClose }) {
         </p>
 
         <div className="flex flex-col gap-2.5 overflow-y-auto pb-1">
-          {SOON_AREAS.map((area) => (
+          {areas.map((area) => (
             <div
               key={area.id}
               className="rounded-2xl border border-[rgba(197,106,58,0.08)] bg-[var(--color-cream-card)] px-[18px] py-4 font-[family-name:var(--font-serif-tc)] text-[17px] font-semibold text-[var(--color-text)]"

@@ -1,5 +1,8 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import AreaPicker from "./AreaPicker.jsx";
+import { AREAS } from "@/lib/stroll/areas.js";
+
+const taipeiAreas = AREAS.filter((a) => a.editionId === "taipei");
 
 describe("AreaPicker", () => {
   it("invokes onChange with the area name when 大稻埕 is clicked", () => {
@@ -36,8 +39,15 @@ describe("AreaPicker", () => {
     expect(yongkang).toHaveAttribute("aria-pressed", "false");
   });
 
-  it("renders exactly 3 active area buttons plus a coming-soon footer pill", () => {
-    render(<AreaPicker value={null} onChange={() => {}} onOpenSoon={() => {}} />);
+  it("renders exactly 3 active area buttons plus a coming-soon footer pill for the taipei edition", () => {
+    render(
+      <AreaPicker
+        value={null}
+        onChange={() => {}}
+        onOpenSoon={() => {}}
+        areas={taipeiAreas}
+      />
+    );
     expect(screen.getAllByRole("button")).toHaveLength(4);
     expect(
       screen.getByRole("button", { name: /更多地點即將推出/ })

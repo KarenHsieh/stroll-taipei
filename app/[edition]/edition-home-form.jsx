@@ -141,7 +141,11 @@ function HomeForm({ edition, areas }) {
         </div>
       </main>
 
-      <ComingSoonSheet open={showSoon} onClose={() => setShowSoon(false)} />
+      <ComingSoonSheet
+        open={showSoon}
+        onClose={() => setShowSoon(false)}
+        soonAreas={areas.filter((a) => !a.active)}
+      />
     </>
   );
 }
