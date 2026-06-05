@@ -2247,7 +2247,7 @@
         "close": "23:59"
       }
     ],
-    "rating": 4.0,
+    "rating": 4,
     "best_time_window": [
       "morning",
       "afternoon",
@@ -2310,7 +2310,7 @@
         "close": "21:00"
       }
     ],
-    "rating": 4.0,
+    "rating": 4,
     "best_time_window": [
       "morning",
       "afternoon",
@@ -2557,7 +2557,7 @@
         "close": "23:00"
       }
     ],
-    "rating": 4.0,
+    "rating": 4,
     "best_time_window": [
       "morning",
       "afternoon",
@@ -2861,7 +2861,7 @@
         "close": "17:00"
       }
     ],
-    "rating": 4.0,
+    "rating": 4,
     "best_time_window": [
       "morning",
       "afternoon"
@@ -2992,11 +2992,11 @@
     ]
   },
   {
-    "id": "tenjin_chuo-koen",
+    "id": "tenjin-nakasu_chuo-koen",
     "name": "天神中央公園",
     "edition_id": "fukuoka",
-    "area_id": "tenjin",
-    "area": "天神",
+    "area_id": "tenjin-nakasu",
+    "area": "天神・中洲",
     "tags": [
       "公園綠地",
       "靜謐",
@@ -3047,80 +3047,18 @@
         "close": "23:59"
       }
     ],
-    "rating": 4.0,
+    "rating": 4,
     "best_time_window": [
       "morning",
       "afternoon"
     ]
   },
   {
-    "id": "tenjin_kego-jinja",
-    "name": "警固神社",
-    "edition_id": "fukuoka",
-    "area_id": "tenjin",
-    "area": "天神",
-    "tags": [
-      "神社境內",
-      "靜謐",
-      "老建築"
-    ],
-    "stay_range": [
-      15,
-      30
-    ],
-    "avg_cost": 0,
-    "indoor": false,
-    "lat": 33.5894,
-    "lng": 130.3978,
-    "open_hours": [
-      {
-        "day": "mon",
-        "open": "06:00",
-        "close": "19:00"
-      },
-      {
-        "day": "tue",
-        "open": "06:00",
-        "close": "19:00"
-      },
-      {
-        "day": "wed",
-        "open": "06:00",
-        "close": "19:00"
-      },
-      {
-        "day": "thu",
-        "open": "06:00",
-        "close": "19:00"
-      },
-      {
-        "day": "fri",
-        "open": "06:00",
-        "close": "19:00"
-      },
-      {
-        "day": "sat",
-        "open": "06:00",
-        "close": "19:00"
-      },
-      {
-        "day": "sun",
-        "open": "06:00",
-        "close": "19:00"
-      }
-    ],
-    "rating": 4.1,
-    "best_time_window": [
-      "morning",
-      "afternoon"
-    ]
-  },
-  {
-    "id": "tenjin_chikagai",
+    "id": "tenjin-nakasu_chikagai",
     "name": "天神地下街",
     "edition_id": "fukuoka",
-    "area_id": "tenjin",
-    "area": "天神",
+    "area_id": "tenjin-nakasu",
+    "area": "天神・中洲",
     "tags": [
       "商店街",
       "熱鬧"
@@ -3170,7 +3108,7 @@
         "close": "20:00"
       }
     ],
-    "rating": 4.0,
+    "rating": 4,
     "best_time_window": [
       "morning",
       "afternoon",
@@ -3178,11 +3116,11 @@
     ]
   },
   {
-    "id": "tenjin_parco",
+    "id": "tenjin-nakasu_parco",
     "name": "福岡 PARCO",
     "edition_id": "fukuoka",
-    "area_id": "tenjin",
-    "area": "天神",
+    "area_id": "tenjin-nakasu",
+    "area": "天神・中洲",
     "tags": [
       "熱鬧",
       "打卡"
@@ -3232,7 +3170,7 @@
         "close": "20:00"
       }
     ],
-    "rating": 4.0,
+    "rating": 4,
     "best_time_window": [
       "morning",
       "afternoon",
@@ -3240,11 +3178,11 @@
     ]
   },
   {
-    "id": "tenjin_red-brick-cultural-center",
+    "id": "tenjin-nakasu_red-brick-cultural-center",
     "name": "福岡市赤煉瓦文化館",
     "edition_id": "fukuoka",
-    "area_id": "tenjin",
-    "area": "天神",
+    "area_id": "tenjin-nakasu",
+    "area": "天神・中洲",
     "tags": [
       "老建築",
       "展覽/藝文",
@@ -3290,18 +3228,18 @@
         "close": "22:00"
       }
     ],
-    "rating": 4.0,
+    "rating": 4,
     "best_time_window": [
       "morning",
       "afternoon"
     ]
   },
   {
-    "id": "nakasu_yatai-street",
+    "id": "tenjin-nakasu_yatai-street",
     "name": "中洲屋台街",
     "edition_id": "fukuoka",
-    "area_id": "nakasu",
-    "area": "中洲",
+    "area_id": "tenjin-nakasu",
+    "area": "天神・中洲",
     "tags": [
       "屋台",
       "川岸",
@@ -3358,11 +3296,11 @@
     ]
   },
   {
-    "id": "nakasu_kamikawabata-shotengai",
+    "id": "tenjin-nakasu_kamikawabata-shotengai",
     "name": "川端通商店街",
     "edition_id": "fukuoka",
-    "area_id": "nakasu",
-    "area": "中洲",
+    "area_id": "tenjin-nakasu",
+    "area": "天神・中洲",
     "tags": [
       "商店街",
       "熱鬧",
@@ -3413,7 +3351,7 @@
         "close": "21:00"
       }
     ],
-    "rating": 4.0,
+    "rating": 4,
     "best_time_window": [
       "morning",
       "afternoon",
@@ -3421,11 +3359,11 @@
     ]
   },
   {
-    "id": "nakasu_haruyoshi-bridge",
+    "id": "tenjin-nakasu_haruyoshi-bridge",
     "name": "春吉橋",
     "edition_id": "fukuoka",
-    "area_id": "nakasu",
-    "area": "中洲",
+    "area_id": "tenjin-nakasu",
+    "area": "天神・中洲",
     "tags": [
       "川岸",
       "街角",
@@ -3484,11 +3422,11 @@
     ]
   },
   {
-    "id": "nakasu_nakagawa-riverside",
+    "id": "tenjin-nakasu_nakagawa-riverside",
     "name": "那珂川河畔散步道",
     "edition_id": "fukuoka",
-    "area_id": "nakasu",
-    "area": "中洲",
+    "area_id": "tenjin-nakasu",
+    "area": "天神・中洲",
     "tags": [
       "川岸",
       "步道",
@@ -3539,7 +3477,7 @@
         "close": "23:59"
       }
     ],
-    "rating": 4.0,
+    "rating": 4,
     "best_time_window": [
       "morning",
       "afternoon",
@@ -3547,11 +3485,11 @@
     ]
   },
   {
-    "id": "nakasu_kushida-jinja",
+    "id": "tenjin-nakasu_kushida-jinja",
     "name": "櫛田神社",
     "edition_id": "fukuoka",
-    "area_id": "nakasu",
-    "area": "中洲",
+    "area_id": "tenjin-nakasu",
+    "area": "天神・中洲",
     "tags": [
       "神社境內",
       "老建築",
@@ -3609,11 +3547,11 @@
     ]
   },
   {
-    "id": "fukuoka-asian-art-museum",
+    "id": "tenjin-nakasu_fukuoka-asian-art-museum",
     "name": "福岡亞洲美術館",
     "edition_id": "fukuoka",
-    "area_id": "nakasu",
-    "area": "中洲",
+    "area_id": "tenjin-nakasu",
+    "area": "天神・中洲",
     "tags": [
       "文青",
       "展覽/藝文"
@@ -3788,7 +3726,7 @@
         "close": "17:00"
       }
     ],
-    "rating": 4.0,
+    "rating": 4,
     "best_time_window": [
       "morning",
       "afternoon"
@@ -3976,6 +3914,186 @@
       }
     ],
     "rating": 4.1,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "tenjin-nakasu_kego-shrine",
+    "name": "警固神社",
+    "edition_id": "fukuoka",
+    "area_id": "tenjin-nakasu",
+    "area": "天神・中洲",
+    "tags": [
+      "老建築",
+      "神社境內",
+      "街角",
+      "老屋"
+    ],
+    "stay_range": [
+      10,
+      20
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 33.5877885,
+    "lng": 130.3925313,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "06:30",
+        "close": "18:00"
+      },
+      {
+        "day": "tue",
+        "open": "06:30",
+        "close": "18:00"
+      },
+      {
+        "day": "wed",
+        "open": "06:30",
+        "close": "18:00"
+      },
+      {
+        "day": "thu",
+        "open": "06:30",
+        "close": "18:00"
+      },
+      {
+        "day": "fri",
+        "open": "06:30",
+        "close": "18:00"
+      },
+      {
+        "day": "sat",
+        "open": "06:30",
+        "close": "18:00"
+      },
+      {
+        "day": "sun",
+        "open": "06:30",
+        "close": "18:00"
+      }
+    ],
+    "rating": 4.2,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "tenjin-nakasu_suikyo-tenmangu-shrine",
+    "name": "水鏡天満宮 學問之神菅原道真",
+    "edition_id": "fukuoka",
+    "area_id": "tenjin-nakasu",
+    "area": "天神・中洲",
+    "tags": [
+      "神社境內",
+      "老建築"
+    ],
+    "stay_range": [
+      15,
+      30
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 33.5926509,
+    "lng": 130.3896006,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "06:00",
+        "close": "18:00"
+      },
+      {
+        "day": "tue",
+        "open": "06:00",
+        "close": "18:00"
+      },
+      {
+        "day": "wed",
+        "open": "06:00",
+        "close": "18:00"
+      },
+      {
+        "day": "thu",
+        "open": "06:00",
+        "close": "18:00"
+      },
+      {
+        "day": "fri",
+        "open": "06:00",
+        "close": "18:00"
+      },
+      {
+        "day": "sat",
+        "open": "06:00",
+        "close": "18:00"
+      },
+      {
+        "day": "sun",
+        "open": "06:00",
+        "close": "18:00"
+      }
+    ],
+    "rating": 3.7,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "tenjin-nakasu_fukuoka-prefectural-museum-of-art",
+    "name": "福岡縣立美術館",
+    "edition_id": "fukuoka",
+    "area_id": "tenjin-nakasu",
+    "area": "天神・中洲",
+    "tags": [
+      "文青",
+      "深度"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 1600,
+    "indoor": true,
+    "lat": 33.591768,
+    "lng": 130.3856561,
+    "open_hours": [
+      {
+        "day": "tue",
+        "open": "09:30",
+        "close": "18:00"
+      },
+      {
+        "day": "wed",
+        "open": "09:30",
+        "close": "18:00"
+      },
+      {
+        "day": "thu",
+        "open": "09:30",
+        "close": "18:00"
+      },
+      {
+        "day": "fri",
+        "open": "09:30",
+        "close": "18:00"
+      },
+      {
+        "day": "sat",
+        "open": "09:30",
+        "close": "18:00"
+      },
+      {
+        "day": "sun",
+        "open": "09:30",
+        "close": "18:00"
+      }
+    ],
+    "rating": 3.9,
     "best_time_window": [
       "morning",
       "afternoon"

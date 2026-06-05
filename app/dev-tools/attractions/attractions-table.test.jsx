@@ -1,6 +1,17 @@
 import { render, screen, fireEvent, within } from "@testing-library/react";
 import AttractionsTable from "./attractions-table.jsx";
 
+let mockSearchParams = new URLSearchParams();
+jest.mock("next/navigation", () => ({
+  usePathname: () => "/dev-tools/attractions",
+  useSearchParams: () => mockSearchParams,
+}));
+
+beforeEach(() => {
+  mockSearchParams = new URLSearchParams();
+  window.history.replaceState(null, "", "/dev-tools/attractions");
+});
+
 const editions = [
   {
     id: "taipei",
@@ -25,7 +36,7 @@ const editions = [
 const areas = [
   { editionId: "taipei", id: "dadaocheng", name: "大稻埕", en: "Dadaocheng", active: true },
   { editionId: "taipei", id: "yongkang", name: "永康街", en: "Yongkang", active: true },
-  { editionId: "fukuoka", id: "tenjin", name: "天神", en: "Tenjin", active: true },
+  { editionId: "fukuoka", id: "tenjin-nakasu", name: "天神・中洲", en: "Tenjin-Nakasu", active: true },
   { editionId: "fukuoka", id: "hakata", name: "博多", en: "Hakata", active: true },
 ];
 
@@ -52,7 +63,7 @@ function makeAttraction(overrides) {
 const attractions = [
   makeAttraction({ id: "dadaocheng_a", name: "爐鍋咖啡", edition_id: "taipei", area_id: "dadaocheng", area: "大稻埕" }),
   makeAttraction({ id: "yongkang_b", name: "永康牛肉麵", edition_id: "taipei", area_id: "yongkang", area: "永康街" }),
-  makeAttraction({ id: "tenjin_c", name: "Nintendo 福岡", edition_id: "fukuoka", area_id: "tenjin", area: "天神" }),
+  makeAttraction({ id: "tenjin-nakasu_c", name: "Nintendo 福岡", edition_id: "fukuoka", area_id: "tenjin-nakasu", area: "天神・中洲" }),
   makeAttraction({ id: "hakata_d", name: "Pokémon Center 福岡", edition_id: "fukuoka", area_id: "hakata", area: "博多" }),
   makeAttraction({ id: "hakata_e", name: "櫛田神社", edition_id: "fukuoka", area_id: "hakata", area: "博多" }),
 ];
@@ -112,5 +123,52 @@ describe("AttractionsTable — list + filter + search", () => {
     render(<AttractionsTable attractions={attractions} editions={editions} areas={areas} />);
     fireEvent.change(screen.getByLabelText(/edition/i), { target: { value: "fukuoka" } });
     expect(attractions).toEqual(original);
+  });
+});
+
+describe("AttractionsTable — URL query persistence", () => {
+  it("restores edition + area from ?edition=&area= on mount", () => {
+    mockSearchParams = new URLSearchParams("edition=fukuoka&area=hakata");
+    render(<AttractionsTable attractions={attractions} editions={editions} areas={areas} />);
+    expect(screen.getByLabelText(/edition/i)).toHaveValue("fukuoka");
+    expect(screen.getByLabelText(/area/i)).toHaveValue("hakata");
+    const rows = getDataRows();
+    expect(rows).toHaveLength(2);
+    expect(rows.every((r) => r.dataset.areaId === "hakata")).toBe(true);
+  });
+
+  it("restores only edition when area query is absent", () => {
+    mockSearchParams = new URLSearchParams("edition=fukuoka");
+    render(<AttractionsTable attractions={attractions} editions={editions} areas={areas} />);
+    expect(screen.getByLabelText(/edition/i)).toHaveValue("fukuoka");
+    expect(screen.getByLabelText(/area/i)).toHaveValue("__all__");
+  });
+
+  it("ignores an unknown edition value in the URL", () => {
+    mockSearchParams = new URLSearchParams("edition=osaka");
+    render(<AttractionsTable attractions={attractions} editions={editions} areas={areas} />);
+    expect(screen.getByLabelText(/edition/i)).toHaveValue("__all__");
+  });
+
+  it("ignores an area that does not belong to the URL edition", () => {
+    mockSearchParams = new URLSearchParams("edition=fukuoka&area=yongkang");
+    render(<AttractionsTable attractions={attractions} editions={editions} areas={areas} />);
+    expect(screen.getByLabelText(/edition/i)).toHaveValue("fukuoka");
+    expect(screen.getByLabelText(/area/i)).toHaveValue("__all__");
+  });
+
+  it("writes edition + area into the URL when filters change", () => {
+    render(<AttractionsTable attractions={attractions} editions={editions} areas={areas} />);
+    fireEvent.change(screen.getByLabelText(/edition/i), { target: { value: "fukuoka" } });
+    expect(window.location.search).toBe("?edition=fukuoka");
+    fireEvent.change(screen.getByLabelText(/area/i), { target: { value: "hakata" } });
+    expect(window.location.search).toBe("?edition=fukuoka&area=hakata");
+  });
+
+  it("clears the URL when filters are reset to 全部", () => {
+    render(<AttractionsTable attractions={attractions} editions={editions} areas={areas} />);
+    fireEvent.change(screen.getByLabelText(/edition/i), { target: { value: "fukuoka" } });
+    fireEvent.change(screen.getByLabelText(/edition/i), { target: { value: "__all__" } });
+    expect(window.location.search).toBe("");
   });
 });
