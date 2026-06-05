@@ -1,15 +1,36 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
 import Link from "next/link";
 
 const ALL = "__all__";
 
 export default function AttractionsTable({ attractions, editions, areas }) {
-  const [editionFilter, setEditionFilter] = useState(ALL);
-  const [areaFilter, setAreaFilter] = useState(ALL);
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const [editionFilter, setEditionFilter] = useState(() => {
+    const v = searchParams.get("edition");
+    return v && editions.some((e) => e.id === v) ? v : ALL;
+  });
+  const [areaFilter, setAreaFilter] = useState(() => {
+    const ed = searchParams.get("edition");
+    const v = searchParams.get("area");
+    if (!ed || !v) return ALL;
+    return areas.some((a) => a.editionId === ed && a.id === v) ? v : ALL;
+  });
   const [nameSearch, setNameSearch] = useState("");
   const [expandedId, setExpandedId] = useState(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (editionFilter !== ALL) params.set("edition", editionFilter);
+    if (areaFilter !== ALL) params.set("area", areaFilter);
+    const qs = params.toString();
+    const url = qs ? `${pathname}?${qs}` : pathname;
+    window.history.replaceState(null, "", url);
+  }, [editionFilter, areaFilter, pathname]);
 
   const areasForEdition = useMemo(() => {
     if (editionFilter === ALL) return [];

@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { slugifyName } from "@/lib/dev-tools/slugify.js";
+import { slugifyName, diagnoseSlug } from "@/lib/dev-tools/slugify.js";
 import { isInsideEdition } from "@/lib/stroll/editions.js";
 import { getTagPool } from "@/lib/tags/index.js";
 
@@ -62,6 +62,10 @@ export default function AttractionForm({ editions, areas, existingIds }) {
   const slug = manualSlug.trim() || autoSlug;
   const id = areaId && slug ? `${areaId}_${slug}` : "";
   const idCollision = id && existingIds.includes(id);
+  const slugDiagnosis = useMemo(
+    () => diagnoseSlug(manualSlug.trim()),
+    [manualSlug]
+  );
 
   const coordStatus = useMemo(() => {
     if (!edition || lat === "" || lng === "") return "empty";
@@ -146,7 +150,11 @@ export default function AttractionForm({ editions, areas, existingIds }) {
         });
         return;
       }
-      router.push("/dev-tools/attractions");
+      const params = new URLSearchParams();
+      if (editionId) params.set("edition", editionId);
+      if (areaId) params.set("area", areaId);
+      const qs = params.toString();
+      router.push(qs ? `/dev-tools/attractions?${qs}` : "/dev-tools/attractions");
     } catch (err) {
       setSubmitState({ status: "error", errors: [err.message ?? "未知錯誤"] });
     }
@@ -221,6 +229,9 @@ export default function AttractionForm({ editions, areas, existingIds }) {
               placeholder={autoSlug || "請輸入羅馬字 slug"}
               className={`${inputClass} font-mono`}
             />
+            <p className="mt-1 text-xs text-[var(--color-text-mid)]">
+              格式:小寫字母 / 數字 / 連字號 -,例 <span className="font-mono">kego-shrine</span>
+            </p>
           </Field>
           {autoSlug === "" && manualSlug === "" && name !== "" && (
             <p
@@ -229,6 +240,33 @@ export default function AttractionForm({ editions, areas, existingIds }) {
             >
               name 沒有 ASCII / 數字,自動 slug 為空。請在上方 manual slug 欄位填羅馬字 slug。
             </p>
+          )}
+          {slugDiagnosis && (
+            <div
+              data-testid="slug-format-warning"
+              className="text-xs text-[var(--color-warning,#b85a22)]"
+            >
+              <p>manual slug 格式不對:{slugDiagnosis.issues.join("、")}</p>
+              {slugDiagnosis.suggestion && (
+                <p className="mt-1 text-[var(--color-text-mid)]">
+                  建議改成{" "}
+                  <span
+                    data-testid="slug-suggestion"
+                    className="font-mono text-[var(--color-text)]"
+                  >
+                    {slugDiagnosis.suggestion}
+                  </span>
+                  <button
+                    type="button"
+                    data-testid="slug-apply-suggestion"
+                    onClick={() => setManualSlug(slugDiagnosis.suggestion)}
+                    className="ml-2 underline"
+                  >
+                    套用建議
+                  </button>
+                </p>
+              )}
+            </div>
           )}
           <p className="text-xs text-[var(--color-text-mid)]">
             id 預覽:
