@@ -45,6 +45,7 @@ export default function RecalibrateButton({
         startAt: now,
         durationMinutes: remaining,
         moods: originalRequest.moods,
+        activities: originalRequest.activities,
         maxWalkMinutes: originalRequest.maxWalkMinutes,
       },
       newPool

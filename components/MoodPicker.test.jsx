@@ -9,6 +9,24 @@ describe("MoodPicker", () => {
     expect(labels).toEqual(TAG_CATEGORIES.mood);
   });
 
+  it("with editionId='taipei', shows only base moods (no fukuoka-specific moods)", () => {
+    render(<MoodPicker value={[]} onChange={() => {}} editionId="taipei" />);
+    const labels = screen.getAllByRole("button").map((b) => b.textContent);
+    expect(labels).not.toContain("流水聲");
+    expect(labels).not.toContain("傳統");
+    expect(labels).toContain("文青");
+    expect(labels).toContain("靜謐");
+  });
+
+  it("with editionId='fukuoka', shows base moods plus 流水聲 / 傳統", () => {
+    render(<MoodPicker value={[]} onChange={() => {}} editionId="fukuoka" />);
+    const labels = screen.getAllByRole("button").map((b) => b.textContent);
+    expect(labels).toContain("流水聲");
+    expect(labels).toContain("傳統");
+    expect(labels).toContain("文青");
+    expect(labels).toContain("靜謐");
+  });
+
   it("toggles a mood when clicked twice via successive onChange calls", () => {
     const states = [[]];
     const onChange = jest.fn((next) => states.push(next));

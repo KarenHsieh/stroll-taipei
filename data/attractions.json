@@ -243,7 +243,7 @@
     "area_id": "dadaocheng",
     "area": "大稻埕",
     "tags": [
-      "河岸",
+      "水岸",
       "靜謐",
       "打卡"
     ],
@@ -1725,7 +1725,7 @@
     "area": "圓山",
     "tags": [
       "公園綠地",
-      "河岸",
+      "水岸",
       "閒晃"
     ],
     "stay_range": [
@@ -2200,7 +2200,7 @@
     "area": "博多",
     "tags": [
       "熱鬧",
-      "小吃"
+      "購物"
     ],
     "stay_range": [
       60,
@@ -2262,8 +2262,7 @@
     "area": "博多",
     "tags": [
       "熱鬧",
-      "公園綠地",
-      "打卡"
+      "購物"
     ],
     "stay_range": [
       60,
@@ -2325,7 +2324,7 @@
     "area": "博多",
     "tags": [
       "熱鬧",
-      "生活感"
+      "購物"
     ],
     "stay_range": [
       60,
@@ -2385,8 +2384,8 @@
     "area_id": "hakata",
     "area": "博多",
     "tags": [
-      "生活感",
-      "熱鬧"
+      "熱鬧",
+      "選物店"
     ],
     "stay_range": [
       40,
@@ -2447,9 +2446,9 @@
     "area_id": "hakata",
     "area": "博多",
     "tags": [
-      "商店街",
-      "甜點",
-      "熱鬧"
+      "熱鬧",
+      "購物",
+      "甜點"
     ],
     "stay_range": [
       40,
@@ -2509,8 +2508,8 @@
     "area_id": "hakata",
     "area": "博多",
     "tags": [
-      "商店街",
-      "熱鬧"
+      "熱鬧",
+      "商店街"
     ],
     "stay_range": [
       30,
@@ -2571,7 +2570,9 @@
     "area_id": "hakata",
     "area": "博多",
     "tags": [
-      "商店街"
+      "熱鬧",
+      "商店街",
+      "室內"
     ],
     "stay_range": [
       20,
@@ -2633,8 +2634,9 @@
     "area": "博多",
     "tags": [
       "老建築",
-      "深度",
-      "靜謐"
+      "靜謐",
+      "傳統",
+      "街角"
     ],
     "stay_range": [
       20,
@@ -2695,7 +2697,9 @@
     "area": "博多",
     "tags": [
       "老建築",
-      "靜謐"
+      "靜謐",
+      "傳統",
+      "街角"
     ],
     "stay_range": [
       15,
@@ -2755,9 +2759,10 @@
     "area_id": "hakata",
     "area": "博多",
     "tags": [
-      "神社境內",
+      "老建築",
       "靜謐",
-      "公園綠地"
+      "傳統",
+      "街角"
     ],
     "stay_range": [
       15,
@@ -2817,9 +2822,9 @@
     "area_id": "hakata",
     "area": "博多",
     "tags": [
-      "公園綠地",
       "靜謐",
-      "老建築"
+      "老建築",
+      "街角"
     ],
     "stay_range": [
       20,
@@ -2874,8 +2879,8 @@
     "area_id": "hakata",
     "area": "博多",
     "tags": [
-      "打卡",
-      "熱鬧"
+      "熱鬧",
+      "打卡"
     ],
     "stay_range": [
       40,
@@ -2936,8 +2941,8 @@
     "area_id": "hakata",
     "area": "博多",
     "tags": [
-      "打卡",
-      "熱鬧"
+      "熱鬧",
+      "打卡"
     ],
     "stay_range": [
       40,
@@ -3060,8 +3065,8 @@
     "area_id": "tenjin-nakasu",
     "area": "天神・中洲",
     "tags": [
-      "商店街",
-      "熱鬧"
+      "熱鬧",
+      "購物"
     ],
     "stay_range": [
       30,
@@ -3123,7 +3128,7 @@
     "area": "天神・中洲",
     "tags": [
       "熱鬧",
-      "打卡"
+      "購物"
     ],
     "stay_range": [
       60,
@@ -3185,8 +3190,10 @@
     "area": "天神・中洲",
     "tags": [
       "老建築",
-      "展覽/藝文",
-      "復古"
+      "靜謐",
+      "文青",
+      "打卡",
+      "室內"
     ],
     "stay_range": [
       30,
@@ -3235,15 +3242,16 @@
     ]
   },
   {
-    "id": "tenjin-nakasu_yatai-street",
+    "id": "tenjin-nakasu_nakasu-yatai-street",
     "name": "中洲屋台街",
     "edition_id": "fukuoka",
     "area_id": "tenjin-nakasu",
     "area": "天神・中洲",
     "tags": [
+      "熱鬧",
+      "生活感",
       "屋台",
-      "川岸",
-      "熱鬧"
+      "小吃"
     ],
     "stay_range": [
       30,
@@ -3302,9 +3310,9 @@
     "area_id": "tenjin-nakasu",
     "area": "天神・中洲",
     "tags": [
-      "商店街",
       "熱鬧",
-      "復古"
+      "購物",
+      "商店街"
     ],
     "stay_range": [
       30,
@@ -3365,9 +3373,8 @@
     "area_id": "tenjin-nakasu",
     "area": "天神・中洲",
     "tags": [
-      "川岸",
-      "街角",
-      "打卡"
+      "水岸",
+      "街角"
     ],
     "stay_range": [
       15,
@@ -3428,9 +3435,9 @@
     "area_id": "tenjin-nakasu",
     "area": "天神・中洲",
     "tags": [
-      "川岸",
-      "步道",
-      "靜謐"
+      "靜謐",
+      "水岸",
+      "步道"
     ],
     "stay_range": [
       30,
@@ -3491,9 +3498,10 @@
     "area_id": "tenjin-nakasu",
     "area": "天神・中洲",
     "tags": [
-      "神社境內",
       "老建築",
-      "深度"
+      "靜謐",
+      "傳統",
+      "街角"
     ],
     "stay_range": [
       20,
@@ -3553,11 +3561,12 @@
     "area_id": "tenjin-nakasu",
     "area": "天神・中洲",
     "tags": [
+      "靜謐",
       "文青",
       "展覽/藝文"
     ],
     "stay_range": [
-      40,
+      30,
       60
     ],
     "avg_cost": 200,
@@ -3739,7 +3748,7 @@
     "area_id": "mojiko",
     "area": "門司港",
     "tags": [
-      "川岸",
+      "水岸",
       "打卡",
       "靜謐"
     ],
@@ -3802,7 +3811,7 @@
     "area_id": "itoshima",
     "area": "糸島",
     "tags": [
-      "川岸",
+      "水岸",
       "打卡",
       "靜謐"
     ],
@@ -3864,7 +3873,7 @@
     "area_id": "itoshima",
     "area": "糸島",
     "tags": [
-      "神社境內",
+      "傳統",
       "靜謐",
       "深度"
     ],
@@ -3927,9 +3936,8 @@
     "area": "天神・中洲",
     "tags": [
       "老建築",
-      "神社境內",
-      "街角",
-      "老屋"
+      "傳統",
+      "街角"
     ],
     "stay_range": [
       10,
@@ -3989,7 +3997,7 @@
     "area_id": "tenjin-nakasu",
     "area": "天神・中洲",
     "tags": [
-      "神社境內",
+      "傳統",
       "老建築"
     ],
     "stay_range": [
@@ -4094,6 +4102,508 @@
       }
     ],
     "rating": 3.9,
+    "best_time_window": [
+      "morning",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "tenjin-nakasu_the-full-full",
+    "name": "The Full Full 天神",
+    "edition_id": "fukuoka",
+    "area_id": "tenjin-nakasu",
+    "area": "天神・中洲",
+    "tags": [
+      "甜點",
+      "咖啡廳",
+      "熱鬧",
+      "生活感",
+      "打卡"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 33.5922368,
+    "lng": 130.3935171,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "wed",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "thu",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "fri",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "sat",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "sun",
+        "open": "10:00",
+        "close": "20:00"
+      }
+    ],
+    "rating": 4.5,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "tenjin-nakasu_boulange",
+    "name": "BOUL'ANGE 天神地下街店",
+    "edition_id": "fukuoka",
+    "area_id": "tenjin-nakasu",
+    "area": "天神・中洲",
+    "tags": [
+      "甜點",
+      "生活感",
+      "熱鬧"
+    ],
+    "stay_range": [
+      15,
+      30
+    ],
+    "avg_cost": 0,
+    "indoor": true,
+    "lat": 33.5883023,
+    "lng": 130.4000568,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "08:30",
+        "close": "20:00"
+      },
+      {
+        "day": "tue",
+        "open": "08:30",
+        "close": "20:00"
+      },
+      {
+        "day": "wed",
+        "open": "08:30",
+        "close": "20:00"
+      },
+      {
+        "day": "thu",
+        "open": "08:30",
+        "close": "20:00"
+      },
+      {
+        "day": "fri",
+        "open": "08:30",
+        "close": "20:00"
+      },
+      {
+        "day": "sat",
+        "open": "08:30",
+        "close": "20:00"
+      },
+      {
+        "day": "sun",
+        "open": "08:30",
+        "close": "20:00"
+      }
+    ],
+    "rating": 4.1,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "tenjin-nakasu_tenjin-yatai-street",
+    "name": "天神屋台街",
+    "edition_id": "fukuoka",
+    "area_id": "tenjin-nakasu",
+    "area": "天神・中洲",
+    "tags": [
+      "熱鬧",
+      "生活感",
+      "屋台",
+      "小吃"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 33.5882425,
+    "lng": 130.4023182,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "18:00",
+        "close": "23:59"
+      },
+      {
+        "day": "tue",
+        "open": "18:00",
+        "close": "23:59"
+      },
+      {
+        "day": "wed",
+        "open": "18:00",
+        "close": "23:59"
+      },
+      {
+        "day": "thu",
+        "open": "18:00",
+        "close": "23:59"
+      },
+      {
+        "day": "fri",
+        "open": "18:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sat",
+        "open": "18:00",
+        "close": "23:59"
+      },
+      {
+        "day": "sun",
+        "open": "18:00",
+        "close": "23:59"
+      }
+    ],
+    "rating": 3.9,
+    "best_time_window": [
+      "evening"
+    ]
+  },
+  {
+    "id": "tenjin-nakasu_tenjin-gashacoco",
+    "name": "gashacoco 索拉利亞舞臺 天神(扭蛋專門店)",
+    "edition_id": "fukuoka",
+    "area_id": "tenjin-nakasu",
+    "area": "天神・中洲",
+    "tags": [
+      "購物",
+      "熱鬧"
+    ],
+    "stay_range": [
+      15,
+      30
+    ],
+    "avg_cost": 0,
+    "indoor": true,
+    "lat": 33.5901511,
+    "lng": 130.3988514,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "10:00",
+        "close": "20:30"
+      },
+      {
+        "day": "tue",
+        "open": "10:00",
+        "close": "20:30"
+      },
+      {
+        "day": "wed",
+        "open": "10:00",
+        "close": "20:30"
+      },
+      {
+        "day": "thu",
+        "open": "10:00",
+        "close": "20:30"
+      },
+      {
+        "day": "fri",
+        "open": "10:00",
+        "close": "20:30"
+      },
+      {
+        "day": "sat",
+        "open": "10:00",
+        "close": "20:30"
+      },
+      {
+        "day": "sun",
+        "open": "10:00",
+        "close": "20:30"
+      }
+    ],
+    "rating": 4,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "tenjin-nakasu_3coins-hakata",
+    "name": "3COINS＋plus 天神店",
+    "edition_id": "fukuoka",
+    "area_id": "tenjin-nakasu",
+    "area": "天神・中洲",
+    "tags": [
+      "熱鬧",
+      "選物店"
+    ],
+    "stay_range": [
+      40,
+      60
+    ],
+    "avg_cost": 0,
+    "indoor": true,
+    "lat": 33.5923942,
+    "lng": 130.3983278,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "10:00",
+        "close": "21:00"
+      },
+      {
+        "day": "tue",
+        "open": "10:00",
+        "close": "21:00"
+      },
+      {
+        "day": "wed",
+        "open": "10:00",
+        "close": "21:00"
+      },
+      {
+        "day": "thu",
+        "open": "10:00",
+        "close": "21:00"
+      },
+      {
+        "day": "fri",
+        "open": "10:00",
+        "close": "21:00"
+      },
+      {
+        "day": "sat",
+        "open": "10:00",
+        "close": "21:00"
+      },
+      {
+        "day": "sun",
+        "open": "10:00",
+        "close": "21:00"
+      }
+    ],
+    "rating": 3.9,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "tenjin-nakasu_human-made",
+    "name": "HUMAN MADE",
+    "edition_id": "fukuoka",
+    "area_id": "tenjin-nakasu",
+    "area": "天神・中洲",
+    "tags": [
+      "購物",
+      "熱鬧"
+    ],
+    "stay_range": [
+      15,
+      30
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 33.5878427,
+    "lng": 130.3932176,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "tue",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "wed",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "thu",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "fri",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "sat",
+        "open": "11:00",
+        "close": "19:00"
+      },
+      {
+        "day": "sun",
+        "open": "11:00",
+        "close": "19:00"
+      }
+    ],
+    "rating": 4.2,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "tenjin-nakasu_tenroin-shoten-fukuoka",
+    "name": "天狼院書店",
+    "edition_id": "fukuoka",
+    "area_id": "tenjin-nakasu",
+    "area": "天神・中洲",
+    "tags": [
+      "靜謐",
+      "文青",
+      "咖啡廳",
+      "獨立書店"
+    ],
+    "stay_range": [
+      30,
+      60
+    ],
+    "avg_cost": 0,
+    "indoor": true,
+    "lat": 33.5887772,
+    "lng": 130.3973163,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "tue",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "wed",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "thu",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "fri",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "sat",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "sun",
+        "open": "10:00",
+        "close": "20:00"
+      }
+    ],
+    "rating": 4.6,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
+  },
+  {
+    "id": "tenjin-nakasu_yamabikoya",
+    "name": "山響屋",
+    "edition_id": "fukuoka",
+    "area_id": "tenjin-nakasu",
+    "area": "天神・中洲",
+    "tags": [
+      "生活感",
+      "職人",
+      "傳統",
+      "靜謐",
+      "熱鬧",
+      "購物",
+      "巷弄",
+      "深度"
+    ],
+    "stay_range": [
+      15,
+      30
+    ],
+    "avg_cost": 0,
+    "indoor": true,
+    "lat": 33.5864791,
+    "lng": 130.3916281,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "11:00",
+        "close": "18:00"
+      },
+      {
+        "day": "tue",
+        "open": "11:00",
+        "close": "18:00"
+      },
+      {
+        "day": "wed",
+        "open": "11:00",
+        "close": "18:00"
+      },
+      {
+        "day": "thu",
+        "open": "11:00",
+        "close": "18:00"
+      },
+      {
+        "day": "fri",
+        "open": "11:00",
+        "close": "18:00"
+      },
+      {
+        "day": "sat",
+        "open": "11:00",
+        "close": "18:00"
+      },
+      {
+        "day": "sun",
+        "open": "11:00",
+        "close": "18:00"
+      }
+    ],
+    "rating": 4.7,
     "best_time_window": [
       "morning",
       "afternoon"

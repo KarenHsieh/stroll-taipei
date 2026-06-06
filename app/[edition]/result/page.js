@@ -82,6 +82,7 @@ export default async function EditionResultPage({ params, searchParams }) {
       startAt,
       durationMinutes: decoded.duration * 60,
       moods: decoded.moods,
+      activities: decoded.activities,
       maxWalkMinutes: edition.maxWalkMinutes,
     },
     attractions
@@ -117,6 +118,7 @@ export default async function EditionResultPage({ params, searchParams }) {
     startAt,
     durationMinutes: decoded.duration * 60,
     moods: decoded.moods,
+    activities: decoded.activities,
     currency: edition.currency,
     maxWalkMinutes: edition.maxWalkMinutes,
     pool: attractions,

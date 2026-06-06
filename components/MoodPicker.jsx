@@ -1,6 +1,7 @@
 "use client";
 
 import { TAG_CATEGORIES } from "@/lib/attractions/tag-pool.js";
+import { getTagPool } from "@/lib/tags/index.js";
 
 const MOOD_DOT = {
   文青: "#C56A3A",
@@ -10,10 +11,14 @@ const MOOD_DOT = {
   熱鬧: "#D08A4A",
   生活感: "#8FA383",
   老建築: "#A37550",
+  流水聲: "#6F90A6",
+  夜晚熱鬧: "#7A5A8A",
+  傳統: "#A85A3F",
 };
 
-export default function MoodPicker({ value, onChange }) {
-  const moods = TAG_CATEGORIES.mood;
+export default function MoodPicker({ value, onChange, editionId }) {
+  const pool = editionId ? getTagPool(editionId) : null;
+  const moods = pool?.mood ?? TAG_CATEGORIES.mood;
 
   const toggle = (mood) => {
     if (value.includes(mood)) {

@@ -296,43 +296,64 @@ export default function AttractionForm({ editions, areas, existingIds }) {
         )}
         {pool && (
           <div className="flex flex-col gap-3">
-            {["flow", "activity", "mood", "special"].map((cat) => (
-              <div key={cat}>
-                <div className="mb-1 text-xs uppercase tracking-wide text-[var(--color-text-mid)]">
-                  {cat}
-                </div>
-                <div className="flex flex-wrap gap-1.5">
-                  {pool[cat].map((tag) => {
-                    const checked = selectedTags.has(tag);
-                    const inputId = `tag-${cat}-${tag}`;
-                    return (
-                      <span key={tag} className="contents">
-                        <input
-                          id={inputId}
-                          aria-label={tag}
-                          type="checkbox"
-                          checked={checked}
-                          onChange={() =>
-                            setSelectedTags((s) => toggleSet(s, tag))
-                          }
-                          className="sr-only"
-                        />
-                        <label
-                          htmlFor={inputId}
-                          className={`cursor-pointer rounded-full border px-2.5 py-1 text-sm ${
-                            checked
-                              ? "border-transparent bg-[var(--color-terracotta)] text-[var(--color-cream-card)]"
-                              : "border-[rgba(120,90,60,0.2)] bg-white text-[var(--color-text)]"
-                          }`}
-                        >
-                          {tag}
-                        </label>
+            {["flow", "activity", "mood", "special"].map((cat) => {
+              const isMoodCat = cat === "mood";
+              return (
+                <div
+                  key={cat}
+                  data-testid={`tag-category-${cat}`}
+                  className={isMoodCat ? "" : "opacity-70"}
+                >
+                  <div
+                    className={`mb-1 flex items-center gap-2 text-xs uppercase tracking-wide ${
+                      isMoodCat
+                        ? "font-semibold text-[var(--color-text)]"
+                        : "text-[var(--color-text-mid)]"
+                    }`}
+                  >
+                    <span>{cat}</span>
+                    {isMoodCat && (
+                      <span
+                        data-testid="mood-search-badge"
+                        className="rounded-full bg-[var(--color-terracotta)] px-1.5 py-0.5 text-[10px] font-medium normal-case tracking-normal text-[var(--color-cream-card)]"
+                      >
+                        搜尋會用到
                       </span>
-                    );
-                  })}
+                    )}
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {pool[cat].map((tag) => {
+                      const checked = selectedTags.has(tag);
+                      const inputId = `tag-${cat}-${tag}`;
+                      return (
+                        <span key={tag} className="contents">
+                          <input
+                            id={inputId}
+                            aria-label={tag}
+                            type="checkbox"
+                            checked={checked}
+                            onChange={() =>
+                              setSelectedTags((s) => toggleSet(s, tag))
+                            }
+                            className="sr-only"
+                          />
+                          <label
+                            htmlFor={inputId}
+                            className={`cursor-pointer rounded-full border px-2.5 py-1 text-sm ${
+                              checked
+                                ? "border-transparent bg-[var(--color-terracotta)] text-[var(--color-cream-card)]"
+                                : "border-[rgba(120,90,60,0.2)] bg-white text-[var(--color-text)]"
+                            }`}
+                          >
+                            {tag}
+                          </label>
+                        </span>
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </Section>

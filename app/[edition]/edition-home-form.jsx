@@ -6,6 +6,7 @@ import AreaPicker from "@/components/AreaPicker.jsx";
 import TimePicker from "@/components/TimePicker.jsx";
 import DurationPicker from "@/components/DurationPicker.jsx";
 import MoodPicker from "@/components/MoodPicker.jsx";
+import ActivityPicker from "@/components/ActivityPicker.jsx";
 import SubmitButton from "@/components/SubmitButton.jsx";
 import SectionCard from "@/components/SectionCard.jsx";
 import ComingSoonSheet from "@/components/ComingSoonSheet.jsx";
@@ -33,6 +34,7 @@ function HomeForm({ edition, areas }) {
       start: decoded.start,
       duration: decoded.duration,
       moods: decoded.moods,
+      activities: decoded.activities,
     };
   });
   const [showSoon, setShowSoon] = useState(false);
@@ -121,7 +123,26 @@ function HomeForm({ edition, areas }) {
               title="想要的氛圍"
               hint={`可複選 · ${state.moods.length} 個`}
             >
-              <MoodPicker value={state.moods} onChange={update("moods")} />
+              <MoodPicker
+                value={state.moods}
+                onChange={update("moods")}
+                editionId={edition.id}
+              />
+            </SectionCard>
+
+            <SectionCard
+              title="想做什麼"
+              hint={
+                state.activities.length > 0
+                  ? `可複選 · 加分用 · ${state.activities.length} 個`
+                  : "可複選 · 不選也 OK · 加分用"
+              }
+            >
+              <ActivityPicker
+                value={state.activities}
+                onChange={update("activities")}
+                editionId={edition.id}
+              />
             </SectionCard>
           </div>
         </div>

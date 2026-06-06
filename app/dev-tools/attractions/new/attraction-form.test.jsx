@@ -74,6 +74,27 @@ describe("AttractionForm — schema-aware new-attraction form", () => {
     expect(screen.queryByLabelText(/^老字號$/)).not.toBeInTheDocument();
   });
 
+  it("marks the mood category with a 「搜尋會用到」 badge so the editor knows which tags drive search", () => {
+    setup();
+    fireEvent.change(screen.getByLabelText(/edition/i), { target: { value: "fukuoka" } });
+    fireEvent.change(screen.getByLabelText(/area_id/i), { target: { value: "tenjin-nakasu" } });
+    const badge = screen.getByTestId("mood-search-badge");
+    expect(badge).toHaveTextContent("搜尋會用到");
+    // the badge sits inside the mood category row, not in flow / activity / special
+    expect(screen.getByTestId("tag-category-mood")).toContainElement(badge);
+    expect(screen.getByTestId("tag-category-flow")).not.toContainElement(badge);
+  });
+
+  it("visually de-emphasizes non-mood categories (opacity-70) while keeping mood at full opacity", () => {
+    setup();
+    fireEvent.change(screen.getByLabelText(/edition/i), { target: { value: "fukuoka" } });
+    fireEvent.change(screen.getByLabelText(/area_id/i), { target: { value: "tenjin-nakasu" } });
+    expect(screen.getByTestId("tag-category-flow")).toHaveClass("opacity-70");
+    expect(screen.getByTestId("tag-category-activity")).toHaveClass("opacity-70");
+    expect(screen.getByTestId("tag-category-special")).toHaveClass("opacity-70");
+    expect(screen.getByTestId("tag-category-mood")).not.toHaveClass("opacity-70");
+  });
+
   it("derives the id preview from area_id + slugified name in realtime", () => {
     setup();
     fireEvent.change(screen.getByLabelText(/edition/i), { target: { value: "fukuoka" } });
