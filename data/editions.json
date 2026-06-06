@@ -4,6 +4,7 @@
     "name": "台北",
     "en": "Taipei",
     "currency": "TWD",
+    "timeZone": "Asia/Taipei",
     "bboxes": [
       { "lat": [24.9, 25.3], "lng": [121.4, 121.7] }
     ],
@@ -15,6 +16,7 @@
     "name": "福岡",
     "en": "Fukuoka",
     "currency": "JPY",
+    "timeZone": "Asia/Tokyo",
     "bboxes": [
       { "lat": [33.55, 33.62], "lng": [130.35, 130.45] },
       { "lat": [33.50, 33.62], "lng": [130.08, 130.32] },

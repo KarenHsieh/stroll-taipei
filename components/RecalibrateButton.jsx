@@ -47,6 +47,7 @@ export default function RecalibrateButton({
         moods: originalRequest.moods,
         activities: originalRequest.activities,
         maxWalkMinutes: originalRequest.maxWalkMinutes,
+        timeZone: originalRequest.timeZone,
       },
       newPool
     );
@@ -54,7 +55,8 @@ export default function RecalibrateButton({
       internalSchedule,
       originalRequest.area,
       now,
-      originalRequest.currency
+      originalRequest.currency,
+      originalRequest.timeZone
     );
     const finalSchedule = mergeRecalibration(accumulatedPast, newDisplaySchedule);
     onRecalibrated(finalSchedule);

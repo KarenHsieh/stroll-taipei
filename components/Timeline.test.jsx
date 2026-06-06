@@ -140,6 +140,7 @@ describe("Timeline", () => {
       durationMinutes: 240,
       moods: ["咖啡廳"],
       currency: "TWD",
+      timeZone: "Asia/Taipei",
       pool,
     };
 

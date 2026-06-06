@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { decodeStrollRequest } from "@/lib/stroll/request-encoder.js";
 import { planStroll } from "@/lib/scheduler/plan-stroll.js";
 import { toDisplaySchedule } from "@/lib/transformer/display-schedule.js";
+import { todayInZone, buildDateInZone } from "@/lib/time/local-clock.js";
 import Timeline from "@/components/Timeline.jsx";
 import BackToFormLink from "@/components/BackToFormLink.jsx";
 import { AREAS } from "@/lib/stroll/areas.js";
@@ -21,21 +22,9 @@ function toURLSearchParams(params) {
   return urlParams;
 }
 
-function todayInTaipei() {
-  const parts = new Intl.DateTimeFormat("en-CA", {
-    timeZone: "Asia/Taipei",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).formatToParts(new Date());
-  const map = Object.fromEntries(parts.map((p) => [p.type, p.value]));
-  return `${map.year}-${map.month}-${map.day}`;
-}
-
-function buildStartAt(startHour) {
-  const today = todayInTaipei();
-  const hh = String(startHour).padStart(2, "0");
-  return new Date(`${today}T${hh}:00:00+08:00`);
+function buildStartAt(startHour, timeZone) {
+  const { year, month, day } = todayInZone(new Date(), timeZone);
+  return buildDateInZone(year, month, day, startHour, 0, timeZone);
 }
 
 function formatStartHour(hour) {
@@ -74,7 +63,7 @@ export default async function EditionResultPage({ params, searchParams }) {
   );
   const areaEn = area?.en;
 
-  const startAt = buildStartAt(decoded.start);
+  const startAt = buildStartAt(decoded.start, edition.timeZone);
   const attractions = await listAttractions({ area: decoded.area });
   const internalSchedule = planStroll(
     {
@@ -84,6 +73,7 @@ export default async function EditionResultPage({ params, searchParams }) {
       moods: decoded.moods,
       activities: decoded.activities,
       maxWalkMinutes: edition.maxWalkMinutes,
+      timeZone: edition.timeZone,
     },
     attractions
   );
@@ -91,7 +81,8 @@ export default async function EditionResultPage({ params, searchParams }) {
     internalSchedule,
     decoded.area,
     startAt,
-    edition.currency
+    edition.currency,
+    edition.timeZone
   );
 
   const stopCount = displaySchedule.stops.length;
@@ -120,6 +111,7 @@ export default async function EditionResultPage({ params, searchParams }) {
     moods: decoded.moods,
     activities: decoded.activities,
     currency: edition.currency,
+    timeZone: edition.timeZone,
     maxWalkMinutes: edition.maxWalkMinutes,
     pool: attractions,
   };

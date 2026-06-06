@@ -14,6 +14,17 @@ jest.mock("@/lib/attractions/repository.js", () => {
   };
 });
 
+// Wrap planStroll so tests can inspect the arguments composed by the page
+// (e.g. the absolute startAt and the timeZone) while keeping the real impl.
+jest.mock("@/lib/scheduler/plan-stroll.js", () => {
+  const actual = jest.requireActual("@/lib/scheduler/plan-stroll.js");
+  return {
+    __esModule: true,
+    planStroll: jest.fn((...args) => actual.planStroll(...args)),
+  };
+});
+
+import { planStroll } from "@/lib/scheduler/plan-stroll.js";
 import ResultPage from "./page.js";
 
 async function renderResult(searchParamsObj, editionId = "taipei") {
@@ -176,5 +187,48 @@ describe("ResultPage", () => {
         "atlantis"
       )
     ).rejects.toThrow(/NEXT_HTTP_ERROR_FALLBACK|NEXT_NOT_FOUND/);
+  });
+
+  describe("composes startAt using the edition's timeZone", () => {
+    // Fake system time is 2026-05-16T06:00:00+08:00, i.e. UTC 2026-05-15T22:00:00Z.
+    // The wall-clock "today" differs by edition:
+    //   - Asia/Taipei (+8): 2026-05-16
+    //   - Asia/Tokyo  (+9): 2026-05-16
+    // Both editions therefore see "today" as 2026-05-16. The `start=14` hour
+    // is interpreted in the edition's timeZone:
+    //   - taipei  → JST view CST 14:00 → UTC 2026-05-16T06:00:00Z
+    //   - fukuoka → JST 14:00            → UTC 2026-05-16T05:00:00Z (one hour earlier)
+
+    beforeEach(() => {
+      planStroll.mockClear();
+    });
+
+    it("taipei edition composes startAt at Asia/Taipei wall-clock 14:00 (UTC 06:00) with timeZone 'Asia/Taipei'", async () => {
+      await renderResult(
+        { area: "大稻埕", start: "14", duration: "4", moods: "文青,靜謐" },
+        "taipei"
+      );
+
+      expect(planStroll).toHaveBeenCalled();
+      const lastCallInput = planStroll.mock.calls[planStroll.mock.calls.length - 1][0];
+      expect(lastCallInput.timeZone).toBe("Asia/Taipei");
+      expect(lastCallInput.startAt.toISOString()).toBe(
+        "2026-05-16T06:00:00.000Z"
+      );
+    });
+
+    it("fukuoka edition composes startAt at Asia/Tokyo wall-clock 14:00 (UTC 05:00), one hour earlier than taipei, with timeZone 'Asia/Tokyo'", async () => {
+      await renderResult(
+        { area: "天神・中洲", start: "14", duration: "4", moods: "熱鬧" },
+        "fukuoka"
+      );
+
+      expect(planStroll).toHaveBeenCalled();
+      const lastCallInput = planStroll.mock.calls[planStroll.mock.calls.length - 1][0];
+      expect(lastCallInput.timeZone).toBe("Asia/Tokyo");
+      expect(lastCallInput.startAt.toISOString()).toBe(
+        "2026-05-16T05:00:00.000Z"
+      );
+    });
   });
 });

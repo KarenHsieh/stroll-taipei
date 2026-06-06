@@ -62,6 +62,7 @@ const baseOriginalRequest = {
   durationMinutes: 240,
   moods: ["文青"],
   currency: "TWD",
+  timeZone: "Asia/Taipei",
   pool,
 };
 
