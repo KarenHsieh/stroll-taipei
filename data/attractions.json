@@ -4608,5 +4608,68 @@
       "morning",
       "afternoon"
     ]
+  },
+  {
+    "id": "hakata_jr-hakata-city-rf",
+    "name": "燕林廣場 屋上庭園",
+    "edition_id": "fukuoka",
+    "area_id": "hakata",
+    "area": "博多",
+    "tags": [
+      "靜謐",
+      "熱鬧",
+      "公園綠地"
+    ],
+    "stay_range": [
+      15,
+      30
+    ],
+    "avg_cost": 0,
+    "indoor": false,
+    "lat": 33.5891019,
+    "lng": 130.4199751,
+    "open_hours": [
+      {
+        "day": "mon",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "tue",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "wed",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "thu",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "fri",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "sat",
+        "open": "10:00",
+        "close": "20:00"
+      },
+      {
+        "day": "sun",
+        "open": "10:00",
+        "close": "20:00"
+      }
+    ],
+    "rating": 4.3,
+    "best_time_window": [
+      "morning",
+      "afternoon",
+      "evening"
+    ]
   }
 ]
