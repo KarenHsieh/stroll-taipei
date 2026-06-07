@@ -17,28 +17,64 @@ function emptyOpenHours() {
   return o;
 }
 
+function openHoursFromArray(arr) {
+  const o = emptyOpenHours();
+  const present = new Set();
+  for (const entry of arr ?? []) {
+    if (entry?.day) {
+      o[entry.day] = { open: entry.open, close: entry.close, closed: false };
+      present.add(entry.day);
+    }
+  }
+  for (const d of DAYS) {
+    if (!present.has(d)) o[d] = { ...o[d], closed: true };
+  }
+  return o;
+}
+
 function bboxText(bboxes) {
   return bboxes
     .map((b, i) => `#${i + 1} lat ${b.lat[0]}–${b.lat[1]} / lng ${b.lng[0]}–${b.lng[1]}`)
     .join("  ·  ");
 }
 
-export default function AttractionForm({ editions, areas, existingIds }) {
+export default function AttractionForm({
+  editions,
+  areas,
+  existingIds,
+  mode = "create",
+  initialAttraction = null,
+}) {
   const router = useRouter();
-  const [editionId, setEditionId] = useState("");
-  const [areaId, setAreaId] = useState("");
-  const [name, setName] = useState("");
+  const isEdit = mode === "edit" && initialAttraction;
+  const seed = isEdit ? initialAttraction : null;
+
+  const [editionId, setEditionId] = useState(seed?.edition_id ?? "");
+  const [areaId, setAreaId] = useState(seed?.area_id ?? "");
+  const [name, setName] = useState(seed?.name ?? "");
   const [manualSlug, setManualSlug] = useState("");
-  const [selectedTags, setSelectedTags] = useState(new Set());
-  const [stayMin, setStayMin] = useState("");
-  const [stayMax, setStayMax] = useState("");
-  const [avgCost, setAvgCost] = useState("0");
-  const [indoor, setIndoor] = useState(false);
-  const [lat, setLat] = useState("");
-  const [lng, setLng] = useState("");
-  const [openHours, setOpenHours] = useState(emptyOpenHours);
-  const [rating, setRating] = useState("4.0");
-  const [bestTime, setBestTime] = useState(new Set());
+  const [selectedTags, setSelectedTags] = useState(
+    () => new Set(seed?.tags ?? [])
+  );
+  const [stayMin, setStayMin] = useState(
+    seed ? String(seed.stay_range[0]) : ""
+  );
+  const [stayMax, setStayMax] = useState(
+    seed ? String(seed.stay_range[1]) : ""
+  );
+  const [avgCost, setAvgCost] = useState(
+    seed ? String(seed.avg_cost) : "0"
+  );
+  const [indoor, setIndoor] = useState(seed?.indoor ?? false);
+  const [lat, setLat] = useState(seed ? String(seed.lat) : "");
+  const [lng, setLng] = useState(seed ? String(seed.lng) : "");
+  const [openHours, setOpenHours] = useState(() =>
+    seed ? openHoursFromArray(seed.open_hours) : emptyOpenHours()
+  );
+  const [rating, setRating] = useState(seed ? String(seed.rating) : "4.0");
+  const [bestTime, setBestTime] = useState(
+    () => new Set(seed?.best_time_window ?? [])
+  );
   const [submitState, setSubmitState] = useState({ status: "idle", errors: [] });
 
   const edition = useMemo(
@@ -60,8 +96,9 @@ export default function AttractionForm({ editions, areas, existingIds }) {
 
   const autoSlug = useMemo(() => slugifyName(name), [name]);
   const slug = manualSlug.trim() || autoSlug;
-  const id = areaId && slug ? `${areaId}_${slug}` : "";
-  const idCollision = id && existingIds.includes(id);
+  const derivedId = areaId && slug ? `${areaId}_${slug}` : "";
+  const id = isEdit ? initialAttraction.id : derivedId;
+  const idCollision = !isEdit && id && existingIds.includes(id);
   const slugDiagnosis = useMemo(
     () => diagnoseSlug(manualSlug.trim()),
     [manualSlug]
@@ -137,8 +174,12 @@ export default function AttractionForm({ editions, areas, existingIds }) {
     e.preventDefault();
     setSubmitState({ status: "submitting", errors: [] });
     try {
-      const res = await fetch("/api/dev-tools/attractions", {
-        method: "POST",
+      const url = isEdit
+        ? `/api/dev-tools/attractions/${initialAttraction.id}`
+        : "/api/dev-tools/attractions";
+      const method = isEdit ? "PUT" : "POST";
+      const res = await fetch(url, {
+        method,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(buildPayload()),
       });
@@ -168,7 +209,7 @@ export default function AttractionForm({ editions, areas, existingIds }) {
       className="mx-auto flex max-w-3xl flex-col gap-5 px-6 py-8"
     >
       <h1 className="font-[family-name:var(--font-serif-tc)] text-2xl font-bold text-[var(--color-text)]">
-        新增景點
+        {isEdit ? "編輯景點" : "新增景點"}
       </h1>
 
       <Section title="edition + area">
@@ -220,63 +261,76 @@ export default function AttractionForm({ editions, areas, existingIds }) {
           />
         </Field>
         <div className="flex flex-col gap-2">
-          <Field label="manual slug (空白則用自動 slug)">
-            <input
-              aria-label="manual slug"
-              type="text"
-              value={manualSlug}
-              onChange={(e) => setManualSlug(e.target.value)}
-              placeholder={autoSlug || "請輸入羅馬字 slug"}
-              className={`${inputClass} font-mono`}
-            />
-            <p className="mt-1 text-xs text-[var(--color-text-mid)]">
-              格式:小寫字母 / 數字 / 連字號 -,例 <span className="font-mono">kego-shrine</span>
-            </p>
-          </Field>
-          {autoSlug === "" && manualSlug === "" && name !== "" && (
-            <p
-              data-testid="slug-empty-warning"
-              className="text-xs text-[var(--color-warning,#b85a22)]"
-            >
-              name 沒有 ASCII / 數字,自動 slug 為空。請在上方 manual slug 欄位填羅馬字 slug。
-            </p>
-          )}
-          {slugDiagnosis && (
-            <div
-              data-testid="slug-format-warning"
-              className="text-xs text-[var(--color-warning,#b85a22)]"
-            >
-              <p>manual slug 格式不對:{slugDiagnosis.issues.join("、")}</p>
-              {slugDiagnosis.suggestion && (
-                <p className="mt-1 text-[var(--color-text-mid)]">
-                  建議改成{" "}
-                  <span
-                    data-testid="slug-suggestion"
-                    className="font-mono text-[var(--color-text)]"
-                  >
-                    {slugDiagnosis.suggestion}
-                  </span>
-                  <button
-                    type="button"
-                    data-testid="slug-apply-suggestion"
-                    onClick={() => setManualSlug(slugDiagnosis.suggestion)}
-                    className="ml-2 underline"
-                  >
-                    套用建議
-                  </button>
+          {!isEdit && (
+            <>
+              <Field label="manual slug (空白則用自動 slug)">
+                <input
+                  aria-label="manual slug"
+                  type="text"
+                  value={manualSlug}
+                  onChange={(e) => setManualSlug(e.target.value)}
+                  placeholder={autoSlug || "請輸入羅馬字 slug"}
+                  className={`${inputClass} font-mono`}
+                />
+                <p className="mt-1 text-xs text-[var(--color-text-mid)]">
+                  格式:小寫字母 / 數字 / 連字號 -,例 <span className="font-mono">kego-shrine</span>
+                </p>
+              </Field>
+              {autoSlug === "" && manualSlug === "" && name !== "" && (
+                <p
+                  data-testid="slug-empty-warning"
+                  className="text-xs text-[var(--color-warning,#b85a22)]"
+                >
+                  name 沒有 ASCII / 數字,自動 slug 為空。請在上方 manual slug 欄位填羅馬字 slug。
                 </p>
               )}
-            </div>
+              {slugDiagnosis && (
+                <div
+                  data-testid="slug-format-warning"
+                  className="text-xs text-[var(--color-warning,#b85a22)]"
+                >
+                  <p>manual slug 格式不對:{slugDiagnosis.issues.join("、")}</p>
+                  {slugDiagnosis.suggestion && (
+                    <p className="mt-1 text-[var(--color-text-mid)]">
+                      建議改成{" "}
+                      <span
+                        data-testid="slug-suggestion"
+                        className="font-mono text-[var(--color-text)]"
+                      >
+                        {slugDiagnosis.suggestion}
+                      </span>
+                      <button
+                        type="button"
+                        data-testid="slug-apply-suggestion"
+                        onClick={() => setManualSlug(slugDiagnosis.suggestion)}
+                        className="ml-2 underline"
+                      >
+                        套用建議
+                      </button>
+                    </p>
+                  )}
+                </div>
+              )}
+            </>
           )}
           <p className="text-xs text-[var(--color-text-mid)]">
-            id 預覽:
+            id {isEdit ? "" : "預覽"}:
             <span
               data-testid="id-preview"
-              className="ml-1 font-mono text-[var(--color-text)]"
+              className={`ml-1 font-mono ${
+                isEdit
+                  ? "rounded bg-[rgba(120,90,60,0.08)] px-1.5 py-0.5 text-[var(--color-text-mid)]"
+                  : "text-[var(--color-text)]"
+              }`}
             >
               {id || "—"}
             </span>
           </p>
+          {isEdit && (
+            <p className="text-xs text-[var(--color-text-mid)]">
+              id 建立後就固定了
+            </p>
+          )}
           {idCollision && (
             <p
               data-testid="id-collision-warning"

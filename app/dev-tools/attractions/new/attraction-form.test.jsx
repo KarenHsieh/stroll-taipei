@@ -37,11 +37,37 @@ const editions = [
 
 const areas = [
   { editionId: "taipei", id: "dadaocheng", name: "大稻埕", en: "Dadaocheng", active: true },
+  { editionId: "taipei", id: "ximen", name: "西門", en: "Ximen", active: true },
   { editionId: "fukuoka", id: "tenjin-nakasu", name: "天神・中洲", en: "Tenjin-Nakasu", active: true },
   { editionId: "fukuoka", id: "hakata", name: "博多", en: "Hakata", active: true },
   { editionId: "fukuoka", id: "mojiko", name: "門司港", en: "Mojiko", active: false },
   { editionId: "fukuoka", id: "itoshima", name: "糸島", en: "Itoshima", active: false },
 ];
+
+const editFixture = {
+  id: "dadaocheng_lu-guo-coffee",
+  name: "鹿戈咖啡",
+  edition_id: "taipei",
+  area_id: "dadaocheng",
+  area: "大稻埕",
+  tags: ["咖啡廳"],
+  stay_range: [60, 90],
+  avg_cost: 250,
+  indoor: true,
+  lat: 25.0567,
+  lng: 121.5101,
+  open_hours: [
+    { day: "mon", open: "11:00", close: "20:00" },
+    { day: "tue", open: "11:00", close: "20:00" },
+    { day: "wed", open: "11:00", close: "20:00" },
+    { day: "thu", open: "11:00", close: "20:00" },
+    { day: "fri", open: "11:00", close: "20:00" },
+    { day: "sat", open: "11:00", close: "20:00" },
+    { day: "sun", open: "11:00", close: "20:00" },
+  ],
+  rating: 4.3,
+  best_time_window: ["afternoon"],
+};
 
 function setup(extraProps = {}) {
   return render(
@@ -186,6 +212,135 @@ describe("AttractionForm — schema-aware new-attraction form", () => {
     expect(fetchMock).toHaveBeenCalled();
     expect(mockPush).toHaveBeenCalledWith(
       "/dev-tools/attractions?edition=fukuoka&area=tenjin-nakasu"
+    );
+  });
+
+  it("create mode (no mode prop) submits via POST to /api/dev-tools/attractions", async () => {
+    const fetchMock = jest.fn().mockResolvedValue({ ok: true, json: async () => ({}) });
+    global.fetch = fetchMock;
+
+    setup();
+    fireEvent.change(screen.getByLabelText(/edition/i), { target: { value: "fukuoka" } });
+    fireEvent.change(screen.getByLabelText(/area_id/i), { target: { value: "tenjin-nakasu" } });
+    fireEvent.change(screen.getByLabelText(/^name$/i), { target: { value: "Kushida Jinja" } });
+    fireEvent.submit(screen.getByRole("button", { name: /送出/ }).closest("form"));
+    await new Promise((r) => setTimeout(r, 0));
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    const [url, init] = fetchMock.mock.calls[0];
+    expect(url).toBe("/api/dev-tools/attractions");
+    expect(init.method).toBe("POST");
+  });
+});
+
+describe("AttractionForm — edit mode", () => {
+  function setupEdit(extraProps = {}) {
+    return render(
+      <AttractionForm
+        editions={editions}
+        areas={areas}
+        existingIds={[editFixture.id]}
+        mode="edit"
+        initialAttraction={editFixture}
+        {...extraProps}
+      />
+    );
+  }
+
+  it("prefills all 11 fields from initialAttraction on first mount", () => {
+    setupEdit();
+    expect(screen.getByLabelText(/edition/i)).toHaveValue("taipei");
+    expect(screen.getByLabelText(/area_id/i)).toHaveValue("dadaocheng");
+    expect(screen.getByLabelText(/^name$/i)).toHaveValue("鹿戈咖啡");
+    expect(screen.getByLabelText(/^lat$/i)).toHaveValue(25.0567);
+    expect(screen.getByLabelText(/^lng$/i)).toHaveValue(121.5101);
+    expect(screen.getByLabelText(/stay min/i)).toHaveValue(60);
+    expect(screen.getByLabelText(/stay max/i)).toHaveValue(90);
+    expect(screen.getByLabelText(/avg_cost/i)).toHaveValue(250);
+    expect(screen.getByLabelText(/rating/i)).toHaveValue(4.3);
+    expect(screen.getByLabelText(/^咖啡廳$/)).toBeChecked();
+    expect(screen.getByLabelText(/^afternoon$/)).toBeChecked();
+    expect(screen.getByLabelText(/mon open/i)).toHaveValue("11:00");
+    expect(screen.getByLabelText(/mon close/i)).toHaveValue("20:00");
+  });
+
+  it("renders id as a read-only fixed display with helper text 'id 建立後就固定了'", () => {
+    setupEdit();
+    const idDisplay = screen.getByTestId("id-preview");
+    expect(idDisplay).toHaveTextContent("dadaocheng_lu-guo-coffee");
+    expect(screen.queryByLabelText(/manual slug/i)).not.toBeInTheDocument();
+    expect(screen.getByText(/id 建立後就固定了/)).toBeInTheDocument();
+  });
+
+  it.each([
+    {
+      label: "name changes only",
+      changes: { name: "鹿戈咖啡店" },
+      expectedIdDisplay: "dadaocheng_lu-guo-coffee",
+    },
+    {
+      label: "area_id changes only",
+      changes: { area_id: "ximen" },
+      expectedIdDisplay: "dadaocheng_lu-guo-coffee",
+    },
+    {
+      label: "both area_id and name change",
+      changes: { area_id: "ximen", name: "Lu Guo Coffee Shop" },
+      expectedIdDisplay: "dadaocheng_lu-guo-coffee",
+    },
+  ])(
+    "id display stays fixed at the initial id when $label",
+    ({ changes, expectedIdDisplay }) => {
+      setupEdit();
+      if (changes.area_id) {
+        fireEvent.change(screen.getByLabelText(/area_id/i), {
+          target: { value: changes.area_id },
+        });
+      }
+      if (changes.name) {
+        fireEvent.change(screen.getByLabelText(/^name$/i), {
+          target: { value: changes.name },
+        });
+      }
+      expect(screen.getByTestId("id-preview")).toHaveTextContent(
+        expectedIdDisplay
+      );
+    }
+  );
+
+  it("submit sends PUT to /api/dev-tools/attractions/<id> with body.id === initialAttraction.id", async () => {
+    const fetchMock = jest.fn().mockResolvedValue({ ok: true, json: async () => ({}) });
+    global.fetch = fetchMock;
+
+    setupEdit();
+    fireEvent.change(screen.getByLabelText(/area_id/i), { target: { value: "ximen" } });
+    fireEvent.change(screen.getByLabelText(/^name$/i), {
+      target: { value: "鹿戈咖啡店" },
+    });
+    fireEvent.submit(screen.getByRole("button", { name: /送出/ }).closest("form"));
+    await new Promise((r) => setTimeout(r, 0));
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    const [url, init] = fetchMock.mock.calls[0];
+    expect(url).toBe(
+      `/api/dev-tools/attractions/${editFixture.id}`
+    );
+    expect(init.method).toBe("PUT");
+    const sentBody = JSON.parse(init.body);
+    expect(sentBody.id).toBe(editFixture.id);
+    expect(sentBody.name).toBe("鹿戈咖啡店");
+    expect(sentBody.area_id).toBe("ximen");
+  });
+
+  it("does NOT show the manual slug fallback UI even when name becomes empty / CJK only", () => {
+    setupEdit();
+    fireEvent.change(screen.getByLabelText(/^name$/i), {
+      target: { value: "純中文名稱" },
+    });
+    expect(screen.queryByTestId("slug-empty-warning")).not.toBeInTheDocument();
+    expect(screen.queryByLabelText(/manual slug/i)).not.toBeInTheDocument();
+    expect(screen.getByTestId("id-preview")).toHaveTextContent(
+      "dadaocheng_lu-guo-coffee"
     );
   });
 });

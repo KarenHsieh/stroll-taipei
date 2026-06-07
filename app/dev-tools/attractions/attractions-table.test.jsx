@@ -172,3 +172,64 @@ describe("AttractionsTable — URL query persistence", () => {
     expect(window.location.search).toBe("");
   });
 });
+
+describe("AttractionsTable — per-row edit entry point", () => {
+  function findEditControl(row) {
+    return within(row).getByRole("link", { name: /^編輯 / });
+  }
+
+  it("renders an edit control inside every data row, with href to /dev-tools/attractions/<id>/edit", () => {
+    render(<AttractionsTable attractions={attractions} editions={editions} areas={areas} />);
+    const rows = getDataRows();
+    expect(rows).toHaveLength(5);
+    for (const row of rows) {
+      const id = row.dataset.attractionId;
+      const link = findEditControl(row);
+      expect(link).toHaveAttribute(
+        "href",
+        `/dev-tools/attractions/${id}/edit`
+      );
+    }
+  });
+
+  it("uses the attraction name in the accessible label of the edit control", () => {
+    render(<AttractionsTable attractions={attractions} editions={editions} areas={areas} />);
+    const rows = getDataRows();
+    const row = rows.find((r) => r.dataset.attractionId === "tenjin-nakasu_c");
+    const link = within(row).getByRole("link", { name: "編輯 Nintendo 福岡" });
+    expect(link).toBeInTheDocument();
+  });
+
+  it("clicking the edit control does not expand the row's JSON disclosure", () => {
+    render(<AttractionsTable attractions={attractions} editions={editions} areas={areas} />);
+    const row = getDataRows().find((r) => r.dataset.attractionId === "dadaocheng_a");
+    const link = findEditControl(row);
+    fireEvent.click(link);
+    // The expanded JSON block has a <pre> showing the attraction object
+    expect(screen.queryByText(/"id": "dadaocheng_a"/)).not.toBeInTheDocument();
+  });
+
+  it("clicking elsewhere in the row still toggles the JSON disclosure", () => {
+    render(<AttractionsTable attractions={attractions} editions={editions} areas={areas} />);
+    const row = getDataRows().find((r) => r.dataset.attractionId === "dadaocheng_a");
+    // click on a non-edit cell, e.g. the name cell
+    fireEvent.click(within(row).getByText(/爐鍋咖啡/));
+    expect(screen.getByText(/"id": "dadaocheng_a"/)).toBeInTheDocument();
+  });
+
+  it("does not render an edit control in the header row", () => {
+    render(<AttractionsTable attractions={attractions} editions={editions} areas={areas} />);
+    const headerRow = screen.getAllByRole("row")[0];
+    expect(within(headerRow).queryByRole("link", { name: /^編輯 / })).toBeNull();
+  });
+
+  it("does not render an edit control in the empty-state row when filters match nothing", () => {
+    render(<AttractionsTable attractions={attractions} editions={editions} areas={areas} />);
+    fireEvent.change(screen.getByLabelText(/搜尋/), {
+      target: { value: "zzzzzz-no-match" },
+    });
+    expect(getDataRows()).toHaveLength(0);
+    expect(screen.queryByRole("link", { name: /^編輯 / })).toBeNull();
+    expect(screen.getByText(/沒有符合條件的景點/)).toBeInTheDocument();
+  });
+});

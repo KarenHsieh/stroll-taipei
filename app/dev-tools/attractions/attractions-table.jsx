@@ -125,6 +125,7 @@ export default function AttractionsTable({ attractions, editions, areas }) {
               <th className="px-3 py-2.5">tags</th>
               <th className="px-3 py-2.5">stay</th>
               <th className="px-3 py-2.5">lat,lng</th>
+              <th className="px-3 py-2.5 text-right">編輯</th>
             </tr>
           </thead>
           <tbody>
@@ -141,7 +142,7 @@ export default function AttractionsTable({ attractions, editions, areas }) {
             })}
             {filtered.length === 0 && (
               <tr>
-                <td colSpan={6} className="px-3 py-6 text-center text-sm text-[var(--color-text-mid)]">
+                <td colSpan={7} className="px-3 py-6 text-center text-sm text-[var(--color-text-mid)]">
                   沒有符合條件的景點
                 </td>
               </tr>
@@ -179,10 +180,20 @@ function Row({ attraction, expanded, onToggle }) {
         <td className="px-3 py-2 font-mono text-xs text-[var(--color-text-mid)]">
           {attraction.lat}, {attraction.lng}
         </td>
+        <td className="px-3 py-2 text-right">
+          <Link
+            href={`/dev-tools/attractions/${attraction.id}/edit`}
+            aria-label={`編輯 ${attraction.name}`}
+            onClick={(e) => e.stopPropagation()}
+            className="inline-block rounded-md border border-[rgba(120,90,60,0.2)] bg-white px-2 py-1 text-xs text-[var(--color-text)] hover:bg-[rgba(197,106,58,0.06)]"
+          >
+            編輯
+          </Link>
+        </td>
       </tr>
       {expanded && (
         <tr className="border-t border-[rgba(120,90,60,0.08)] bg-[rgba(197,106,58,0.03)]">
-          <td colSpan={6} className="px-4 py-3">
+          <td colSpan={7} className="px-4 py-3">
             <pre className="overflow-x-auto whitespace-pre-wrap font-mono text-xs text-[var(--color-text-mid)]">
               {JSON.stringify(attraction, null, 2)}
             </pre>
