@@ -10,6 +10,8 @@ import ActivityPicker from "@/components/ActivityPicker.jsx";
 import SubmitButton from "@/components/SubmitButton.jsx";
 import SectionCard from "@/components/SectionCard.jsx";
 import ComingSoonSheet from "@/components/ComingSoonSheet.jsx";
+import EditionPicker from "@/components/EditionPicker.jsx";
+import { ACTIVE_EDITIONS } from "@/lib/stroll/editions.js";
 import { findBucketForHour } from "@/lib/stroll/time-buckets.js";
 import {
   decodeStrollRequest,
@@ -80,6 +82,12 @@ function HomeForm({ edition, areas }) {
               </span>
               <span className="h-px w-3.5 self-center bg-[var(--color-line)] opacity-60" />
               {edition.en} stroll
+            </div>
+            <div className="mt-3">
+              <EditionPicker
+                editions={ACTIVE_EDITIONS}
+                currentEditionId={edition.id}
+              />
             </div>
             <h1 className="mt-1.5 mb-1.5 font-[family-name:var(--font-serif-tc)] text-[34px] font-bold leading-[1.15] tracking-[-0.2px] text-[var(--color-text)]">
               今天，想去哪走走？

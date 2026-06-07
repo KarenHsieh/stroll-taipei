@@ -189,6 +189,20 @@ describe("ResultPage", () => {
     ).rejects.toThrow(/NEXT_HTTP_ERROR_FALLBACK|NEXT_NOT_FOUND/);
   });
 
+  describe("does not render the edition picker", () => {
+    it("a valid taipei result page contains no 散策地 picker label and no aria-current='page' element", async () => {
+      const { container } = await renderResult({
+        area: "大稻埕",
+        start: "14",
+        duration: "4",
+        moods: "文青,靜謐",
+      });
+
+      expect(screen.queryByText("散策地")).not.toBeInTheDocument();
+      expect(container.querySelector("[aria-current='page']")).toBeNull();
+    });
+  });
+
   describe("composes startAt using the edition's timeZone", () => {
     // Fake system time is 2026-05-16T06:00:00+08:00, i.e. UTC 2026-05-15T22:00:00Z.
     // The wall-clock "today" differs by edition:

@@ -3,6 +3,9 @@ import EditionHomeForm from "./edition-home-form.jsx";
 import { AREAS } from "@/lib/stroll/areas.js";
 import { getEditionById } from "@/lib/stroll/editions.js";
 
+const fukuokaEdition = getEditionById("fukuoka");
+const fukuokaAreas = AREAS.filter((a) => a.editionId === "fukuoka");
+
 const mockPush = jest.fn();
 let mockSearchParams = new URLSearchParams();
 
@@ -180,6 +183,32 @@ describe("EditionHomeForm (input form) — taipei", () => {
         "false"
       );
       expect(screen.getByRole("button", { name: /產生散策/ })).toBeDisabled();
+    });
+  });
+
+  describe("edition picker", () => {
+    it("renders the picker with both editions and marks taipei as active", () => {
+      render(<Home />);
+      expect(screen.getByText("散策地")).toBeInTheDocument();
+
+      const active = screen.getByRole("generic", { current: "page" });
+      expect(active.textContent).toContain("台北");
+
+      const fukuokaLink = screen.getByRole("link", { name: /福岡/ });
+      expect(fukuokaLink.getAttribute("href")).toBe("/fukuoka");
+    });
+
+    it("on fukuoka home, marks fukuoka as active and links taipei to /taipei", () => {
+      render(
+        <EditionHomeForm edition={fukuokaEdition} areas={fukuokaAreas} />
+      );
+      expect(screen.getByText("散策地")).toBeInTheDocument();
+
+      const active = screen.getByRole("generic", { current: "page" });
+      expect(active.textContent).toContain("福岡");
+
+      const taipeiLink = screen.getByRole("link", { name: /台北/ });
+      expect(taipeiLink.getAttribute("href")).toBe("/taipei");
     });
   });
 
