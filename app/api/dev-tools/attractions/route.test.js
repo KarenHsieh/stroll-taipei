@@ -159,4 +159,5 @@ describe("POST /api/dev-tools/attractions", () => {
     const onDisk = JSON.parse(readFileSync(tempPath, "utf8"));
     expect(onDisk).toEqual(baseFixture);
   });
+
 });

@@ -231,6 +231,7 @@ describe("AttractionForm — schema-aware new-attraction form", () => {
     expect(url).toBe("/api/dev-tools/attractions");
     expect(init.method).toBe("POST");
   });
+
 });
 
 describe("AttractionForm — edit mode", () => {
@@ -343,4 +344,5 @@ describe("AttractionForm — edit mode", () => {
       "dadaocheng_lu-guo-coffee"
     );
   });
+
 });

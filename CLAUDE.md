@@ -29,9 +29,11 @@ Changes can be parked（暫存）— temporarily moved out of `openspec/changes/
 
 # CLAUDE.md
 
-這是 Stroll-Taipei 專案——一個給台北市的單日散策路線產生器。
+這是 Stroll-Taipei 專案——一個單日散策路線產生器,目前已上線台北、福岡兩個 edition。
 
-設計目的是讓人邊走邊參考,不是出門前坐在電腦前慢慢規劃用的。完整的設計脈絡放在 docs/Stroll-Taipei_專案規劃討論過程.md。
+設計定位是**輕量散策參考工具**。三個 use case 都要支援:「前一晚先打開看看明天約會可以去哪」「吃飽飯了當下打開、找附近逛的順序」「真的在散策的時候邊走邊參考」。共通點是——使用者不想花力氣「規劃」,要的是「給我一個順序、我看一下、出發」。
+
+不是行程規劃 App,不要往那個方向設計。完整的設計脈絡放在 docs/Stroll-Taipei_專案規劃討論過程.md。
 
 ---
 

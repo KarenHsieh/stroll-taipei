@@ -1,4 +1,15 @@
 import { fireEvent, render, screen } from "@testing-library/react";
+
+// Wrap planStroll so the anchor-related tests below can introspect args.
+jest.mock("@/lib/scheduler/plan-stroll.js", () => {
+  const actual = jest.requireActual("@/lib/scheduler/plan-stroll.js");
+  return {
+    __esModule: true,
+    planStroll: jest.fn((...args) => actual.planStroll(...args)),
+  };
+});
+
+import { planStroll } from "@/lib/scheduler/plan-stroll.js";
 import RecalibrateButton from "./RecalibrateButton.jsx";
 
 const at = (h, m) => {
@@ -230,6 +241,60 @@ describe("RecalibrateButton — picker flow", () => {
     fireEvent.click(screen.getByRole("button", { name: /重新校準/ }));
     const radios = screen.getAllByRole("radio");
     expect(radios).toHaveLength(2); // only upcoming "b" and "c"
+  });
+
+  describe("anchor reuse and geolocation behaviour", () => {
+    let originalGeolocation;
+
+    beforeEach(() => {
+      planStroll.mockClear();
+      originalGeolocation = navigator.geolocation;
+    });
+
+    afterEach(() => {
+      Object.defineProperty(navigator, "geolocation", {
+        value: originalGeolocation,
+        configurable: true,
+      });
+    });
+
+    it("recalibrate does NOT call navigator.geolocation.getCurrentPosition AND calls planStroll without a non-null anchor (cold-load / shared-link case)", () => {
+      const getCurrentPosition = jest.fn();
+      Object.defineProperty(navigator, "geolocation", {
+        value: { getCurrentPosition },
+        configurable: true,
+      });
+
+      renderButton();
+      fireEvent.click(screen.getByRole("button", { name: /重新校準/ }));
+      fireEvent.click(screen.getAllByRole("radio")[0]);
+      fireEvent.click(screen.getByRole("button", { name: "確認" }));
+
+      // No re-prompt — the recalibrate handler does not ask the browser for a
+      // fresh position; it uses whatever anchor is available in form state
+      // (here: none, since we mounted cold).
+      expect(getCurrentPosition).not.toHaveBeenCalled();
+
+      // planStroll was invoked at least once; the anchor argument must be
+      // null or undefined (the cold-load path has no form-state anchor).
+      expect(planStroll).toHaveBeenCalled();
+      const callInput = planStroll.mock.calls[planStroll.mock.calls.length - 1][0];
+      expect(callInput.anchor == null).toBe(true);
+    });
+
+    it("recalibrate flow still produces a valid display schedule when anchor is unavailable", () => {
+      const onRecalibrated = jest.fn();
+      renderButton({ onRecalibrated });
+      fireEvent.click(screen.getByRole("button", { name: /重新校準/ }));
+      fireEvent.click(screen.getAllByRole("radio")[0]);
+      fireEvent.click(screen.getByRole("button", { name: "確認" }));
+
+      expect(planStroll).toHaveBeenCalled();
+      expect(onRecalibrated).toHaveBeenCalledTimes(1);
+      const newSchedule = onRecalibrated.mock.calls[0][0];
+      expect(newSchedule).toHaveProperty("areaTitle", "大稻埕散策");
+      expect(newSchedule.stops.length).toBeGreaterThan(0);
+    });
   });
 
   it("second recalibration accumulates past: result includes both past A and newly-past B as isPast=true; pool excludes both", () => {

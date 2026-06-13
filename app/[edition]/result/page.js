@@ -1,13 +1,13 @@
 import { notFound } from "next/navigation";
 import { decodeStrollRequest } from "@/lib/stroll/request-encoder.js";
-import { planStroll } from "@/lib/scheduler/plan-stroll.js";
 import { toDisplaySchedule } from "@/lib/transformer/display-schedule.js";
+import { estimateWalkingMinutes } from "@/lib/scheduler/walking-time.js";
 import { todayInZone, buildDateInZone } from "@/lib/time/local-clock.js";
 import Timeline from "@/components/Timeline.jsx";
 import BackToFormLink from "@/components/BackToFormLink.jsx";
 import { AREAS } from "@/lib/stroll/areas.js";
 import { getEditionById } from "@/lib/stroll/editions.js";
-import { listAttractions } from "@/lib/attractions/repository.js";
+import attractionsData from "@/data/attractions.json" with { type: "json" };
 
 function toURLSearchParams(params) {
   const urlParams = new URLSearchParams();
@@ -32,6 +32,50 @@ function formatStartHour(hour) {
   if (hour === 12) return "中午 12 點";
   if (hour < 18) return `下午 ${hour - 12} 點`;
   return `晚上 ${hour - 12} 點`;
+}
+
+function addMinutes(date, minutes) {
+  return new Date(date.getTime() + minutes * 60 * 1000);
+}
+
+// Build an internal schedule by walking the snapshot stops in URL order. Each
+// stop's stay duration uses the attraction's `stay_range[0]` (the min, matching
+// planStroll's convention); walking minutes between consecutive stops come from
+// `estimateWalkingMinutes`. The first stop's walkInMinutes is 0 — the snapshot
+// makes no claim about anchor distance.
+function buildSnapshotSchedule(stops, startAt) {
+  if (stops.length === 0) return { stops: [] };
+
+  const internal = [];
+  let currentTime = startAt;
+  let previousStop = null;
+
+  for (const attraction of stops) {
+    const walkInMinutes = previousStop
+      ? estimateWalkingMinutes(
+          { lat: previousStop.lat, lng: previousStop.lng },
+          { lat: attraction.lat, lng: attraction.lng }
+        )
+      : 0;
+    const stayMinutes = attraction.stay_range[0];
+    const arriveAt = addMinutes(currentTime, walkInMinutes);
+    const leaveAt = addMinutes(arriveAt, stayMinutes);
+
+    internal.push({
+      attraction,
+      arriveAt,
+      leaveAt,
+      stayMinutes,
+      walkInMinutes,
+      isOpenEnded: false,
+    });
+
+    previousStop = attraction;
+    currentTime = leaveAt;
+  }
+
+  internal[internal.length - 1].isOpenEnded = true;
+  return { stops: internal };
 }
 
 export default async function EditionResultPage({ params, searchParams }) {
@@ -64,19 +108,17 @@ export default async function EditionResultPage({ params, searchParams }) {
   const areaEn = area?.en;
 
   const startAt = buildStartAt(decoded.start, edition.timeZone);
-  const attractions = await listAttractions({ area: decoded.area });
-  const internalSchedule = planStroll(
-    {
-      area: decoded.area,
-      startAt,
-      durationMinutes: decoded.duration * 60,
-      moods: decoded.moods,
-      activities: decoded.activities,
-      maxWalkMinutes: edition.maxWalkMinutes,
-      timeZone: edition.timeZone,
-    },
-    attractions
-  );
+  // Resolve URL `stops` to attraction records. decodeStrollRequest already
+  // filtered ids absent from the dataset; this lookup cannot fail for any id
+  // it returns. The pool is also kept for the Timeline's recalibrate flow
+  // (which uses the area-scoped pool to plan from "now").
+  const areaPool = attractionsData.filter((a) => a.area === decoded.area);
+  const byId = new Map(areaPool.map((a) => [a.id, a]));
+  const resolvedStops = decoded.stops
+    .map((id) => byId.get(id))
+    .filter((a) => a !== undefined);
+
+  const internalSchedule = buildSnapshotSchedule(resolvedStops, startAt);
   const displaySchedule = toDisplaySchedule(
     internalSchedule,
     decoded.area,
@@ -113,7 +155,7 @@ export default async function EditionResultPage({ params, searchParams }) {
     currency: edition.currency,
     timeZone: edition.timeZone,
     maxWalkMinutes: edition.maxWalkMinutes,
-    pool: attractions,
+    pool: areaPool,
   };
 
   return (
