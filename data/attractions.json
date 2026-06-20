@@ -2132,11 +2132,11 @@
     ]
   },
   {
-    "id": "hakata_canal-city",
+    "id": "hakata-tenjin-nakasu_canal-city",
     "name": "博多運河城",
     "edition_id": "fukuoka",
-    "area_id": "hakata",
-    "area": "博多",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "熱鬧",
       "打卡"
@@ -2193,11 +2193,11 @@
     ]
   },
   {
-    "id": "hakata_kitte-hakata",
+    "id": "hakata-tenjin-nakasu_kitte-hakata",
     "name": "KITTE 博多",
     "edition_id": "fukuoka",
-    "area_id": "hakata",
-    "area": "博多",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "熱鬧",
       "購物"
@@ -2255,11 +2255,11 @@
     ]
   },
   {
-    "id": "hakata_amu-plaza-hakata",
+    "id": "hakata-tenjin-nakasu_amu-plaza-hakata",
     "name": "AMU PLAZA 博多",
     "edition_id": "fukuoka",
-    "area_id": "hakata",
-    "area": "博多",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "熱鬧",
       "購物"
@@ -2317,11 +2317,11 @@
     ]
   },
   {
-    "id": "hakata_hakata-hankyu",
+    "id": "hakata-tenjin-nakasu_hakata-hankyu",
     "name": "博多阪急",
     "edition_id": "fukuoka",
-    "area_id": "hakata",
-    "area": "博多",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "熱鬧",
       "購物"
@@ -2378,11 +2378,11 @@
     ]
   },
   {
-    "id": "hakata_3coins-hakata",
+    "id": "hakata-tenjin-nakasu_3coins-hakata",
     "name": "3COINS 博多",
     "edition_id": "fukuoka",
-    "area_id": "hakata",
-    "area": "博多",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "熱鬧",
       "選物店"
@@ -2440,11 +2440,11 @@
     ]
   },
   {
-    "id": "hakata_meihingai",
+    "id": "hakata-tenjin-nakasu_meihingai",
     "name": "博多名產街",
     "edition_id": "fukuoka",
-    "area_id": "hakata",
-    "area": "博多",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "熱鬧",
       "購物",
@@ -2502,11 +2502,11 @@
     ]
   },
   {
-    "id": "hakata_ichibangai",
+    "id": "hakata-tenjin-nakasu_ichibangai",
     "name": "博多 1 番街",
     "edition_id": "fukuoka",
-    "area_id": "hakata",
-    "area": "博多",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "熱鬧",
       "商店街"
@@ -2564,11 +2564,11 @@
     ]
   },
   {
-    "id": "hakata_sun-plaza-chikagai",
+    "id": "hakata-tenjin-nakasu_sun-plaza-chikagai",
     "name": "Sun Plaza 地下街",
     "edition_id": "fukuoka",
-    "area_id": "hakata",
-    "area": "博多",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "熱鬧",
       "商店街",
@@ -2627,11 +2627,11 @@
     ]
   },
   {
-    "id": "hakata_tochoji",
+    "id": "hakata-tenjin-nakasu_tochoji",
     "name": "東長寺",
     "edition_id": "fukuoka",
-    "area_id": "hakata",
-    "area": "博多",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "老建築",
       "靜謐",
@@ -2690,11 +2690,11 @@
     ]
   },
   {
-    "id": "hakata_jotenji",
+    "id": "hakata-tenjin-nakasu_jotenji",
     "name": "承天寺",
     "edition_id": "fukuoka",
-    "area_id": "hakata",
-    "area": "博多",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "老建築",
       "靜謐",
@@ -2753,11 +2753,11 @@
     ]
   },
   {
-    "id": "hakata_sumiyoshi-jinja",
+    "id": "hakata-tenjin-nakasu_sumiyoshi-jinja",
     "name": "住吉神社",
     "edition_id": "fukuoka",
-    "area_id": "hakata",
-    "area": "博多",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "老建築",
       "靜謐",
@@ -2816,11 +2816,11 @@
     ]
   },
   {
-    "id": "hakata_rakusuien",
+    "id": "hakata-tenjin-nakasu_rakusuien",
     "name": "楽水園",
     "edition_id": "fukuoka",
-    "area_id": "hakata",
-    "area": "博多",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "靜謐",
       "老建築",
@@ -2873,11 +2873,11 @@
     ]
   },
   {
-    "id": "hakata_nintendo-fukuoka",
+    "id": "hakata-tenjin-nakasu_nintendo-fukuoka",
     "name": "Nintendo 福岡",
     "edition_id": "fukuoka",
-    "area_id": "hakata",
-    "area": "博多",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "熱鬧",
       "打卡"
@@ -2935,11 +2935,11 @@
     ]
   },
   {
-    "id": "hakata_pokemon-center-fukuoka",
+    "id": "hakata-tenjin-nakasu_pokemon-center-fukuoka",
     "name": "Pokémon Center 福岡",
     "edition_id": "fukuoka",
-    "area_id": "hakata",
-    "area": "博多",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "熱鬧",
       "打卡"
@@ -2997,11 +2997,11 @@
     ]
   },
   {
-    "id": "tenjin-nakasu_chuo-koen",
+    "id": "hakata-tenjin-nakasu_chuo-koen",
     "name": "天神中央公園",
     "edition_id": "fukuoka",
-    "area_id": "tenjin-nakasu",
-    "area": "天神・中洲",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "公園綠地",
       "靜謐",
@@ -3059,11 +3059,11 @@
     ]
   },
   {
-    "id": "tenjin-nakasu_chikagai",
+    "id": "hakata-tenjin-nakasu_chikagai",
     "name": "天神地下街",
     "edition_id": "fukuoka",
-    "area_id": "tenjin-nakasu",
-    "area": "天神・中洲",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "熱鬧",
       "購物"
@@ -3121,11 +3121,11 @@
     ]
   },
   {
-    "id": "tenjin-nakasu_parco",
+    "id": "hakata-tenjin-nakasu_parco",
     "name": "福岡 PARCO",
     "edition_id": "fukuoka",
-    "area_id": "tenjin-nakasu",
-    "area": "天神・中洲",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "熱鬧",
       "購物"
@@ -3183,11 +3183,11 @@
     ]
   },
   {
-    "id": "tenjin-nakasu_red-brick-cultural-center",
+    "id": "hakata-tenjin-nakasu_red-brick-cultural-center",
     "name": "福岡市赤煉瓦文化館",
     "edition_id": "fukuoka",
-    "area_id": "tenjin-nakasu",
-    "area": "天神・中洲",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "老建築",
       "靜謐",
@@ -3242,11 +3242,11 @@
     ]
   },
   {
-    "id": "tenjin-nakasu_nakasu-yatai-street",
+    "id": "hakata-tenjin-nakasu_nakasu-yatai-street",
     "name": "中洲屋台街",
     "edition_id": "fukuoka",
-    "area_id": "tenjin-nakasu",
-    "area": "天神・中洲",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "熱鬧",
       "生活感",
@@ -3304,11 +3304,11 @@
     ]
   },
   {
-    "id": "tenjin-nakasu_kamikawabata-shotengai",
+    "id": "hakata-tenjin-nakasu_kamikawabata-shotengai",
     "name": "川端通商店街",
     "edition_id": "fukuoka",
-    "area_id": "tenjin-nakasu",
-    "area": "天神・中洲",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "熱鬧",
       "購物",
@@ -3367,11 +3367,11 @@
     ]
   },
   {
-    "id": "tenjin-nakasu_haruyoshi-bridge",
+    "id": "hakata-tenjin-nakasu_haruyoshi-bridge",
     "name": "春吉橋",
     "edition_id": "fukuoka",
-    "area_id": "tenjin-nakasu",
-    "area": "天神・中洲",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "水岸",
       "街角"
@@ -3429,11 +3429,11 @@
     ]
   },
   {
-    "id": "tenjin-nakasu_nakagawa-riverside",
+    "id": "hakata-tenjin-nakasu_nakagawa-riverside",
     "name": "那珂川河畔散步道",
     "edition_id": "fukuoka",
-    "area_id": "tenjin-nakasu",
-    "area": "天神・中洲",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "靜謐",
       "水岸",
@@ -3492,11 +3492,11 @@
     ]
   },
   {
-    "id": "tenjin-nakasu_kushida-jinja",
+    "id": "hakata-tenjin-nakasu_kushida-jinja",
     "name": "櫛田神社",
     "edition_id": "fukuoka",
-    "area_id": "tenjin-nakasu",
-    "area": "天神・中洲",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "老建築",
       "靜謐",
@@ -3555,11 +3555,11 @@
     ]
   },
   {
-    "id": "tenjin-nakasu_fukuoka-asian-art-museum",
+    "id": "hakata-tenjin-nakasu_fukuoka-asian-art-museum",
     "name": "福岡亞洲美術館",
     "edition_id": "fukuoka",
-    "area_id": "tenjin-nakasu",
-    "area": "天神・中洲",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "靜謐",
       "文青",
@@ -3929,11 +3929,11 @@
     ]
   },
   {
-    "id": "tenjin-nakasu_kego-shrine",
+    "id": "hakata-tenjin-nakasu_kego-shrine",
     "name": "警固神社",
     "edition_id": "fukuoka",
-    "area_id": "tenjin-nakasu",
-    "area": "天神・中洲",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "老建築",
       "傳統",
@@ -3991,11 +3991,11 @@
     ]
   },
   {
-    "id": "tenjin-nakasu_suikyo-tenmangu-shrine",
+    "id": "hakata-tenjin-nakasu_suikyo-tenmangu-shrine",
     "name": "水鏡天満宮 學問之神菅原道真",
     "edition_id": "fukuoka",
-    "area_id": "tenjin-nakasu",
-    "area": "天神・中洲",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "傳統",
       "老建築"
@@ -4052,11 +4052,11 @@
     ]
   },
   {
-    "id": "tenjin-nakasu_fukuoka-prefectural-museum-of-art",
+    "id": "hakata-tenjin-nakasu_fukuoka-prefectural-museum-of-art",
     "name": "福岡縣立美術館",
     "edition_id": "fukuoka",
-    "area_id": "tenjin-nakasu",
-    "area": "天神・中洲",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "文青",
       "深度"
@@ -4108,11 +4108,11 @@
     ]
   },
   {
-    "id": "tenjin-nakasu_the-full-full",
+    "id": "hakata-tenjin-nakasu_the-full-full",
     "name": "The Full Full 天神",
     "edition_id": "fukuoka",
-    "area_id": "tenjin-nakasu",
-    "area": "天神・中洲",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "甜點",
       "咖啡廳",
@@ -4168,11 +4168,11 @@
     ]
   },
   {
-    "id": "tenjin-nakasu_boulange",
+    "id": "hakata-tenjin-nakasu_boulange",
     "name": "BOUL'ANGE 天神地下街店",
     "edition_id": "fukuoka",
-    "area_id": "tenjin-nakasu",
-    "area": "天神・中洲",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "甜點",
       "生活感",
@@ -4231,11 +4231,11 @@
     ]
   },
   {
-    "id": "tenjin-nakasu_tenjin-yatai-street",
+    "id": "hakata-tenjin-nakasu_tenjin-yatai-street",
     "name": "天神屋台街",
     "edition_id": "fukuoka",
-    "area_id": "tenjin-nakasu",
-    "area": "天神・中洲",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "熱鬧",
       "生活感",
@@ -4293,11 +4293,11 @@
     ]
   },
   {
-    "id": "tenjin-nakasu_tenjin-gashacoco",
+    "id": "hakata-tenjin-nakasu_tenjin-gashacoco",
     "name": "gashacoco 索拉利亞舞臺 天神(扭蛋專門店)",
     "edition_id": "fukuoka",
-    "area_id": "tenjin-nakasu",
-    "area": "天神・中洲",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "購物",
       "熱鬧"
@@ -4355,11 +4355,11 @@
     ]
   },
   {
-    "id": "tenjin-nakasu_3coins-hakata",
+    "id": "hakata-tenjin-nakasu_3coins-plus-tenjin",
     "name": "3COINS＋plus 天神店",
     "edition_id": "fukuoka",
-    "area_id": "tenjin-nakasu",
-    "area": "天神・中洲",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "熱鬧",
       "選物店"
@@ -4417,11 +4417,11 @@
     ]
   },
   {
-    "id": "tenjin-nakasu_human-made",
+    "id": "hakata-tenjin-nakasu_human-made",
     "name": "HUMAN MADE",
     "edition_id": "fukuoka",
-    "area_id": "tenjin-nakasu",
-    "area": "天神・中洲",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "購物",
       "熱鬧"
@@ -4479,11 +4479,11 @@
     ]
   },
   {
-    "id": "tenjin-nakasu_tenroin-shoten-fukuoka",
+    "id": "hakata-tenjin-nakasu_tenroin-shoten-fukuoka",
     "name": "天狼院書店",
     "edition_id": "fukuoka",
-    "area_id": "tenjin-nakasu",
-    "area": "天神・中洲",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "靜謐",
       "文青",
@@ -4543,11 +4543,11 @@
     ]
   },
   {
-    "id": "tenjin-nakasu_yamabikoya",
+    "id": "hakata-tenjin-nakasu_yamabikoya",
     "name": "山響屋",
     "edition_id": "fukuoka",
-    "area_id": "tenjin-nakasu",
-    "area": "天神・中洲",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "生活感",
       "職人",
@@ -4610,11 +4610,11 @@
     ]
   },
   {
-    "id": "hakata_jr-hakata-city-rf",
+    "id": "hakata-tenjin-nakasu_jr-hakata-city-rf",
     "name": "燕林廣場 屋上庭園",
     "edition_id": "fukuoka",
-    "area_id": "hakata",
-    "area": "博多",
+    "area_id": "hakata-tenjin-nakasu",
+    "area": "博多・天神・中洲",
     "tags": [
       "靜謐",
       "熱鬧",

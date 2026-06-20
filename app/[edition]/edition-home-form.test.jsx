@@ -288,8 +288,8 @@ describe("EditionHomeForm (input form) — taipei", () => {
       fireEvent.click(screen.getByRole("button", { name: "文青" }));
     };
 
-    const TENJIN_INSIDE = { latitude: 33.592, longitude: 130.405 }; // inside tenjin-nakasu bbox
-    const HAKATA_OUTSIDE = { latitude: 33.589, longitude: 130.420 }; // outside tenjin-nakasu bbox + buffer
+    const MERGED_INSIDE = { latitude: 33.592, longitude: 130.405 }; // inside hakata-tenjin-nakasu merged bbox
+    const OUTSIDE_MERGED = { latitude: 33.605, longitude: 130.450 }; // outside hakata-tenjin-nakasu merged bbox + 400m buffer
 
     it("submit URL contains stops snapshot from planStroll result (router.push receives stops=id1,id2)", () => {
       planStroll.mockImplementation(() => ({
@@ -315,7 +315,7 @@ describe("EditionHomeForm (input form) — taipei", () => {
 
     it("currentLocation inside the selected area's bbox → planStroll receives anchor: { lat, lng }", () => {
       const getCurrentPosition = jest.fn((success) => {
-        success({ coords: TENJIN_INSIDE });
+        success({ coords: MERGED_INSIDE });
       });
       installGeolocation({ getCurrentPosition });
 
@@ -323,7 +323,7 @@ describe("EditionHomeForm (input form) — taipei", () => {
         <EditionHomeForm edition={fukuokaEdition} areas={fukuokaAreas} />
       );
 
-      fireEvent.click(screen.getByRole("button", { name: /天神・中洲/ }));
+      fireEvent.click(screen.getByRole("button", { name: /博多・天神・中洲/ }));
       fireEvent.click(screen.getByRole("button", { name: "是" }));
       fireEvent.click(screen.getByRole("button", { name: "下午" }));
       fireEvent.click(screen.getByRole("button", { name: "下午 2 點" }));
@@ -335,14 +335,14 @@ describe("EditionHomeForm (input form) — taipei", () => {
       expect(planStroll).toHaveBeenCalled();
       const callInput = planStroll.mock.calls[0][0];
       expect(callInput.anchor).toEqual({
-        lat: TENJIN_INSIDE.latitude,
-        lng: TENJIN_INSIDE.longitude,
+        lat: MERGED_INSIDE.latitude,
+        lng: MERGED_INSIDE.longitude,
       });
     });
 
     it("currentLocation outside the selected area's bbox + buffer → planStroll receives anchor: null", () => {
       const getCurrentPosition = jest.fn((success) => {
-        success({ coords: HAKATA_OUTSIDE });
+        success({ coords: OUTSIDE_MERGED });
       });
       installGeolocation({ getCurrentPosition });
 
@@ -350,7 +350,7 @@ describe("EditionHomeForm (input form) — taipei", () => {
         <EditionHomeForm edition={fukuokaEdition} areas={fukuokaAreas} />
       );
 
-      fireEvent.click(screen.getByRole("button", { name: /天神・中洲/ }));
+      fireEvent.click(screen.getByRole("button", { name: /博多・天神・中洲/ }));
       fireEvent.click(screen.getByRole("button", { name: "是" }));
       fireEvent.click(screen.getByRole("button", { name: "下午" }));
       fireEvent.click(screen.getByRole("button", { name: "下午 2 點" }));
@@ -379,18 +379,18 @@ describe("EditionHomeForm (input form) — taipei", () => {
 
     it("submit URL never contains anchorLat or anchorLng params (even when currentLocation is set)", () => {
       const getCurrentPosition = jest.fn((success) => {
-        success({ coords: TENJIN_INSIDE });
+        success({ coords: MERGED_INSIDE });
       });
       installGeolocation({ getCurrentPosition });
       planStroll.mockImplementation(() => ({
-        stops: [{ attraction: { id: "tenjin-nakasu_kushida-jinja" } }],
+        stops: [{ attraction: { id: "hakata-tenjin-nakasu_kushida-jinja" } }],
       }));
 
       render(
         <EditionHomeForm edition={fukuokaEdition} areas={fukuokaAreas} />
       );
 
-      fireEvent.click(screen.getByRole("button", { name: /天神・中洲/ }));
+      fireEvent.click(screen.getByRole("button", { name: /博多・天神・中洲/ }));
       fireEvent.click(screen.getByRole("button", { name: "是" }));
       fireEvent.click(screen.getByRole("button", { name: "下午" }));
       fireEvent.click(screen.getByRole("button", { name: "下午 2 點" }));

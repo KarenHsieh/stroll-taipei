@@ -57,11 +57,11 @@ const baseFixture = [
 ];
 
 const validNewAttraction = {
-  id: "tenjin-nakasu_route-test-shop",
+  id: "hakata-tenjin-nakasu_route-test-shop",
   name: "Route Test Shop",
   edition_id: "fukuoka",
-  area_id: "tenjin-nakasu",
-  area: "天神・中洲",
+  area_id: "hakata-tenjin-nakasu",
+  area: "博多・天神・中洲",
   tags: ["熱鬧"],
   stay_range: [20, 40],
   avg_cost: 500,
@@ -119,7 +119,7 @@ describe("POST /api/dev-tools/attractions", () => {
   });
 
   it("returns 400 with validator errors when stay_range is invalid", async () => {
-    const bad = { ...validNewAttraction, id: "tenjin-nakasu_bad-stay", stay_range: [3, 50] };
+    const bad = { ...validNewAttraction, id: "hakata-tenjin-nakasu_bad-stay", stay_range: [3, 50] };
     const res = await callPost(bad);
     expect(res.status).toBe(400);
     const json = await res.json();

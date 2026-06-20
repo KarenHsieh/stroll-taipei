@@ -36,8 +36,7 @@ const editions = [
 const areas = [
   { editionId: "taipei", id: "dadaocheng", name: "大稻埕", en: "Dadaocheng", active: true },
   { editionId: "taipei", id: "yongkang", name: "永康街", en: "Yongkang", active: true },
-  { editionId: "fukuoka", id: "tenjin-nakasu", name: "天神・中洲", en: "Tenjin-Nakasu", active: true },
-  { editionId: "fukuoka", id: "hakata", name: "博多", en: "Hakata", active: true },
+  { editionId: "fukuoka", id: "hakata-tenjin-nakasu", name: "博多・天神・中洲", en: "Hakata-Tenjin-Nakasu", active: true },
 ];
 
 function makeAttraction(overrides) {
@@ -63,9 +62,9 @@ function makeAttraction(overrides) {
 const attractions = [
   makeAttraction({ id: "dadaocheng_a", name: "爐鍋咖啡", edition_id: "taipei", area_id: "dadaocheng", area: "大稻埕" }),
   makeAttraction({ id: "yongkang_b", name: "永康牛肉麵", edition_id: "taipei", area_id: "yongkang", area: "永康街" }),
-  makeAttraction({ id: "tenjin-nakasu_c", name: "Nintendo 福岡", edition_id: "fukuoka", area_id: "tenjin-nakasu", area: "天神・中洲" }),
-  makeAttraction({ id: "hakata_d", name: "Pokémon Center 福岡", edition_id: "fukuoka", area_id: "hakata", area: "博多" }),
-  makeAttraction({ id: "hakata_e", name: "櫛田神社", edition_id: "fukuoka", area_id: "hakata", area: "博多" }),
+  makeAttraction({ id: "hakata-tenjin-nakasu_c", name: "Nintendo 福岡", edition_id: "fukuoka", area_id: "hakata-tenjin-nakasu", area: "博多・天神・中洲" }),
+  makeAttraction({ id: "hakata-tenjin-nakasu_d", name: "Pokémon Center 福岡", edition_id: "fukuoka", area_id: "hakata-tenjin-nakasu", area: "博多・天神・中洲" }),
+  makeAttraction({ id: "hakata-tenjin-nakasu_e", name: "櫛田神社", edition_id: "fukuoka", area_id: "hakata-tenjin-nakasu", area: "博多・天神・中洲" }),
 ];
 
 function getDataRows() {
@@ -89,10 +88,10 @@ describe("AttractionsTable — list + filter + search", () => {
   it("filters by edition + area combined", () => {
     render(<AttractionsTable attractions={attractions} editions={editions} areas={areas} />);
     fireEvent.change(screen.getByLabelText(/edition/i), { target: { value: "fukuoka" } });
-    fireEvent.change(screen.getByLabelText(/area/i), { target: { value: "hakata" } });
+    fireEvent.change(screen.getByLabelText(/area/i), { target: { value: "hakata-tenjin-nakasu" } });
     const rows = getDataRows();
-    expect(rows).toHaveLength(2);
-    expect(rows.every((r) => r.dataset.areaId === "hakata")).toBe(true);
+    expect(rows).toHaveLength(3);
+    expect(rows.every((r) => r.dataset.areaId === "hakata-tenjin-nakasu")).toBe(true);
   });
 
   it("area filter is disabled when edition is '全部'", () => {
@@ -111,7 +110,7 @@ describe("AttractionsTable — list + filter + search", () => {
   it("combines edition + area + name search with AND semantics", () => {
     render(<AttractionsTable attractions={attractions} editions={editions} areas={areas} />);
     fireEvent.change(screen.getByLabelText(/edition/i), { target: { value: "fukuoka" } });
-    fireEvent.change(screen.getByLabelText(/area/i), { target: { value: "hakata" } });
+    fireEvent.change(screen.getByLabelText(/area/i), { target: { value: "hakata-tenjin-nakasu" } });
     fireEvent.change(screen.getByLabelText(/搜尋/), { target: { value: "神社" } });
     const rows = getDataRows();
     expect(rows).toHaveLength(1);
@@ -128,13 +127,13 @@ describe("AttractionsTable — list + filter + search", () => {
 
 describe("AttractionsTable — URL query persistence", () => {
   it("restores edition + area from ?edition=&area= on mount", () => {
-    mockSearchParams = new URLSearchParams("edition=fukuoka&area=hakata");
+    mockSearchParams = new URLSearchParams("edition=fukuoka&area=hakata-tenjin-nakasu");
     render(<AttractionsTable attractions={attractions} editions={editions} areas={areas} />);
     expect(screen.getByLabelText(/edition/i)).toHaveValue("fukuoka");
-    expect(screen.getByLabelText(/area/i)).toHaveValue("hakata");
+    expect(screen.getByLabelText(/area/i)).toHaveValue("hakata-tenjin-nakasu");
     const rows = getDataRows();
-    expect(rows).toHaveLength(2);
-    expect(rows.every((r) => r.dataset.areaId === "hakata")).toBe(true);
+    expect(rows).toHaveLength(3);
+    expect(rows.every((r) => r.dataset.areaId === "hakata-tenjin-nakasu")).toBe(true);
   });
 
   it("restores only edition when area query is absent", () => {
@@ -161,8 +160,8 @@ describe("AttractionsTable — URL query persistence", () => {
     render(<AttractionsTable attractions={attractions} editions={editions} areas={areas} />);
     fireEvent.change(screen.getByLabelText(/edition/i), { target: { value: "fukuoka" } });
     expect(window.location.search).toBe("?edition=fukuoka");
-    fireEvent.change(screen.getByLabelText(/area/i), { target: { value: "hakata" } });
-    expect(window.location.search).toBe("?edition=fukuoka&area=hakata");
+    fireEvent.change(screen.getByLabelText(/area/i), { target: { value: "hakata-tenjin-nakasu" } });
+    expect(window.location.search).toBe("?edition=fukuoka&area=hakata-tenjin-nakasu");
   });
 
   it("clears the URL when filters are reset to 全部", () => {
@@ -195,7 +194,7 @@ describe("AttractionsTable — per-row edit entry point", () => {
   it("uses the attraction name in the accessible label of the edit control", () => {
     render(<AttractionsTable attractions={attractions} editions={editions} areas={areas} />);
     const rows = getDataRows();
-    const row = rows.find((r) => r.dataset.attractionId === "tenjin-nakasu_c");
+    const row = rows.find((r) => r.dataset.attractionId === "hakata-tenjin-nakasu_c");
     const link = within(row).getByRole("link", { name: "編輯 Nintendo 福岡" });
     expect(link).toBeInTheDocument();
   });

@@ -38,8 +38,7 @@ const editions = [
 const areas = [
   { editionId: "taipei", id: "dadaocheng", name: "大稻埕", en: "Dadaocheng", active: true },
   { editionId: "taipei", id: "ximen", name: "西門", en: "Ximen", active: true },
-  { editionId: "fukuoka", id: "tenjin-nakasu", name: "天神・中洲", en: "Tenjin-Nakasu", active: true },
-  { editionId: "fukuoka", id: "hakata", name: "博多", en: "Hakata", active: true },
+  { editionId: "fukuoka", id: "hakata-tenjin-nakasu", name: "博多・天神・中洲", en: "Hakata-Tenjin-Nakasu", active: true },
   { editionId: "fukuoka", id: "mojiko", name: "門司港", en: "Mojiko", active: false },
   { editionId: "fukuoka", id: "itoshima", name: "糸島", en: "Itoshima", active: false },
 ];
@@ -74,7 +73,7 @@ function setup(extraProps = {}) {
     <AttractionForm
       editions={editions}
       areas={areas}
-      existingIds={["tenjin-nakasu_already-exists"]}
+      existingIds={["hakata-tenjin-nakasu_already-exists"]}
       {...extraProps}
     />
   );
@@ -87,13 +86,13 @@ describe("AttractionForm — schema-aware new-attraction form", () => {
     const areaSelect = screen.getByLabelText(/area_id/i);
     const options = within(areaSelect).getAllByRole("option");
     const values = options.map((o) => o.value).filter((v) => v);
-    expect(values).toEqual(["tenjin-nakasu", "hakata", "mojiko", "itoshima"]);
+    expect(values).toEqual(["hakata-tenjin-nakasu", "mojiko", "itoshima"]);
   });
 
   it("tag picker shows fukuoka extras and hides taipei-only extras when edition is fukuoka", () => {
     setup();
     fireEvent.change(screen.getByLabelText(/edition/i), { target: { value: "fukuoka" } });
-    fireEvent.change(screen.getByLabelText(/area_id/i), { target: { value: "tenjin-nakasu" } });
+    fireEvent.change(screen.getByLabelText(/area_id/i), { target: { value: "hakata-tenjin-nakasu" } });
     expect(screen.getByLabelText(/^商店街$/)).toBeInTheDocument();
     expect(screen.getByLabelText(/^屋台$/)).toBeInTheDocument();
     expect(screen.queryByLabelText(/^市場$/)).not.toBeInTheDocument();
@@ -103,7 +102,7 @@ describe("AttractionForm — schema-aware new-attraction form", () => {
   it("marks the mood category with a 「搜尋會用到」 badge so the editor knows which tags drive search", () => {
     setup();
     fireEvent.change(screen.getByLabelText(/edition/i), { target: { value: "fukuoka" } });
-    fireEvent.change(screen.getByLabelText(/area_id/i), { target: { value: "tenjin-nakasu" } });
+    fireEvent.change(screen.getByLabelText(/area_id/i), { target: { value: "hakata-tenjin-nakasu" } });
     const badge = screen.getByTestId("mood-search-badge");
     expect(badge).toHaveTextContent("搜尋會用到");
     // the badge sits inside the mood category row, not in flow / activity / special
@@ -114,7 +113,7 @@ describe("AttractionForm — schema-aware new-attraction form", () => {
   it("visually de-emphasizes non-mood categories (opacity-70) while keeping mood at full opacity", () => {
     setup();
     fireEvent.change(screen.getByLabelText(/edition/i), { target: { value: "fukuoka" } });
-    fireEvent.change(screen.getByLabelText(/area_id/i), { target: { value: "tenjin-nakasu" } });
+    fireEvent.change(screen.getByLabelText(/area_id/i), { target: { value: "hakata-tenjin-nakasu" } });
     expect(screen.getByTestId("tag-category-flow")).toHaveClass("opacity-70");
     expect(screen.getByTestId("tag-category-activity")).toHaveClass("opacity-70");
     expect(screen.getByTestId("tag-category-special")).toHaveClass("opacity-70");
@@ -124,27 +123,27 @@ describe("AttractionForm — schema-aware new-attraction form", () => {
   it("derives the id preview from area_id + slugified name in realtime", () => {
     setup();
     fireEvent.change(screen.getByLabelText(/edition/i), { target: { value: "fukuoka" } });
-    fireEvent.change(screen.getByLabelText(/area_id/i), { target: { value: "tenjin-nakasu" } });
+    fireEvent.change(screen.getByLabelText(/area_id/i), { target: { value: "hakata-tenjin-nakasu" } });
     fireEvent.change(screen.getByLabelText(/^name$/i), { target: { value: "Kushida Jinja" } });
-    expect(screen.getByTestId("id-preview")).toHaveTextContent("tenjin-nakasu_kushida-jinja");
+    expect(screen.getByTestId("id-preview")).toHaveTextContent("hakata-tenjin-nakasu_kushida-jinja");
   });
 
   it("prompts for manual slug when name is pure CJK (slug becomes empty)", () => {
     setup();
     fireEvent.change(screen.getByLabelText(/edition/i), { target: { value: "fukuoka" } });
-    fireEvent.change(screen.getByLabelText(/area_id/i), { target: { value: "tenjin-nakasu" } });
+    fireEvent.change(screen.getByLabelText(/area_id/i), { target: { value: "hakata-tenjin-nakasu" } });
     fireEvent.change(screen.getByLabelText(/^name$/i), { target: { value: "櫛田神社" } });
     expect(screen.getByTestId("slug-empty-warning")).toBeInTheDocument();
 
     const manualSlug = screen.getByLabelText(/manual slug/i);
     fireEvent.change(manualSlug, { target: { value: "kushida-jinja" } });
-    expect(screen.getByTestId("id-preview")).toHaveTextContent("tenjin-nakasu_kushida-jinja");
+    expect(screen.getByTestId("id-preview")).toHaveTextContent("hakata-tenjin-nakasu_kushida-jinja");
   });
 
   it("warns specifically when manual slug has uppercase letters and offers a one-click fix", () => {
     setup();
     fireEvent.change(screen.getByLabelText(/edition/i), { target: { value: "fukuoka" } });
-    fireEvent.change(screen.getByLabelText(/area_id/i), { target: { value: "tenjin-nakasu" } });
+    fireEvent.change(screen.getByLabelText(/area_id/i), { target: { value: "hakata-tenjin-nakasu" } });
     fireEvent.change(screen.getByLabelText(/^name$/i), { target: { value: "警固神社" } });
     const manualSlug = screen.getByLabelText(/manual slug/i);
     fireEvent.change(manualSlug, { target: { value: "Kego-Shrine" } });
@@ -156,13 +155,13 @@ describe("AttractionForm — schema-aware new-attraction form", () => {
     fireEvent.click(screen.getByTestId("slug-apply-suggestion"));
     expect(manualSlug).toHaveValue("kego-shrine");
     expect(screen.queryByTestId("slug-format-warning")).not.toBeInTheDocument();
-    expect(screen.getByTestId("id-preview")).toHaveTextContent("tenjin-nakasu_kego-shrine");
+    expect(screen.getByTestId("id-preview")).toHaveTextContent("hakata-tenjin-nakasu_kego-shrine");
   });
 
   it("warns when id collides with an existing attraction", () => {
     setup();
     fireEvent.change(screen.getByLabelText(/edition/i), { target: { value: "fukuoka" } });
-    fireEvent.change(screen.getByLabelText(/area_id/i), { target: { value: "tenjin-nakasu" } });
+    fireEvent.change(screen.getByLabelText(/area_id/i), { target: { value: "hakata-tenjin-nakasu" } });
     fireEvent.change(screen.getByLabelText(/^name$/i), { target: { value: "Already Exists" } });
     expect(screen.getByTestId("id-collision-warning")).toBeInTheDocument();
   });
@@ -202,7 +201,7 @@ describe("AttractionForm — schema-aware new-attraction form", () => {
 
     setup();
     fireEvent.change(screen.getByLabelText(/edition/i), { target: { value: "fukuoka" } });
-    fireEvent.change(screen.getByLabelText(/area_id/i), { target: { value: "tenjin-nakasu" } });
+    fireEvent.change(screen.getByLabelText(/area_id/i), { target: { value: "hakata-tenjin-nakasu" } });
     fireEvent.change(screen.getByLabelText(/^name$/i), { target: { value: "Kushida Jinja" } });
 
     fireEvent.submit(screen.getByRole("button", { name: /送出/ }).closest("form"));
@@ -211,7 +210,7 @@ describe("AttractionForm — schema-aware new-attraction form", () => {
 
     expect(fetchMock).toHaveBeenCalled();
     expect(mockPush).toHaveBeenCalledWith(
-      "/dev-tools/attractions?edition=fukuoka&area=tenjin-nakasu"
+      "/dev-tools/attractions?edition=fukuoka&area=hakata-tenjin-nakasu"
     );
   });
 
@@ -221,7 +220,7 @@ describe("AttractionForm — schema-aware new-attraction form", () => {
 
     setup();
     fireEvent.change(screen.getByLabelText(/edition/i), { target: { value: "fukuoka" } });
-    fireEvent.change(screen.getByLabelText(/area_id/i), { target: { value: "tenjin-nakasu" } });
+    fireEvent.change(screen.getByLabelText(/area_id/i), { target: { value: "hakata-tenjin-nakasu" } });
     fireEvent.change(screen.getByLabelText(/^name$/i), { target: { value: "Kushida Jinja" } });
     fireEvent.submit(screen.getByRole("button", { name: /送出/ }).closest("form"));
     await new Promise((r) => setTimeout(r, 0));
