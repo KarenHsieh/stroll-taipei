@@ -6,6 +6,7 @@ import Link from "next/link";
 import { slugifyName, diagnoseSlug } from "@/lib/dev-tools/slugify.js";
 import { isInsideEdition } from "@/lib/stroll/editions.js";
 import { getTagPool } from "@/lib/tags/index.js";
+import { getMoodHint } from "@/lib/moods/hints.js";
 
 const DAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 const TIME_WINDOWS = ["morning", "afternoon", "evening"];
@@ -379,8 +380,14 @@ export default function AttractionForm({
                     {pool[cat].map((tag) => {
                       const checked = selectedTags.has(tag);
                       const inputId = `tag-${cat}-${tag}`;
+                      const hint = isMoodCat
+                        ? getMoodHint(editionId, tag)
+                        : null;
                       return (
-                        <span key={tag} className="contents">
+                        <span
+                          key={tag}
+                          className={isMoodCat ? "inline-flex flex-col" : "contents"}
+                        >
                           <input
                             id={inputId}
                             aria-label={tag}
@@ -401,6 +408,14 @@ export default function AttractionForm({
                           >
                             {tag}
                           </label>
+                          {isMoodCat && hint && (
+                            <span
+                              data-testid={`mood-hint-${tag}`}
+                              className="mt-0.5 text-[11px] text-[var(--color-text-mid)]"
+                            >
+                              {hint}
+                            </span>
+                          )}
                         </span>
                       );
                     })}

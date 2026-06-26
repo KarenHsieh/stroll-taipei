@@ -77,8 +77,8 @@ describe("EditionHomeForm (input form) — taipei", () => {
     fireEvent.click(screen.getByRole("button", { name: "下午 2 點" }));
     // duration: pick the 4-hour card (its label adapts to bucket → "走整個下午")
     fireEvent.click(screen.getByRole("button", { name: /走整個下午/ }));
-    fireEvent.click(screen.getByRole("button", { name: "文青" }));
-    fireEvent.click(screen.getByRole("button", { name: "靜謐" }));
+    fireEvent.click(screen.getByRole("button", { name: /文青/ }));
+    fireEvent.click(screen.getByRole("button", { name: /靜謐/ }));
 
     const submit = screen.getByRole("button", { name: /產生散策/ });
     expect(submit).not.toBeDisabled();
@@ -126,11 +126,11 @@ describe("EditionHomeForm (input form) — taipei", () => {
         "aria-pressed",
         "true"
       );
-      expect(screen.getByRole("button", { name: "文青" })).toHaveAttribute(
+      expect(screen.getByRole("button", { name: /文青/ })).toHaveAttribute(
         "aria-pressed",
         "true"
       );
-      expect(screen.getByRole("button", { name: "靜謐" })).toHaveAttribute(
+      expect(screen.getByRole("button", { name: /靜謐/ })).toHaveAttribute(
         "aria-pressed",
         "true"
       );
@@ -154,7 +154,7 @@ describe("EditionHomeForm (input form) — taipei", () => {
         "aria-pressed",
         "false"
       );
-      expect(screen.getByRole("button", { name: "文青" })).toHaveAttribute(
+      expect(screen.getByRole("button", { name: /文青/ })).toHaveAttribute(
         "aria-pressed",
         "false"
       );
@@ -177,7 +177,7 @@ describe("EditionHomeForm (input form) — taipei", () => {
         "aria-pressed",
         "true"
       );
-      expect(screen.getByRole("button", { name: "文青" })).toHaveAttribute(
+      expect(screen.getByRole("button", { name: /文青/ })).toHaveAttribute(
         "aria-pressed",
         "false"
       );
@@ -202,7 +202,7 @@ describe("EditionHomeForm (input form) — taipei", () => {
         "aria-pressed",
         "true"
       );
-      expect(screen.getByRole("button", { name: "文青" })).toHaveAttribute(
+      expect(screen.getByRole("button", { name: /文青/ })).toHaveAttribute(
         "aria-pressed",
         "true"
       );
@@ -278,6 +278,71 @@ describe("EditionHomeForm (input form) — taipei", () => {
     });
   });
 
+  describe("mood picker — area-aware enablement, hints, count", () => {
+    it("initial state with no area selected: every mood pill is aria-disabled with copy 請先選擇散策地", () => {
+      render(<Home />);
+      const wenqing = screen.getByTestId("mood-button-文青");
+      const jingmi = screen.getByTestId("mood-button-靜謐");
+      expect(wenqing).toHaveAttribute("aria-disabled", "true");
+      expect(jingmi).toHaveAttribute("aria-disabled", "true");
+      expect(screen.getByTestId("mood-sublabel-文青").textContent).toBe(
+        "請先選擇散策地"
+      );
+      expect(screen.getByTestId("mood-sublabel-靜謐").textContent).toBe(
+        "請先選擇散策地"
+      );
+    });
+
+    it("after selecting an area with matching attractions, the mood pill is enabled and sub-label shows <hint> · <count> 個地點", () => {
+      render(<Home />);
+      fireEvent.click(screen.getByRole("button", { name: /大稻埕/ }));
+      const wenqing = screen.getByTestId("mood-button-文青");
+      expect(wenqing).not.toHaveAttribute("aria-disabled", "true");
+      // 大稻埕 has 6 attractions tagged 文青 in the dataset; hint comes from lib/moods/hints.js
+      expect(screen.getByTestId("mood-sublabel-文青").textContent).toBe(
+        "咖啡店、書店、選物店 · 6 個地點"
+      );
+    });
+
+    it("after selecting an area where a mood has zero matches, that mood pill is disabled with copy 目前沒有對應地點", () => {
+      render(<Home />);
+      // 永康街 has zero attractions tagged 職人 in the dataset
+      fireEvent.click(screen.getByRole("button", { name: /永康街/ }));
+      const zhiren = screen.getByTestId("mood-button-職人");
+      expect(zhiren).toHaveAttribute("aria-disabled", "true");
+      expect(screen.getByTestId("mood-sublabel-職人").textContent).toBe(
+        "目前沒有對應地點"
+      );
+    });
+
+    it("switching to an area where the previously-selected mood has zero count drops the mood from state and re-disables submit", async () => {
+      render(<Home />);
+      // Setup at 大稻埕 with 職人 selected (count = 1, enabled).
+      fireEvent.click(screen.getByRole("button", { name: /大稻埕/ }));
+      fireEvent.click(screen.getByRole("button", { name: "下午" }));
+      fireEvent.click(screen.getByRole("button", { name: "下午 2 點" }));
+      fireEvent.click(screen.getByRole("button", { name: /走整個下午/ }));
+      fireEvent.click(screen.getByTestId("mood-button-職人"));
+
+      expect(screen.getByTestId("mood-button-職人")).toHaveAttribute(
+        "aria-pressed",
+        "true"
+      );
+      expect(screen.getByRole("button", { name: /產生散策/ })).not.toBeDisabled();
+
+      // Switch to 永康街 — 職人 count there is 0. The mood is auto-removed.
+      fireEvent.click(screen.getByRole("button", { name: /永康街/ }));
+
+      expect(screen.getByTestId("mood-button-職人")).toHaveAttribute(
+        "aria-disabled",
+        "true"
+      );
+      // Submit returns to disabled because moods is now empty (the four-field
+      // requirement still applies).
+      expect(screen.getByRole("button", { name: /產生散策/ })).toBeDisabled();
+    });
+  });
+
   describe("client-side planStroll on submit + stops snapshot URL", () => {
     // Helper: fill in the three other required pickers (start, duration, moods)
     // after the area is already selected.
@@ -285,7 +350,7 @@ describe("EditionHomeForm (input form) — taipei", () => {
       fireEvent.click(screen.getByRole("button", { name: "下午" }));
       fireEvent.click(screen.getByRole("button", { name: "下午 2 點" }));
       fireEvent.click(screen.getByRole("button", { name: /走整個下午/ }));
-      fireEvent.click(screen.getByRole("button", { name: "文青" }));
+      fireEvent.click(screen.getByRole("button", { name: /文青/ }));
     };
 
     const MERGED_INSIDE = { latitude: 33.592, longitude: 130.405 }; // inside hakata-tenjin-nakasu merged bbox
@@ -328,7 +393,7 @@ describe("EditionHomeForm (input form) — taipei", () => {
       fireEvent.click(screen.getByRole("button", { name: "下午" }));
       fireEvent.click(screen.getByRole("button", { name: "下午 2 點" }));
       fireEvent.click(screen.getByRole("button", { name: /走整個下午/ }));
-      fireEvent.click(screen.getByRole("button", { name: "熱鬧" }));
+      fireEvent.click(screen.getByRole("button", { name: /熱鬧/ }));
 
       fireEvent.click(screen.getByRole("button", { name: /產生散策/ }));
 
@@ -355,7 +420,7 @@ describe("EditionHomeForm (input form) — taipei", () => {
       fireEvent.click(screen.getByRole("button", { name: "下午" }));
       fireEvent.click(screen.getByRole("button", { name: "下午 2 點" }));
       fireEvent.click(screen.getByRole("button", { name: /走整個下午/ }));
-      fireEvent.click(screen.getByRole("button", { name: "熱鬧" }));
+      fireEvent.click(screen.getByRole("button", { name: /熱鬧/ }));
 
       fireEvent.click(screen.getByRole("button", { name: /產生散策/ }));
 
@@ -395,7 +460,7 @@ describe("EditionHomeForm (input form) — taipei", () => {
       fireEvent.click(screen.getByRole("button", { name: "下午" }));
       fireEvent.click(screen.getByRole("button", { name: "下午 2 點" }));
       fireEvent.click(screen.getByRole("button", { name: /走整個下午/ }));
-      fireEvent.click(screen.getByRole("button", { name: "熱鬧" }));
+      fireEvent.click(screen.getByRole("button", { name: /熱鬧/ }));
 
       fireEvent.click(screen.getByRole("button", { name: /產生散策/ }));
 

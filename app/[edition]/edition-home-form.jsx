@@ -215,6 +215,12 @@ function HomeForm({ edition, areas }) {
                 value={state.moods}
                 onChange={update("moods")}
                 editionId={edition.id}
+                selectedAreaId={
+                  state.area
+                    ? (findAreaInEdition(edition.id, state.area)?.id ?? null)
+                    : null
+                }
+                attractions={attractionsData}
               />
             </SectionCard>
 

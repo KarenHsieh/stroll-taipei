@@ -6,6 +6,21 @@ jest.mock("next/navigation", () => ({
   useRouter: () => ({ push: mockPush }),
 }));
 
+// Override one mood (fukuoka.傳統) to return null so the "falls back to no sub-label"
+// scenario has a concrete null-hint case to assert. All other (edition, mood) pairs
+// delegate to the real lib/moods/hints.js so positive-case tests stay grounded in
+// production data.
+jest.mock("@/lib/moods/hints.js", () => {
+  const actual = jest.requireActual("@/lib/moods/hints.js");
+  return {
+    ...actual,
+    getMoodHint: (edition, mood) => {
+      if (edition === "fukuoka" && mood === "傳統") return null;
+      return actual.getMoodHint(edition, mood);
+    },
+  };
+});
+
 beforeEach(() => {
   mockPush.mockClear();
 });
@@ -118,6 +133,46 @@ describe("AttractionForm — schema-aware new-attraction form", () => {
     expect(screen.getByTestId("tag-category-activity")).toHaveClass("opacity-70");
     expect(screen.getByTestId("tag-category-special")).toHaveClass("opacity-70");
     expect(screen.getByTestId("tag-category-mood")).not.toHaveClass("opacity-70");
+  });
+
+  it("mood category renders an informational hint sub-label next to each mood option (taipei)", () => {
+    setup();
+    fireEvent.change(screen.getByLabelText(/edition/i), { target: { value: "taipei" } });
+    expect(screen.getByTestId("mood-hint-文青")).toHaveTextContent(
+      "咖啡店、書店、選物店"
+    );
+    expect(screen.getByTestId("mood-hint-復古")).toHaveTextContent(
+      "老建築、老字號、市場"
+    );
+    expect(screen.getByTestId("mood-hint-靜謐")).toHaveTextContent(
+      "公園、廟宇、巷弄"
+    );
+  });
+
+  it("toggling a mood checkbox with a hint still updates form state the same way (sub-label is informational only)", () => {
+    setup();
+    fireEvent.change(screen.getByLabelText(/edition/i), { target: { value: "taipei" } });
+    const wenqingCheckbox = screen.getByLabelText("文青");
+    expect(wenqingCheckbox.checked).toBe(false);
+    fireEvent.click(wenqingCheckbox);
+    expect(wenqingCheckbox.checked).toBe(true);
+    // hint sub-label still present, untouched by the toggle
+    expect(screen.getByTestId("mood-hint-文青")).toHaveTextContent(
+      "咖啡店、書店、選物店"
+    );
+  });
+
+  it("mood category falls back to no sub-label when getMoodHint returns null (fukuoka.傳統 stub)", () => {
+    setup();
+    fireEvent.change(screen.getByLabelText(/edition/i), { target: { value: "fukuoka" } });
+    fireEvent.change(screen.getByLabelText(/area_id/i), { target: { value: "hakata-tenjin-nakasu" } });
+    // 傳統 exists in the fukuoka mood pool, and the test mock above forces its hint to null.
+    expect(screen.queryByTestId("mood-hint-傳統")).toBeNull();
+    // The 傳統 checkbox is still present and toggleable — only the sub-label is missing.
+    const chuanton = screen.getByLabelText("傳統");
+    expect(chuanton.checked).toBe(false);
+    fireEvent.click(chuanton);
+    expect(chuanton.checked).toBe(true);
   });
 
   it("derives the id preview from area_id + slugified name in realtime", () => {
