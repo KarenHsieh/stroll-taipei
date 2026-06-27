@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import TimelineStop from "./TimelineStop.jsx";
 import TimelineWalk from "./TimelineWalk.jsx";
 import AttractionDrawer from "./AttractionDrawer.jsx";
 import RecalibrateButton from "./RecalibrateButton.jsx";
+import RoutePreviewMap from "./RoutePreviewMap.jsx";
 
 const STOP_ACCENTS = ["#C56A3A", "#6E94A3", "#B8893E", "#7E9577", "#9C6B3F"];
 
@@ -19,6 +20,37 @@ export default function Timeline({ displaySchedule, originalRequest }) {
 
   const activeSchedule = recalibratedSchedule ?? displaySchedule;
   const { stops, endText } = activeSchedule;
+
+  const accents = useMemo(
+    () => stops.map((_, i) => getAccent(i, stops.length)),
+    [stops]
+  );
+
+  const [highlightedIndex, setHighlightedIndex] = useState(null);
+  const highlightTimerRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (highlightTimerRef.current !== null) {
+        clearTimeout(highlightTimerRef.current);
+      }
+    };
+  }, []);
+
+  const handlePinClick = (index) => {
+    const target = document.getElementById(`timeline-stop-${index}`);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+    if (highlightTimerRef.current !== null) {
+      clearTimeout(highlightTimerRef.current);
+    }
+    setHighlightedIndex(index);
+    highlightTimerRef.current = setTimeout(() => {
+      setHighlightedIndex(null);
+      highlightTimerRef.current = null;
+    }, 1500);
+  };
 
   return (
     <section>
@@ -56,6 +88,13 @@ export default function Timeline({ displaySchedule, originalRequest }) {
         </p>
       ) : (
         <>
+          <div className="mb-5">
+            <RoutePreviewMap
+              stops={stops}
+              accents={accents}
+              onPinClick={handlePinClick}
+            />
+          </div>
           <div className="relative">
             <div
               aria-hidden="true"
@@ -67,10 +106,20 @@ export default function Timeline({ displaySchedule, originalRequest }) {
             />
             <ol className="relative flex flex-col">
               {stops.map((stop, index) => {
-                const accent = getAccent(index, stops.length);
+                const accent = accents[index];
                 const isLast = index === stops.length - 1;
+                const isHighlighted = highlightedIndex === index;
                 return (
-                  <li key={index} className="relative pl-[38px]">
+                  <li
+                    key={index}
+                    id={`timeline-stop-${index}`}
+                    data-highlight={isHighlighted ? "true" : undefined}
+                    className={`relative pl-[38px] rounded-2xl transition-shadow duration-300 ${
+                      isHighlighted
+                        ? "ring-2 ring-[var(--color-terracotta)] ring-offset-2"
+                        : ""
+                    }`}
+                  >
                     {index > 0 && stop.walkInText !== "" && (
                       <TimelineWalk
                         walkInText={stop.walkInText}

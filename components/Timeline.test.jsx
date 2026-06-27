@@ -1,4 +1,33 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
+
+// Mock react-map-gl/mapbox so the embedded RoutePreviewMap renders predictable test DOM.
+jest.mock("react-map-gl/mapbox", () => {
+  const React = require("react");
+  const Map = jest.fn(({ children }) =>
+    React.createElement(
+      "div",
+      { "data-testid": "mapbox-map" },
+      children
+    )
+  );
+  const Marker = jest.fn(({ children }) =>
+    React.createElement("div", { "data-testid": "mapbox-marker" }, children)
+  );
+  return { __esModule: true, default: Map, Marker };
+});
+
+const ORIGINAL_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+beforeEach(() => {
+  process.env.NEXT_PUBLIC_MAPBOX_TOKEN = "pk.test.token";
+});
+afterEach(() => {
+  if (ORIGINAL_TOKEN === undefined) {
+    delete process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+  } else {
+    process.env.NEXT_PUBLIC_MAPBOX_TOKEN = ORIGINAL_TOKEN;
+  }
+});
+
 import Timeline from "./Timeline.jsx";
 
 function makeStop(overrides = {}) {
@@ -9,7 +38,7 @@ function makeStop(overrides = {}) {
     stayText: "約 1 到 1.5 小時",
     walkInText: "",
     isOpenEnded: false,
-    attraction: { name: "stop", tags: ["x"] },
+    attraction: { name: "stop", tags: ["x"], lat: 25.05, lng: 121.51 },
     costText: "約 NT$100",
     todayOpenHoursText: "11:00～20:00",
     indoor: true,
@@ -27,7 +56,7 @@ const mockSchedule = {
       stayText: "約 1 到 1.5 小時",
       walkInText: "",
       isOpenEnded: false,
-      attraction: { name: "爐鍋咖啡", tags: ["咖啡廳"] },
+      attraction: { id: "a", name: "爐鍋咖啡", tags: ["咖啡廳"], lat: 25.0567, lng: 121.5101 },
       costText: "約 NT$250",
       todayOpenHoursText: "11:00～20:00",
       indoor: true,
@@ -39,7 +68,7 @@ const mockSchedule = {
       stayText: "約 30 分鐘到 1 小時",
       walkInText: "走 3 分鐘左右",
       isOpenEnded: false,
-      attraction: { name: "小藝埕", tags: ["選物店"] },
+      attraction: { id: "b", name: "小藝埕", tags: ["選物店"], lat: 25.0578, lng: 121.5110 },
       costText: "約 NT$200",
       todayOpenHoursText: "11:00～19:00",
       indoor: true,
@@ -51,7 +80,7 @@ const mockSchedule = {
       stayText: "約 30 分鐘到 1 小時",
       walkInText: "走 5 分鐘左右",
       isOpenEnded: true,
-      attraction: { name: "永樂市場", tags: ["市場"] },
+      attraction: { id: "c", name: "永樂市場", tags: ["市場"], lat: 25.0556, lng: 121.5095 },
       costText: "約 NT$100",
       todayOpenHoursText: "06:00～19:00",
       indoor: false,
@@ -111,6 +140,125 @@ describe("Timeline", () => {
     expect(screen.getAllByRole("dialog")).toHaveLength(1);
     expect(screen.getByText("約 NT$200")).toBeInTheDocument();
     expect(screen.queryByText("約 NT$250")).not.toBeInTheDocument();
+  });
+
+  describe("route preview map integration", () => {
+    it("renders RoutePreviewMap above the ordered stop list when stops are non-empty", () => {
+      const { container } = render(<Timeline displaySchedule={mockSchedule} />);
+      const map = screen.getByTestId("mapbox-map");
+      const ol = container.querySelector("ol");
+      expect(map).toBeInTheDocument();
+      expect(ol).toBeInTheDocument();
+      // DOM order: map node appears before ol node
+      const mapPos = Array.from(
+        container.querySelectorAll("*")
+      ).indexOf(map);
+      const olPos = Array.from(container.querySelectorAll("*")).indexOf(ol);
+      expect(mapPos).toBeLessThan(olPos);
+    });
+
+    it("renders one pin per stop with index + 1 labels and matching accent colors", () => {
+      render(<Timeline displaySchedule={mockSchedule} />);
+      // mockSchedule has 3 stops
+      expect(screen.getByTestId("route-pin-0").textContent).toBe("1");
+      expect(screen.getByTestId("route-pin-1").textContent).toBe("2");
+      expect(screen.getByTestId("route-pin-2").textContent).toBe("3");
+      // last stop uses the sage color; pin 2 and the timeline numbered circle should agree.
+      const pin2 = screen.getByTestId("route-pin-2");
+      expect(pin2.style.background.toLowerCase()).toMatch(
+        /rgb\(126, 149, 119\)|#7e9577/i
+      );
+    });
+
+    it("does not render RoutePreviewMap when stops is empty", () => {
+      render(
+        <Timeline
+          displaySchedule={{ areaTitle: "信義散策", stops: [], endText: null }}
+        />
+      );
+      expect(screen.queryByTestId("mapbox-map")).not.toBeInTheDocument();
+      expect(screen.queryByTestId("route-pin-0")).not.toBeInTheDocument();
+    });
+
+    it("falls back to 「地圖暫時無法載入」 placeholder when token is missing but still renders all stop cards", () => {
+      delete process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+      render(<Timeline displaySchedule={mockSchedule} />);
+      expect(screen.getByText("地圖暫時無法載入")).toBeInTheDocument();
+      expect(screen.queryByTestId("mapbox-map")).not.toBeInTheDocument();
+      // Stop cards still render
+      expect(screen.getByText("爐鍋咖啡")).toBeInTheDocument();
+      expect(screen.getByText("小藝埕")).toBeInTheDocument();
+      expect(screen.getByText("永樂市場")).toBeInTheDocument();
+    });
+  });
+
+  describe("pin click → scroll + 1500ms highlight", () => {
+    let originalScrollIntoView;
+    let scrollSpy;
+    beforeEach(() => {
+      // JSDOM omits Element.prototype.scrollIntoView; install a stub so jest.spyOn works.
+      originalScrollIntoView = Element.prototype.scrollIntoView;
+      Element.prototype.scrollIntoView = function () {};
+      scrollSpy = jest
+        .spyOn(Element.prototype, "scrollIntoView")
+        .mockImplementation(() => {});
+      jest.useFakeTimers();
+    });
+    afterEach(() => {
+      scrollSpy.mockRestore();
+      if (originalScrollIntoView === undefined) {
+        delete Element.prototype.scrollIntoView;
+      } else {
+        Element.prototype.scrollIntoView = originalScrollIntoView;
+      }
+      jest.useRealTimers();
+    });
+
+    it("clicking pin-1 calls scrollIntoView({behavior:'smooth', block:'center'}) on the second timeline-stop li", () => {
+      const { container } = render(<Timeline displaySchedule={mockSchedule} />);
+      fireEvent.click(screen.getByTestId("route-pin-1"));
+      expect(scrollSpy).toHaveBeenCalledTimes(1);
+      expect(scrollSpy).toHaveBeenCalledWith({
+        behavior: "smooth",
+        block: "center",
+      });
+      // The li at index 1 is the element that was scrolled to.
+      const targetLi = container.querySelector("#timeline-stop-1");
+      expect(targetLi).toBeInTheDocument();
+      expect(scrollSpy.mock.instances[0]).toBe(targetLi);
+    });
+
+    it("clicked stop's li receives a highlight attribute immediately and the attribute is removed after ~1500ms", () => {
+      const { container } = render(<Timeline displaySchedule={mockSchedule} />);
+      fireEvent.click(screen.getByTestId("route-pin-1"));
+      const targetLi = container.querySelector("#timeline-stop-1");
+      expect(targetLi.getAttribute("data-highlight")).toBe("true");
+
+      act(() => {
+        jest.advanceTimersByTime(1500);
+      });
+      expect(targetLi.getAttribute("data-highlight")).not.toBe("true");
+    });
+
+    it("clicking a pin does NOT open the AttractionDrawer", () => {
+      render(<Timeline displaySchedule={mockSchedule} />);
+      fireEvent.click(screen.getByTestId("route-pin-0"));
+      expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+    });
+
+    it("clicking a different pin while a highlight is still active retargets the highlight", () => {
+      const { container } = render(<Timeline displaySchedule={mockSchedule} />);
+      fireEvent.click(screen.getByTestId("route-pin-0"));
+      const li0 = container.querySelector("#timeline-stop-0");
+      expect(li0.getAttribute("data-highlight")).toBe("true");
+
+      // before timeout fires, click another pin
+      jest.advanceTimersByTime(500);
+      fireEvent.click(screen.getByTestId("route-pin-2"));
+      const li2 = container.querySelector("#timeline-stop-2");
+      expect(li0.getAttribute("data-highlight")).not.toBe("true");
+      expect(li2.getAttribute("data-highlight")).toBe("true");
+    });
   });
 
   describe("with originalRequest (recalibration enabled)", () => {
