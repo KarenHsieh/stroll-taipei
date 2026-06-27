@@ -67,7 +67,7 @@ export default function MoodPicker({
   };
 
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
       {moods.map((mood) => {
         const active = value.includes(mood);
         const count = counts[mood] ?? 0;
@@ -94,7 +94,7 @@ export default function MoodPicker({
             aria-pressed={active}
             aria-disabled={disabled || undefined}
             onClick={() => toggle(mood, disabled)}
-            className={`inline-flex flex-col items-start gap-0.5 whitespace-nowrap rounded-2xl px-4 py-2 leading-[1.2] transition-all duration-200 ${
+            className={`flex flex-col items-start gap-0.5 rounded-2xl px-4 py-2 text-left leading-[1.2] transition-all duration-200 ${
               disabled
                 ? "cursor-not-allowed bg-[var(--color-cream-card)] text-[#9a8a78] opacity-60 shadow-[inset_0_0_0_1px_rgba(120,90,60,0.08)]"
                 : active

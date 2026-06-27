@@ -211,12 +211,12 @@ function ResultShell({ back, eyebrow, title, subtitle, children }) {
 
 function Eyebrow({ edition, areaName, areaEn }) {
   return (
-    <div className="mt-2 inline-flex items-baseline gap-2 whitespace-nowrap font-[family-name:var(--font-serif-tc)] text-xs font-medium uppercase tracking-[1.6px] text-[var(--color-eyebrow)]">
+    <div className="mt-2 flex max-w-full flex-wrap items-baseline gap-x-2 gap-y-1 font-[family-name:var(--font-serif-tc)] text-xs font-medium uppercase tracking-[1.6px] text-[var(--color-eyebrow)]">
       <span className="text-[13px] font-medium normal-case tracking-[3px]">
         {edition.name} · {areaName}
       </span>
       <span className="h-px w-3.5 self-center bg-[var(--color-line)] opacity-60" />
-      {areaEn ? `${areaEn} stroll` : `${edition.en} stroll`}
+      <span>{areaEn ? `${areaEn} stroll` : `${edition.en} stroll`}</span>
     </div>
   );
 }
